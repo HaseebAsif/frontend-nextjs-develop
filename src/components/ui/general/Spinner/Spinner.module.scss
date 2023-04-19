@@ -1,0 +1,115 @@
+@import '~styles/framework';
+
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.topTextAlign {
+    text-align: center;
+    flex-direction: column-reverse;
+  }
+
+  &.rightTextAlign {
+    text-align: left;
+    flex-direction: row;
+  }
+
+  &.bottomTextAlign {
+    text-align: center;
+    flex-direction: column;
+  }
+
+  &.leftTextAlign {
+    text-align: right;
+    flex-direction: row-reverse;
+  }
+}
+
+.text {
+  flex: 1;
+  @include get-font-style(kramfors);
+
+  .topTextAlign & {
+    padding-bottom: spacing(1);
+  }
+
+  .rightTextAlign & {
+    padding-left: spacing(1.5);
+  }
+
+  .bottomTextAlign & {
+    padding-top: spacing(1);
+  }
+
+  .leftTextAlign & {
+    padding-right: spacing(1.5);
+  }
+}
+
+.spinner {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 50%;
+    border: 2px solid;
+  }
+}
+
+.smSize .spinner {
+  width: 20px;
+  height: 20px;
+}
+
+.mdSize .spinner {
+  width: 30px;
+  height: 30px;
+}
+
+.lgSize .spinner {
+  width: 40px;
+  height: 40px;
+}
+
+.darkColor {
+  .spinner {
+    &::before {
+      border-color: get-color(dark, null, 0.25);
+    }
+
+    &::after {
+      border-color: get-color(dark) transparent transparent;
+    }
+  }
+
+  .text {
+    color: get-color(dark);
+  }
+}
+
+.lightColor {
+  .spinner {
+    &::before {
+      border-color: get-color(light, null, 0.25);
+    }
+
+    &::after {
+      border-color: get-color(light) transparent transparent;
+    }
+  }
+
+  .text {
+    color: get-color(light);
+  }
+}
+
+.spinner::after :global {
+  animation: rotate ease(null, medium, linear) infinite forwards;
+}

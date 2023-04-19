@@ -1,0 +1,1 @@
+export { isTest } from './isTest';

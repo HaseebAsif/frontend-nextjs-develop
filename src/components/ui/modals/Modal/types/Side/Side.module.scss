@@ -1,0 +1,55 @@
+@import '~styles/framework';
+
+.root {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  outline: none;
+}
+
+.inner {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  max-width: 400px;
+  background-color: get-color(light);
+
+  @each $breakpoint, $padding in $container-paddings {
+    @if ($breakpoint == 'root') {
+      width: calc(100% - #{spacing($padding)});
+    } @else {
+      @include respond-to($breakpoint) {
+        width: calc(100% - #{spacing($padding)});
+      }
+    }
+  }
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+}
+
+.rightAlign .inner {
+  right: 0;
+}
+
+.leftAlign .inner {
+  left: 0;
+}
+
+.close {
+  width: spacing(3);
+  height: spacing(3);
+  display: block;
+  background-color: get-color(error);
+  position: absolute;
+  top: 0;
+  right: 0;
+}

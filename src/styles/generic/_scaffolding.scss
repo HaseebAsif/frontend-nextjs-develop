@@ -1,0 +1,81 @@
+html {
+  font-size: 62.5%;
+  min-height: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  @include get-font-style(kramfors);
+  overflow-wrap: break-word;
+  background-color: get-color(light);
+  color: get-color(dark);
+  font-family: map-get($font-families, tertiary);
+
+  &.prevent-scroll {
+    overflow: hidden;
+  }
+
+  &::before,
+  &::after {
+    position: absolute;
+    left: -1337px;
+    visibility: hidden;
+    user-select: none;
+    pointer-events: none;
+    opacity: 0;
+    font-size: 0;
+    z-index: -1;
+  }
+
+  &::before {
+    content: '#{map-keys(map-sort-by-values($breakpoints))}';
+  }
+
+  &::after {
+    @each $breakpoint-key, $breakpoint-value in map-sort-by-values($breakpoints)
+    {
+      @if ($breakpoint-key == 'xs') {
+        content: 'xs';
+      }
+
+      @include respond-to($breakpoint-key) {
+        content: '#{$breakpoint-key}';
+      }
+    }
+  }
+}
+
+hr {
+  border: 0;
+  border-bottom: 1px solid get-color(dark);
+}
+
+ul,
+ol,
+dd {
+  margin-left: spacing(4);
+}
+
+a,
+area,
+button,
+[role='button'],
+input:not([type='range']),
+label,
+select,
+summary,
+textarea {
+  touch-action: manipulation;
+}
+
+body[class*='is-tabbing'] {
+  a:focus,
+  input:focus,
+  button:focus,
+  label:focus,
+  select:focus,
+  textarea:focus,
+  [role='button']:focus {
+    outline: 5px auto -webkit-focus-ring-color !important;
+  }
+}

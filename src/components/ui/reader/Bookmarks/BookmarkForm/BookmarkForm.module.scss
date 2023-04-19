@@ -1,0 +1,10 @@
+@import '~styles/framework';
+
+.form {
+  display: flex;
+  width: 100%;
+
+  .button {
+    margin-left: spacing(2);
+  }
+}

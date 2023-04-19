@@ -1,0 +1,1 @@
+export { SearchBarSticky } from './SearchBarSticky';

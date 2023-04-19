@@ -1,0 +1,65 @@
+@import '~styles/framework';
+
+.editUserForm {
+  label {
+    @include get-font-style(oslo);
+    color: get-color(alpha, 26);
+  }
+}
+
+.input {
+  margin-bottom: spacing(2);
+}
+
+.settingsInfoSection {
+  display: flex;
+  flex-direction: column;
+
+  @include respond-to(sm) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.settingsInfoBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  @include get-font-style(oslo);
+  color: get-color(alpha, 26);
+}
+
+.infoLine {
+  margin-bottom: spacing(3);
+}
+
+.editButton {
+  width: 100%;
+
+  @include respond-to(sm) {
+    align-self: center;
+    width: auto;
+  }
+}
+
+.buttonSection {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.saveButton {
+  width: 100%;
+  margin-right: spacing(1);
+  @include respond-to(sm) {
+    width: auto;
+  }
+}
+
+.cancelButton {
+  margin-left: spacing(1);
+  @include respond-to(sm) {
+    width: auto;
+  }
+}

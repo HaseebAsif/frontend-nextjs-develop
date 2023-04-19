@@ -1,0 +1,65 @@
+@import '~styles/framework';
+
+.container {
+  margin-bottom: spacing(4);
+  margin-top: spacing(3);
+  padding: 0;
+
+  @include respond-to(sm) {
+    max-width: 336px;
+    padding: 0;
+  }
+
+  @include respond-to(lg) {
+    max-width: 350px;
+  }
+}
+
+.buttonWrapper {
+  background-color: get-color(dark);
+  border-radius: 4px;
+  height: 48px;
+  max-width: 343px;
+}
+
+.darkBackground {
+  background-color: get-color(dark);
+}
+
+.epsilonBackground {
+  background-color: get-color(epsilon);
+}
+
+.button {
+  height: 100%;
+}
+
+.buttonContent {
+  color: get-color(light);
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.icon {
+  align-items: center;
+  display: flex;
+  left: 0;
+  margin-left: spacing(2);
+  position: absolute;
+}
+
+.errorLabel {
+  @include get-font-style(sunne);
+  display: flex;
+  align-items: center;
+  margin-top: spacing(1);
+}
+
+.loginSpinner {
+  display: flex;
+  justify-content: center;
+}

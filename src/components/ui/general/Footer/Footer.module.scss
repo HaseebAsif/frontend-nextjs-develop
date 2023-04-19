@@ -1,0 +1,116 @@
+@import '~styles/framework';
+
+.footerContainer {
+  margin-bottom: spacing(3);
+}
+
+.backgroundWrapper {
+  background-color: get-color(gamma);
+}
+
+.horisontalRule {
+  margin-top: spacing(6);
+  margin-bottom: spacing(6);
+  border: 1px solid get-color(alpha, 88);
+}
+
+.footer {
+  padding: spacing(7) spacing(3);
+  margin: 0 auto;
+  @include respond-to(sm) {
+    padding-top: spacing(9);
+    padding-bottom: spacing(9);
+  }
+  @include respond-to(md) {
+    padding-top: spacing(12);
+    padding-bottom: spacing(12);
+  }
+  @include respond-to(lg) {
+    padding: spacing(15) spacing(5);
+    max-width: 1128px;
+  }
+}
+
+.footerTitle {
+  margin-bottom: spacing(2);
+}
+
+.linksContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: spacing(6);
+
+  .linkList {
+    margin-left: 0;
+    list-style-type: none;
+  }
+
+  .linkList:not(:last-child) {
+    margin-bottom: spacing(3);
+  }
+
+  @include respond-to(sm) {
+    flex-direction: row;
+
+    .linkList:not(:last-child) {
+      margin-bottom: 0;
+    }
+
+    .linkList:not(:first-child) {
+      margin-left: spacing(12.5);
+    }
+  }
+}
+
+.linkList {
+  a {
+    @include get-font-style(paleromo);
+    color: get-color(alpha, 38);
+  }
+
+  a:hover {
+    color: get-color(alpha, 38);
+  }
+
+  .listHeading {
+    @include get-font-style(bogota);
+    color: get-color(dark);
+  }
+
+  li:not(:last-child) {
+    margin-bottom: spacing(1);
+  }
+}
+
+.bottomContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @include respond-to(sm) {
+    flex-direction: row;
+  }
+}
+
+.socialMediaContainer {
+  margin-bottom: spacing(5);
+  @include respond-to(sm) {
+    margin-bottom: 0;
+  }
+}
+
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  @include respond-to(sm) {
+    flex-direction: row;
+  }
+
+  a {
+    @include get-font-style(kramfors);
+    color: get-color(dark);
+  }
+
+  a:hover {
+    color: get-color(dark);
+  }
+}

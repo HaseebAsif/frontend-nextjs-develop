@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: booksquare-frontend
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: booksquare-frontend
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: booksquare-frontend
+        app.kubernetes.io/component: web
+    spec:
+      containers:
+        - name: booksquare-frontend
+          image: "image"
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 9090
+              name: "http"
+          env:
+            - name: TEST_ENV_VAR
+              value: "test"
+
+      imagePullSecrets:
+        - name: registry-secret
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: booksquare-web-service
+  labels:
+    app.kubernetes.io/name: booksquare-web-service
+    app.kubernetes.io/component: web
+
+spec:
+  selector:
+    app.kubernetes.io/name: booksquare-frontend
+  ports:
+    - port: 9090
+      targetPort: "http"
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+# N.B the server deployment yaml depends on this name
+metadata:
+  name: booksquare-web
+  labels:
+    app.kubernetes.io/name: booksquare-frontend
+    app.kubernetes.io/component: web
+spec:
+  rules:
+    - host: "hostname"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: booksquare-web-service
+                port:
+                  number: 9090

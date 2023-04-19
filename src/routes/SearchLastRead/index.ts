@@ -1,0 +1,1 @@
+export { SearchLastRead } from './SearchLastRead';

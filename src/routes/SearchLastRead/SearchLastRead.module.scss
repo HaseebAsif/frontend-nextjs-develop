@@ -1,0 +1,52 @@
+@import '~styles/framework';
+
+.background {
+  background-color: get-color(gamma);
+  width: 100%;
+  position: absolute;
+  z-index: 0;
+  height: 345px;
+  @include respond-to(sm) {
+    height: 346px;
+  }
+  @include respond-to(lg) {
+    height: 390px;
+  }
+}
+
+.smallBackground {
+  height: 172px;
+  @include respond-to(sm) {
+    height: 168px;
+  }
+  @include respond-to(lg) {
+    height: 192px;
+  }
+}
+
+.wrapper {
+  position: relative;
+}
+
+.container {
+  position: relative;
+  margin-bottom: spacing(16);
+  margin-top: spacing(1);
+  @include respond-to(sm) {
+    margin-bottom: spacing(18);
+    margin-top: spacing(4);
+  }
+  @include respond-to(lg) {
+    margin-top: spacing(5);
+  }
+}
+
+.title {
+  margin-bottom: spacing(3);
+  @include respond-to(sm) {
+    @include get-font-style(moscow);
+  }
+  @include respond-to(lg) {
+    @include get-font-style(berlin);
+  }
+}

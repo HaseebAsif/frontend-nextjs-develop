@@ -1,0 +1,9 @@
+a {
+  color: get-color(primary);
+  text-decoration: none;
+  transition: ease(color);
+
+  &:hover {
+    color: get-color(primary, 60);
+  }
+}

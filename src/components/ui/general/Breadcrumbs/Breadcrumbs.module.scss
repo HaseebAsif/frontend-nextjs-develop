@@ -1,0 +1,21 @@
+@import '~styles/framework';
+
+.crumb {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.link {
+  text-decoration: none;
+  @include get-font-style(palermo);
+}
+
+.current {
+  color: get-color(alpha, 46);
+  @include get-font-style(palermo);
+}
+
+.icon {
+  margin: spacing(0, 0.5);
+}

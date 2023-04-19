@@ -1,0 +1,50 @@
+@import '~styles/framework';
+
+.form {
+  margin-bottom: spacing(11);
+}
+
+.text {
+  margin-top: spacing(2);
+  @include get-font-style(palermo);
+  color: get-color(light);
+
+  @include respond-to(sm) {
+    margin-top: 0;
+  }
+}
+
+.smallText {
+  @include get-font-style(sunne);
+  color: get-color(alpha, 62);
+  margin-top: spacing(2);
+
+  @include respond-to(sm) {
+    width: 715px;
+  }
+  @include respond-to(lg) {
+    width: 760px;
+  }
+}
+
+.input {
+  margin-bottom: spacing(2);
+  @include respond-to(sm) {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.textInput {
+  flex-grow: 1;
+}
+
+.link {
+  @include get-font-style(sunne);
+  color: get-color(alpha, 62);
+  text-decoration: underline;
+}
+
+.submitButton {
+  margin-left: spacing(2);
+}

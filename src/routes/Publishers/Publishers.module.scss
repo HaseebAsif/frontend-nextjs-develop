@@ -1,0 +1,290 @@
+@import '~styles/framework';
+
+.header {
+  margin-bottom: spacing(2);
+  @include get-font-style(moscow);
+
+  @include respond-to(md) {
+    @include get-font-style(berlin);
+  }
+
+  @include respond-to(lg) {
+    @include get-font-style(tokyo);
+  }
+}
+
+.container {
+  padding-left: 17.5px;
+  padding-right: 17.5px;
+
+  @include respond-to(xs) {
+    padding: 0;
+  }
+
+  @include respond-to(md) {
+    max-width: 992px;
+  }
+
+  @include respond-to(lg) {
+    max-width: 1200px;
+  }
+}
+
+.subTitleTwo {
+  margin-bottom: spacing(3);
+  @include get-font-style(rio);
+
+  @include respond-to(xs) {
+    letter-spacing: -3%;
+  }
+
+  @include respond-to(sm) {
+    margin-bottom: spacing(2);
+    @include get-font-style(moscow);
+  }
+
+  @include respond-to(lg) {
+    margin-bottom: spacing(2.5);
+    @include get-font-style(berlin);
+  }
+}
+
+.subTitle {
+  margin-bottom: spacing(3);
+  @include get-font-style(rio);
+
+  @include respond-to(sm) {
+    margin-bottom: spacing(2);
+    @include get-font-style(moscow);
+  }
+
+  @include respond-to(lg) {
+    margin-bottom: spacing(2.5);
+    @include get-font-style(berlin);
+  }
+}
+
+.bodyText {
+  @include get-font-style(kramfors);
+  margin-bottom: spacing(4);
+
+  @include respond-to(sm) {
+    @include get-font-style(torsby);
+  }
+}
+
+.bodyText:last-of-type {
+  margin-bottom: 0;
+}
+
+.sectionOne {
+  margin: 0 auto;
+  padding-bottom: spacing(3);
+
+  @include respond-to(xs) {
+    max-width: 720px;
+    margin: spacing(9) 17.5px spacing(12) 17.5px;
+  }
+
+  @include respond-to(sm) {
+    max-width: 870px;
+  }
+
+  @include respond-to(md) {
+    max-width: 992px;
+    margin-top: spacing(15);
+    margin-bottom: spacing(15);
+  }
+
+  @include respond-to(lg) {
+    max-width: 1127px;
+    margin: spacing(25) auto spacing(20);
+  }
+}
+
+.sectionTwo {
+  margin: 0 auto;
+  padding-top: spacing(3);
+
+  @include respond-to(xs) {
+    max-width: 480px;
+  }
+
+  @include respond-to(sm) {
+    max-width: 534px;
+  }
+
+  @include respond-to(md) {
+    max-width: 702px;
+  }
+
+  @include respond-to(lg) {
+    max-width: 1127px;
+  }
+}
+
+.sectionThree {
+  max-width: 720px;
+  margin: 0 auto;
+  justify-content: center;
+  padding-top: spacing(3);
+
+  @include respond-to(xs) {
+    max-width: 480px;
+    margin-top: spacing(9);
+    margin-bottom: spacing(9);
+  }
+
+  @include respond-to(sm) {
+    max-width: 540px;
+    margin-top: spacing(15);
+    margin-bottom: spacing(15);
+  }
+
+  @include respond-to(md) {
+    max-width: 702px;
+    margin-top: spacing(15);
+    margin-bottom: spacing(15);
+  }
+
+  @include respond-to(lg) {
+    max-width: 1127px;
+    margin-top: spacing(20);
+    margin-bottom: spacing(30);
+  }
+}
+
+.sectionTextOne {
+  text-align: center;
+
+  @include respond-to(sm) {
+    text-align: left;
+  }
+}
+
+.sectionTextThree {
+  @include respond-to(sm) {
+    max-width: 702px;
+  }
+}
+
+.middleSection {
+  background: linear-gradient(
+    98.96deg,
+    #fdf9f1 -6.68%,
+    #f1e8db 38.94%,
+    #f1e8db 90.4%
+  );
+
+  @include respond-to(xs) {
+    padding: spacing(9) spacing(2);
+  }
+
+  @include respond-to(sm) {
+    padding-top: spacing(20);
+    padding-bottom: spacing(20);
+  }
+
+  @include respond-to(md) {
+    padding-top: spacing(20);
+    padding-bottom: spacing(20);
+  }
+
+  @include respond-to(lg) {
+    padding-top: spacing(20);
+    padding-bottom: spacing(20);
+  }
+}
+
+.imageWrapperOne {
+  position: relative;
+  margin: 0 auto;
+  max-width: 479px;
+  height: 520px;
+  filter: drop-shadow(0 4px 35px rgba(0, 0, 0, 0.08));
+
+  @include respond-to(md) {
+    max-width: 438px;
+  }
+
+  @include respond-to(lg) {
+    max-width: 479px;
+  }
+}
+
+.imageWrapperTwo {
+  position: relative;
+  max-width: 702px;
+  margin: 0 auto;
+  height: 300px;
+
+  filter: drop-shadow(0 4px 35px rgba(0, 0, 0, 0.08));
+
+  @include respond-to(sm) {
+    max-width: 534px;
+    height: 340px;
+  }
+
+  @include respond-to(md) {
+    max-width: 702px;
+    height: 404px;
+  }
+
+  @include respond-to(lg) {
+    max-width: 480px;
+    height: 650px;
+  }
+}
+
+.gridTwo {
+  order: -1;
+
+  @include respond-to(sm) {
+    order: 3;
+  }
+
+  @include respond-to(md) {
+    order: -1;
+  }
+}
+
+.imageWrapperThree {
+  position: relative;
+  top: 1px;
+  max-width: 540px;
+  max-height: 716px;
+  margin: 0 auto;
+  filter: drop-shadow(0 4px 35px rgba(0, 0, 0, 0.08));
+
+  @include respond-to(xs) {
+    max-width: 702px;
+  }
+
+  @include respond-to(sm) {
+    max-width: 540px;
+  }
+
+  @include respond-to(md) {
+    max-width: 702px;
+    height: 560px;
+  }
+
+  @include respond-to(lg) {
+    max-width: 480px;
+    height: 700px;
+  }
+}
+
+.contactButton {
+  margin: spacing(4) auto spacing(3);
+  padding: 16px 24px;
+  width: 146px;
+  height: 56px;
+  background: #fac300;
+}
+
+.publisherImages {
+  img {
+    border-radius: 16px;
+  }
+}

@@ -1,0 +1,42 @@
+@import '~styles/framework';
+
+.faqSection {
+  margin-bottom: 0; // prevent gutter from making margin negative
+
+  .faqItem {
+    border-top: 1px solid;
+    border-color: get-color(alpha, 88);
+    padding: spacing(3, 0);
+
+    @include respond-to(sm) {
+      padding: spacing(4, 0);
+    }
+  }
+
+  .faqItem:last-child {
+    border-bottom: 1px solid;
+    border-color: get-color(alpha, 88);
+  }
+
+  .question {
+    @include get-font-style(oslo);
+
+    @include respond-to(sm) {
+      @include get-font-style(bogota);
+    }
+  }
+
+  .answer {
+    margin-right: 50px;
+    margin-top: spacing(1);
+    @include get-font-style(palermo);
+
+    @include respond-to(sm) {
+      @include get-font-style(kramfors);
+    }
+  }
+}
+
+.link {
+  text-decoration: underline;
+}

@@ -1,0 +1,1 @@
+export { isLocalhost } from './isLocalhost';

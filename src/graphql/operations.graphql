@@ -1,0 +1,2334 @@
+# this is an auto generated file. This will be overwritten
+query Author($id: ID!) {
+  author(id: $id) {
+    createdAt
+    id
+    image {
+      contentType
+      createdAt
+      filename
+      height
+      id
+      originalName
+      sizeInBytes
+      uri
+      width
+    }
+    name
+    updatedAt
+  }
+}
+query Authors($filter: AuthorFilter, $sorting: SortOrdering) {
+  authors(filter: $filter, sorting: $sorting) {
+    edges {
+      createdAt
+      id
+      image {
+        contentType
+        createdAt
+        filename
+        height
+        id
+        originalName
+        sizeInBytes
+        uri
+        width
+      }
+      name
+      updatedAt
+    }
+    meta {
+      limit
+      offset
+      total
+    }
+  }
+}
+query Book($id: ID!) {
+  book(id: $id) {
+    approved
+    authors {
+      createdAt
+      id
+      image {
+        contentType
+        createdAt
+        filename
+        height
+        id
+        originalName
+        sizeInBytes
+        uri
+        width
+      }
+      name
+      updatedAt
+    }
+    bookUrl
+    categories
+    createdAt
+    description
+    format
+    id
+    image {
+      contentType
+      createdAt
+      filename
+      height
+      id
+      originalName
+      sizeInBytes
+      uri
+      width
+    }
+    isbn
+    language
+    numberOfPages
+    price
+    publisher {
+      address
+      city
+      country
+      createdAt
+      deletedAt
+      email
+      id
+      image {
+        contentType
+        createdAt
+        filename
+        height
+        id
+        originalName
+        sizeInBytes
+        uri
+        width
+      }
+      name
+      organisationNumber
+      phoneNumber
+      postalCode
+      updatedAt
+    }
+    releaseYear
+    subjects
+    title
+    tracking {
+      bookmarkedAt
+      createdAt
+      currentPlacementEpub
+      currentPlacementPdf
+      favourite
+      finishedAt
+      id
+      readAtLeastOneMin
+      totalDuration
+      updatedAt
+    }
+    updatedAt
+    version
+  }
+}
+query BookIsbn($isbn: String!) {
+  bookIsbn(isbn: $isbn) {
+    approved
+    authors {
+      createdAt
+      id
+      image {
+        contentType
+        createdAt
+        filename
+        height
+        id
+        originalName
+        sizeInBytes
+        uri
+        width
+      }
+      name
+      updatedAt
+    }
+    bookUrl
+    categories
+    createdAt
+    description
+    format
+    id
+    image {
+      contentType
+      createdAt
+      filename
+      height
+      id
+      originalName
+      sizeInBytes
+      uri
+      width
+    }
+    isbn
+    language
+    numberOfPages
+    price
+    publisher {
+      address
+      city
+      country
+      createdAt
+      deletedAt
+      email
+      id
+      image {
+        contentType
+        createdAt
+        filename
+        height
+        id
+        originalName
+        sizeInBytes
+        uri
+        width
+      }
+      name
+      organisationNumber
+      phoneNumber
+      postalCode
+      updatedAt
+    }
+    releaseYear
+    subjects
+    title
+    tracking {
+      bookmarkedAt
+      createdAt
+      currentPlacementEpub
+      currentPlacementPdf
+      favourite
+      finishedAt
+      id
+      readAtLeastOneMin
+      totalDuration
+      updatedAt
+    }
+    updatedAt
+    version
+  }
+}
+query BookRecommendations($id: ID!, $limit: Int) {
+  bookRecommendations(id: $id, limit: $limit) {
+    edges {
+      approved
+      authors {
+        createdAt
+        id
+        image {
+          contentType
+          createdAt
+          filename
+          height
+          id
+          originalName
+          sizeInBytes
+          uri
+          width
+        }
+        name
+        updatedAt
+      }
+      bookUrl
+      categories
+      createdAt
+      description
+      format
+      id
+      image {
+        contentType
+        createdAt
+        filename
+        height
+        id
+        originalName
+        sizeInBytes
+        uri
+        width
+      }
+      isbn
+      language
+      numberOfPages
+      price
+      publisher {
+        address
+        city
+        country
+        createdAt
+        deletedAt
+        email
+        id
+        image {
+          contentType
+          createdAt
+          filename
+          height
+          id
+          originalName
+          sizeInBytes
+          uri
+          width
+        }
+        name
+        organisationNumber
+        phoneNumber
+        postalCode
+        updatedAt
+      }
+      releaseYear
+      subjects
+      title
+      tracking {
+        bookmarkedAt
+        createdAt
+        currentPlacementEpub
+        currentPlacementPdf
+        favourite
+        finishedAt
+        id
+        readAtLeastOneMin
+        totalDuration
+        updatedAt
+      }
+      updatedAt
+      version
+    }
+    meta {
+      limit
+      offset
+      total
+    }
+  }
+}
+query BookUrl($checksum: String!, $id: ID!) {
+  bookUrl(checksum: $checksum, id: $id) {
+    approved
+    authors {
+      createdAt
+      id
+      image {
+        contentType
+        createdAt
+        filename
+        height
+        id
+        originalName
+        sizeInBytes
+        uri
+        width
+      }
+      name
+      updatedAt
+    }
+    bookUrl
+    categories
+    createdAt
+    description
+    format
+    id
+    image {
+      contentType
+      createdAt
+      filename
+      height
+      id
+      originalName
+      sizeInBytes
+      uri
+      width
+    }
+    isbn
+    language
+    numberOfPages
+    price
+    publisher {
+      address
+      city
+      country
+      createdAt
+      deletedAt
+      email
+      id
+      image {
+        contentType
+        createdAt
+        filename
+        height
+        id
+        originalName
+        sizeInBytes
+        uri
+        width
+      }
+      name
+      organisationNumber
+      phoneNumber
+      postalCode
+      updatedAt
+    }
+    releaseYear
+    subjects
+    title
+    tracking {
+      bookmarkedAt
+      createdAt
+      currentPlacementEpub
+      currentPlacementPdf
+      favourite
+      finishedAt
+      id
+      readAtLeastOneMin
+      totalDuration
+      updatedAt
+    }
+    updatedAt
+    version
+  }
+}
+query Bookmark($id: ID!) {
+  bookmark(id: $id) {
+    bookId
+    createdAt
+    description
+    epubPage
+    id
+    pdfPage
+    title
+    updatedAt
+    userId
+  }
+}
+query Bookmarks($filter: BookmarkFilter, $sorting: SortOrdering) {
+  bookmarks(filter: $filter, sorting: $sorting) {
+    edges {
+      bookId
+      createdAt
+      description
+      epubPage
+      id
+      pdfPage
+      title
+      updatedAt
+      userId
+    }
+    meta {
+      limit
+      offset
+      total
+    }
+  }
+}
+query Books($filter: BookFilter, $sorting: SortOrdering) {
+  books(filter: $filter, sorting: $sorting) {
+    edges {
+      approved
+      authors {
+        createdAt
+        id
+        image {
+          contentType
+          createdAt
+          filename
+          height
+          id
+          originalName
+          sizeInBytes
+          uri
+          width
+        }
+        name
+        updatedAt
+      }
+      bookUrl
+      categories
+      createdAt
+      description
+      format
+      id
+      image {
+        contentType
+        createdAt
+        filename
+        height
+        id
+        originalName
+        sizeInBytes
+        uri
+        width
+      }
+      isbn
+      language
+      numberOfPages
+      price
+      publisher {
+        address
+        city
+        country
+        createdAt
+        deletedAt
+        email
+        id
+        image {
+          contentType
+          createdAt
+          filename
+          height
+          id
+          originalName
+          sizeInBytes
+          uri
+          width
+        }
+        name
+        organisationNumber
+        phoneNumber
+        postalCode
+        updatedAt
+      }
+      releaseYear
+      subjects
+      title
+      tracking {
+        bookmarkedAt
+        createdAt
+        currentPlacementEpub
+        currentPlacementPdf
+        favourite
+        finishedAt
+        id
+        readAtLeastOneMin
+        totalDuration
+        updatedAt
+      }
+      updatedAt
+      version
+    }
+    meta {
+      limit
+      offset
+      total
+    }
+  }
+}
+query Highlight($id: ID!) {
+  highlight(id: $id) {
+    bookId
+    createdAt
+    epubPage
+    highlight
+    id
+    pdfPage
+    updatedAt
+    userId
+  }
+}
+query Highlights($filter: HighlightFilter, $sorting: SortOrdering) {
+  highlights(filter: $filter, sorting: $sorting) {
+    edges {
+      bookId
+      createdAt
+      epubPage
+      highlight
+      id
+      pdfPage
+      updatedAt
+      userId
+    }
+    meta {
+      limit
+      offset
+      total
+    }
+  }
+}
+query Me {
+  me {
+    blocked
+    createdAt
+    deletedAt
+    email
+    emailVerified
+    firstName
+    id
+    image {
+      contentType
+      createdAt
+      filename
+      height
+      id
+      originalName
+      sizeInBytes
+      uri
+      width
+    }
+    joinReason {
+      id
+      occupation
+      school
+      subject
+    }
+    language
+    lastName
+    mobileNumber
+    newsletter
+    role
+    signupReason
+    subscription {
+      PaidAt
+      amount
+      cancelAtPeriodEnd
+      createdAt
+      currency
+      currentPeriodEnd
+      customerId
+      id
+      interval
+      plan
+      planBillingInterval
+      status
+      trialUntil
+      updatedAt
+    }
+    updatedAt
+  }
+}
+query MissedSearches($filter: MissedSearchFilter!, $sorting: SortOrdering) {
+  missedSearches(filter: $filter, sorting: $sorting) {
+    edges {
+      rows
+      searchTerm
+      user {
+        blocked
+        createdAt
+        deletedAt
+        email
+        emailVerified
+        firstName
+        id
+        image {
+          contentType
+          createdAt
+          filename
+          height
+          id
+          originalName
+          sizeInBytes
+          uri
+          width
+        }
+        joinReason {
+          id
+          occupation
+          school
+          subject
+        }
+        language
+        lastName
+        mobileNumber
+        newsletter
+        role
+        signupReason
+        subscription {
+          PaidAt
+          amount
+          cancelAtPeriodEnd
+          createdAt
+          currency
+          currentPeriodEnd
+          customerId
+          id
+          interval
+          plan
+          planBillingInterval
+          status
+          trialUntil
+          updatedAt
+        }
+        updatedAt
+      }
+    }
+    meta {
+      limit
+      offset
+      total
+    }
+  }
+}
+query PreSignups($filter: PreSignupFilter, $sorting: SortOrdering) {
+  preSignups(filter: $filter, sorting: $sorting) {
+    edges {
+      createdAt
+      email
+      newsletter
+    }
+    meta {
+      limit
+      offset
+      total
+    }
+  }
+}
+query Products {
+  products {
+    active
+    description
+    id
+    name
+    prices {
+      active
+      billingScheme
+      currency
+      id
+      interval
+      intervalCount
+      unitAmountDecimal
+    }
+    url
+  }
+}
+query Publisher($id: ID!) {
+  publisher(id: $id) {
+    address
+    city
+    country
+    createdAt
+    deletedAt
+    email
+    id
+    image {
+      contentType
+      createdAt
+      filename
+      height
+      id
+      originalName
+      sizeInBytes
+      uri
+      width
+    }
+    name
+    organisationNumber
+    phoneNumber
+    postalCode
+    updatedAt
+  }
+}
+query Publishers($filter: PublisherFilter, $sorting: SortOrdering) {
+  publishers(filter: $filter, sorting: $sorting) {
+    edges {
+      address
+      city
+      country
+      createdAt
+      deletedAt
+      email
+      id
+      image {
+        contentType
+        createdAt
+        filename
+        height
+        id
+        originalName
+        sizeInBytes
+        uri
+        width
+      }
+      name
+      organisationNumber
+      phoneNumber
+      postalCode
+      updatedAt
+    }
+    meta {
+      limit
+      offset
+      total
+    }
+  }
+}
+query Referral($id: ID!) {
+  referral(id: $id) {
+    coupon {
+      id
+      promoCode
+      user {
+        blocked
+        createdAt
+        deletedAt
+        email
+        emailVerified
+        firstName
+        id
+        image {
+          contentType
+          createdAt
+          filename
+          height
+          id
+          originalName
+          sizeInBytes
+          uri
+          width
+        }
+        joinReason {
+          id
+          occupation
+          school
+          subject
+        }
+        language
+        lastName
+        mobileNumber
+        newsletter
+        role
+        signupReason
+        subscription {
+          PaidAt
+          amount
+          cancelAtPeriodEnd
+          createdAt
+          currency
+          currentPeriodEnd
+          customerId
+          id
+          interval
+          plan
+          planBillingInterval
+          status
+          trialUntil
+          updatedAt
+        }
+        updatedAt
+      }
+    }
+    createdAt
+    id
+    receiver {
+      blocked
+      createdAt
+      deletedAt
+      email
+      emailVerified
+      firstName
+      id
+      image {
+        contentType
+        createdAt
+        filename
+        height
+        id
+        originalName
+        sizeInBytes
+        uri
+        width
+      }
+      joinReason {
+        id
+        occupation
+        school
+        subject
+      }
+      language
+      lastName
+      mobileNumber
+      newsletter
+      role
+      signupReason
+      subscription {
+        PaidAt
+        amount
+        cancelAtPeriodEnd
+        createdAt
+        currency
+        currentPeriodEnd
+        customerId
+        id
+        interval
+        plan
+        planBillingInterval
+        status
+        trialUntil
+        updatedAt
+      }
+      updatedAt
+    }
+    rewarded
+    updatedAt
+  }
+}
+query Referrals($filter: ReferralFilter, $sorting: SortOrdering) {
+  referrals(filter: $filter, sorting: $sorting) {
+    edges {
+      coupon {
+        id
+        promoCode
+        user {
+          blocked
+          createdAt
+          deletedAt
+          email
+          emailVerified
+          firstName
+          id
+          language
+          lastName
+          mobileNumber
+          newsletter
+          role
+          signupReason
+          updatedAt
+        }
+      }
+      createdAt
+      id
+      receiver {
+        blocked
+        createdAt
+        deletedAt
+        email
+        emailVerified
+        firstName
+        id
+        image {
+          contentType
+          createdAt
+          filename
+          height
+          id
+          originalName
+          sizeInBytes
+          uri
+          width
+        }
+        joinReason {
+          id
+          occupation
+          school
+          subject
+        }
+        language
+        lastName
+        mobileNumber
+        newsletter
+        role
+        signupReason
+        subscription {
+          PaidAt
+          amount
+          cancelAtPeriodEnd
+          createdAt
+          currency
+          currentPeriodEnd
+          customerId
+          id
+          interval
+          plan
+          planBillingInterval
+          status
+          trialUntil
+          updatedAt
+        }
+        updatedAt
+      }
+      rewarded
+      updatedAt
+    }
+    meta {
+      limit
+      offset
+      total
+    }
+  }
+}
+query Statistics($filter: StatisticsFilter!, $sorting: SortOrdering) {
+  statistics(filter: $filter, sorting: $sorting) {
+    edges {
+      book {
+        approved
+        authors {
+          createdAt
+          id
+          name
+          updatedAt
+        }
+        bookUrl
+        categories
+        createdAt
+        description
+        format
+        id
+        image {
+          contentType
+          createdAt
+          filename
+          height
+          id
+          originalName
+          sizeInBytes
+          uri
+          width
+        }
+        isbn
+        language
+        numberOfPages
+        price
+        publisher {
+          address
+          city
+          country
+          createdAt
+          deletedAt
+          email
+          id
+          name
+          organisationNumber
+          phoneNumber
+          postalCode
+          updatedAt
+        }
+        releaseYear
+        subjects
+        title
+        tracking {
+          bookmarkedAt
+          createdAt
+          currentPlacementEpub
+          currentPlacementPdf
+          favourite
+          finishedAt
+          id
+          readAtLeastOneMin
+          totalDuration
+          updatedAt
+        }
+        updatedAt
+        version
+      }
+      mediatedIncome
+      rows
+      totalIncome
+    }
+    meta {
+      limit
+      offset
+      total
+    }
+    mrr
+  }
+}
+query Subjects {
+  subjects {
+    count
+    subject
+  }
+}
+query Tracking($bookId: ID!, $userId: ID!) {
+  tracking(bookId: $bookId, userId: $userId) {
+    bookmarkedAt
+    createdAt
+    currentPlacementEpub
+    currentPlacementPdf
+    favourite
+    finishedAt
+    id
+    readAtLeastOneMin
+    totalDuration
+    updatedAt
+  }
+}
+query Trackings($filter: TrackingFilter, $sorting: SortOrdering) {
+  trackings(filter: $filter, sorting: $sorting) {
+    edges {
+      bookmarkedAt
+      createdAt
+      currentPlacementEpub
+      currentPlacementPdf
+      favourite
+      finishedAt
+      id
+      readAtLeastOneMin
+      totalDuration
+      updatedAt
+    }
+    meta {
+      limit
+      offset
+      total
+    }
+  }
+}
+query User($id: ID!) {
+  user(id: $id) {
+    blocked
+    createdAt
+    deletedAt
+    email
+    emailVerified
+    firstName
+    id
+    image {
+      contentType
+      createdAt
+      filename
+      height
+      id
+      originalName
+      sizeInBytes
+      uri
+      width
+    }
+    joinReason {
+      id
+      occupation
+      school
+      subject
+    }
+    language
+    lastName
+    mobileNumber
+    newsletter
+    role
+    signupReason
+    subscription {
+      PaidAt
+      amount
+      cancelAtPeriodEnd
+      createdAt
+      currency
+      currentPeriodEnd
+      customerId
+      id
+      interval
+      plan
+      planBillingInterval
+      status
+      trialUntil
+      updatedAt
+    }
+    updatedAt
+  }
+}
+query UserCoupon {
+  userCoupon {
+    id
+    promoCode
+    user {
+      blocked
+      createdAt
+      deletedAt
+      email
+      emailVerified
+      firstName
+      id
+      image {
+        contentType
+        createdAt
+        filename
+        height
+        id
+        originalName
+        sizeInBytes
+        uri
+        width
+      }
+      joinReason {
+        id
+        occupation
+        school
+        subject
+      }
+      language
+      lastName
+      mobileNumber
+      newsletter
+      role
+      signupReason
+      subscription {
+        PaidAt
+        amount
+        cancelAtPeriodEnd
+        createdAt
+        currency
+        currentPeriodEnd
+        customerId
+        id
+        interval
+        plan
+        planBillingInterval
+        status
+        trialUntil
+        updatedAt
+      }
+      updatedAt
+    }
+  }
+}
+query Users($filter: UserFilter, $sorting: SortOrdering) {
+  users(filter: $filter, sorting: $sorting) {
+    edges {
+      blocked
+      createdAt
+      deletedAt
+      email
+      emailVerified
+      firstName
+      id
+      image {
+        contentType
+        createdAt
+        filename
+        height
+        id
+        originalName
+        sizeInBytes
+        uri
+        width
+      }
+      joinReason {
+        id
+        occupation
+        school
+        subject
+      }
+      language
+      lastName
+      mobileNumber
+      newsletter
+      role
+      signupReason
+      subscription {
+        PaidAt
+        amount
+        cancelAtPeriodEnd
+        createdAt
+        currency
+        currentPeriodEnd
+        customerId
+        id
+        interval
+        plan
+        planBillingInterval
+        status
+        trialUntil
+        updatedAt
+      }
+      updatedAt
+    }
+    meta {
+      limit
+      offset
+      total
+    }
+  }
+}
+mutation AddSignupReason($input: JoinReasonInput!) {
+  addSignupReason(input: $input) {
+    blocked
+    createdAt
+    deletedAt
+    email
+    emailVerified
+    firstName
+    id
+    image {
+      contentType
+      createdAt
+      filename
+      height
+      id
+      originalName
+      sizeInBytes
+      uri
+      width
+    }
+    joinReason {
+      id
+      occupation
+      school
+      subject
+    }
+    language
+    lastName
+    mobileNumber
+    newsletter
+    role
+    signupReason
+    subscription {
+      PaidAt
+      amount
+      cancelAtPeriodEnd
+      createdAt
+      currency
+      currentPeriodEnd
+      customerId
+      id
+      interval
+      plan
+      planBillingInterval
+      status
+      trialUntil
+      updatedAt
+    }
+    updatedAt
+  }
+}
+mutation CreateAuthor($input: AuthorInput!) {
+  createAuthor(input: $input) {
+    createdAt
+    id
+    image {
+      contentType
+      createdAt
+      filename
+      height
+      id
+      originalName
+      sizeInBytes
+      uri
+      width
+    }
+    name
+    updatedAt
+  }
+}
+mutation CreateBook($input: CreateBookInput!) {
+  createBook(input: $input) {
+    approved
+    authors {
+      createdAt
+      id
+      image {
+        contentType
+        createdAt
+        filename
+        height
+        id
+        originalName
+        sizeInBytes
+        uri
+        width
+      }
+      name
+      updatedAt
+    }
+    bookUrl
+    categories
+    createdAt
+    description
+    format
+    id
+    image {
+      contentType
+      createdAt
+      filename
+      height
+      id
+      originalName
+      sizeInBytes
+      uri
+      width
+    }
+    isbn
+    language
+    numberOfPages
+    price
+    publisher {
+      address
+      city
+      country
+      createdAt
+      deletedAt
+      email
+      id
+      image {
+        contentType
+        createdAt
+        filename
+        height
+        id
+        originalName
+        sizeInBytes
+        uri
+        width
+      }
+      name
+      organisationNumber
+      phoneNumber
+      postalCode
+      updatedAt
+    }
+    releaseYear
+    subjects
+    title
+    tracking {
+      bookmarkedAt
+      createdAt
+      currentPlacementEpub
+      currentPlacementPdf
+      favourite
+      finishedAt
+      id
+      readAtLeastOneMin
+      totalDuration
+      updatedAt
+    }
+    updatedAt
+    version
+  }
+}
+mutation CreateBookmark($input: CreateBookmarkInput!) {
+  createBookmark(input: $input) {
+    bookId
+    createdAt
+    description
+    epubPage
+    id
+    pdfPage
+    title
+    updatedAt
+    userId
+  }
+}
+mutation CreateHighlight($input: CreateHighlightInput!) {
+  createHighlight(input: $input) {
+    bookId
+    createdAt
+    epubPage
+    highlight
+    id
+    pdfPage
+    updatedAt
+    userId
+  }
+}
+mutation CreatePublisher($input: CreatePublisherInput!) {
+  createPublisher(input: $input) {
+    address
+    city
+    country
+    createdAt
+    deletedAt
+    email
+    id
+    image {
+      contentType
+      createdAt
+      filename
+      height
+      id
+      originalName
+      sizeInBytes
+      uri
+      width
+    }
+    name
+    organisationNumber
+    phoneNumber
+    postalCode
+    updatedAt
+  }
+}
+mutation CreateStripeCheckoutPortal($input: CreateCheckoutPortalInput!) {
+  createStripeCheckoutPortal(input: $input)
+}
+mutation CreateStripeCustomerPortal($returnUrl: String) {
+  createStripeCustomerPortal(returnUrl: $returnUrl)
+}
+mutation CreateUser($input: CreateUserInput) {
+  createUser(input: $input) {
+    jwt
+    message
+    newAccount
+    refreshToken
+    success
+    user {
+      blocked
+      createdAt
+      deletedAt
+      email
+      emailVerified
+      firstName
+      id
+      image {
+        contentType
+        createdAt
+        filename
+        height
+        id
+        originalName
+        sizeInBytes
+        uri
+        width
+      }
+      joinReason {
+        id
+        occupation
+        school
+        subject
+      }
+      language
+      lastName
+      mobileNumber
+      newsletter
+      role
+      signupReason
+      subscription {
+        PaidAt
+        amount
+        cancelAtPeriodEnd
+        createdAt
+        currency
+        currentPeriodEnd
+        customerId
+        id
+        interval
+        plan
+        planBillingInterval
+        status
+        trialUntil
+        updatedAt
+      }
+      updatedAt
+    }
+    userId
+  }
+}
+mutation DeleteAuthor($id: ID!) {
+  deleteAuthor(id: $id) {
+    success
+  }
+}
+mutation DeleteBook($id: ID!) {
+  deleteBook(id: $id) {
+    success
+  }
+}
+mutation DeleteBookmark($id: ID!) {
+  deleteBookmark(id: $id) {
+    success
+  }
+}
+mutation DeleteHighlight($id: ID!) {
+  deleteHighlight(id: $id) {
+    success
+  }
+}
+mutation DeletePublisher($id: ID!) {
+  deletePublisher(id: $id) {
+    success
+  }
+}
+mutation DeleteUser($id: ID!) {
+  deleteUser(id: $id) {
+    success
+  }
+}
+mutation ExportBooksCsv($filter: BookFilter) {
+  exportBooksCSV(filter: $filter)
+}
+mutation ExportCsv($filter: StatisticsFilter!, $sorting: SortOrdering) {
+  exportCSV(filter: $filter, sorting: $sorting)
+}
+mutation ExportPacktSalesCsv($from: Time!, $to: Time!) {
+  exportPacktSalesCSV(from: $from, to: $to)
+}
+mutation ExportSearchesCsv(
+  $filter: MissedSearchFilter!
+  $sorting: SortOrdering
+) {
+  exportSearchesCSV(filter: $filter, sorting: $sorting)
+}
+mutation InactivateBook($id: ID!) {
+  inactivateBook(id: $id) {
+    success
+  }
+}
+mutation LoginApple(
+  $appleToken: String!
+  $firstName: String
+  $lastName: String
+) {
+  loginApple(
+    appleToken: $appleToken
+    firstName: $firstName
+    lastName: $lastName
+  ) {
+    jwt
+    message
+    newAccount
+    refreshToken
+    success
+    user {
+      blocked
+      createdAt
+      deletedAt
+      email
+      emailVerified
+      firstName
+      id
+      image {
+        contentType
+        createdAt
+        filename
+        height
+        id
+        originalName
+        sizeInBytes
+        uri
+        width
+      }
+      joinReason {
+        id
+        occupation
+        school
+        subject
+      }
+      language
+      lastName
+      mobileNumber
+      newsletter
+      role
+      signupReason
+      subscription {
+        PaidAt
+        amount
+        cancelAtPeriodEnd
+        createdAt
+        currency
+        currentPeriodEnd
+        customerId
+        id
+        interval
+        plan
+        planBillingInterval
+        status
+        trialUntil
+        updatedAt
+      }
+      updatedAt
+    }
+    userId
+  }
+}
+mutation LoginEmail($email: String!, $password: String!) {
+  loginEmail(email: $email, password: $password) {
+    jwt
+    message
+    newAccount
+    refreshToken
+    success
+    user {
+      blocked
+      createdAt
+      deletedAt
+      email
+      emailVerified
+      firstName
+      id
+      image {
+        contentType
+        createdAt
+        filename
+        height
+        id
+        originalName
+        sizeInBytes
+        uri
+        width
+      }
+      joinReason {
+        id
+        occupation
+        school
+        subject
+      }
+      language
+      lastName
+      mobileNumber
+      newsletter
+      role
+      signupReason
+      subscription {
+        PaidAt
+        amount
+        cancelAtPeriodEnd
+        createdAt
+        currency
+        currentPeriodEnd
+        customerId
+        id
+        interval
+        plan
+        planBillingInterval
+        status
+        trialUntil
+        updatedAt
+      }
+      updatedAt
+    }
+    userId
+  }
+}
+mutation LoginGoogle($googleToken: String!) {
+  loginGoogle(googleToken: $googleToken) {
+    jwt
+    message
+    newAccount
+    refreshToken
+    success
+    user {
+      blocked
+      createdAt
+      deletedAt
+      email
+      emailVerified
+      firstName
+      id
+      image {
+        contentType
+        createdAt
+        filename
+        height
+        id
+        originalName
+        sizeInBytes
+        uri
+        width
+      }
+      joinReason {
+        id
+        occupation
+        school
+        subject
+      }
+      language
+      lastName
+      mobileNumber
+      newsletter
+      role
+      signupReason
+      subscription {
+        PaidAt
+        amount
+        cancelAtPeriodEnd
+        createdAt
+        currency
+        currentPeriodEnd
+        customerId
+        id
+        interval
+        plan
+        planBillingInterval
+        status
+        trialUntil
+        updatedAt
+      }
+      updatedAt
+    }
+    userId
+  }
+}
+mutation PreSignup($input: PreSignupInput!) {
+  preSignup(input: $input) {
+    success
+  }
+}
+mutation ReSendUserInvite($id: ID!) {
+  reSendUserInvite(id: $id) {
+    success
+  }
+}
+mutation RefreshToken($token: String!) {
+  refreshToken(token: $token) {
+    jwt
+    message
+    newAccount
+    refreshToken
+    success
+    user {
+      blocked
+      createdAt
+      deletedAt
+      email
+      emailVerified
+      firstName
+      id
+      image {
+        contentType
+        createdAt
+        filename
+        height
+        id
+        originalName
+        sizeInBytes
+        uri
+        width
+      }
+      joinReason {
+        id
+        occupation
+        school
+        subject
+      }
+      language
+      lastName
+      mobileNumber
+      newsletter
+      role
+      signupReason
+      subscription {
+        PaidAt
+        amount
+        cancelAtPeriodEnd
+        createdAt
+        currency
+        currentPeriodEnd
+        customerId
+        id
+        interval
+        plan
+        planBillingInterval
+        status
+        trialUntil
+        updatedAt
+      }
+      updatedAt
+    }
+    userId
+  }
+}
+mutation RemovePreSignup($email: String!) {
+  removePreSignup(email: $email) {
+    success
+  }
+}
+mutation ResendVerifyEmail($id: ID!) {
+  resendVerifyEmail(id: $id) {
+    blocked
+    createdAt
+    deletedAt
+    email
+    emailVerified
+    firstName
+    id
+    image {
+      contentType
+      createdAt
+      filename
+      height
+      id
+      originalName
+      sizeInBytes
+      uri
+      width
+    }
+    joinReason {
+      id
+      occupation
+      school
+      subject
+    }
+    language
+    lastName
+    mobileNumber
+    newsletter
+    role
+    signupReason
+    subscription {
+      PaidAt
+      amount
+      cancelAtPeriodEnd
+      createdAt
+      currency
+      currentPeriodEnd
+      customerId
+      id
+      interval
+      plan
+      planBillingInterval
+      status
+      trialUntil
+      updatedAt
+    }
+    updatedAt
+  }
+}
+mutation ResetPasswordFinalize($input: ResetPasswordFinalizeInput!) {
+  resetPasswordFinalize(input: $input) {
+    jwt
+    message
+    newAccount
+    refreshToken
+    success
+    user {
+      blocked
+      createdAt
+      deletedAt
+      email
+      emailVerified
+      firstName
+      id
+      image {
+        contentType
+        createdAt
+        filename
+        height
+        id
+        originalName
+        sizeInBytes
+        uri
+        width
+      }
+      joinReason {
+        id
+        occupation
+        school
+        subject
+      }
+      language
+      lastName
+      mobileNumber
+      newsletter
+      role
+      signupReason
+      subscription {
+        PaidAt
+        amount
+        cancelAtPeriodEnd
+        createdAt
+        currency
+        currentPeriodEnd
+        customerId
+        id
+        interval
+        plan
+        planBillingInterval
+        status
+        trialUntil
+        updatedAt
+      }
+      updatedAt
+    }
+    userId
+  }
+}
+mutation ResetPasswordInitiate($email: String!) {
+  resetPasswordInitiate(email: $email) {
+    success
+  }
+}
+mutation SendContactForm($input: ContactFormInput!) {
+  sendContactForm(input: $input) {
+    success
+  }
+}
+mutation SetApproveBook($approved: Boolean!, $id: ID!) {
+  setApproveBook(approved: $approved, id: $id) {
+    approved
+    authors {
+      createdAt
+      id
+      image {
+        contentType
+        createdAt
+        filename
+        height
+        id
+        originalName
+        sizeInBytes
+        uri
+        width
+      }
+      name
+      updatedAt
+    }
+    bookUrl
+    categories
+    createdAt
+    description
+    format
+    id
+    image {
+      contentType
+      createdAt
+      filename
+      height
+      id
+      originalName
+      sizeInBytes
+      uri
+      width
+    }
+    isbn
+    language
+    numberOfPages
+    price
+    publisher {
+      address
+      city
+      country
+      createdAt
+      deletedAt
+      email
+      id
+      image {
+        contentType
+        createdAt
+        filename
+        height
+        id
+        originalName
+        sizeInBytes
+        uri
+        width
+      }
+      name
+      organisationNumber
+      phoneNumber
+      postalCode
+      updatedAt
+    }
+    releaseYear
+    subjects
+    title
+    tracking {
+      bookmarkedAt
+      createdAt
+      currentPlacementEpub
+      currentPlacementPdf
+      favourite
+      finishedAt
+      id
+      readAtLeastOneMin
+      totalDuration
+      updatedAt
+    }
+    updatedAt
+    version
+  }
+}
+mutation SetFavourite($favourite: Boolean!, $id: ID!) {
+  setFavourite(favourite: $favourite, id: $id) {
+    bookmarkedAt
+    createdAt
+    currentPlacementEpub
+    currentPlacementPdf
+    favourite
+    finishedAt
+    id
+    readAtLeastOneMin
+    totalDuration
+    updatedAt
+  }
+}
+mutation Track($id: ID!, $startSession: Boolean!) {
+  track(id: $id, startSession: $startSession) {
+    bookmarkedAt
+    createdAt
+    currentPlacementEpub
+    currentPlacementPdf
+    favourite
+    finishedAt
+    id
+    readAtLeastOneMin
+    totalDuration
+    updatedAt
+  }
+}
+mutation UnregisterNewsletter($email: String!) {
+  unregisterNewsletter(email: $email) {
+    success
+  }
+}
+mutation UpdateAuthor($id: ID!, $input: AuthorInput) {
+  updateAuthor(id: $id, input: $input) {
+    createdAt
+    id
+    image {
+      contentType
+      createdAt
+      filename
+      height
+      id
+      originalName
+      sizeInBytes
+      uri
+      width
+    }
+    name
+    updatedAt
+  }
+}
+mutation UpdateBook($id: ID!, $input: UpdateBookInput!) {
+  updateBook(id: $id, input: $input) {
+    approved
+    authors {
+      createdAt
+      id
+      image {
+        contentType
+        createdAt
+        filename
+        height
+        id
+        originalName
+        sizeInBytes
+        uri
+        width
+      }
+      name
+      updatedAt
+    }
+    bookUrl
+    categories
+    createdAt
+    description
+    format
+    id
+    image {
+      contentType
+      createdAt
+      filename
+      height
+      id
+      originalName
+      sizeInBytes
+      uri
+      width
+    }
+    isbn
+    language
+    numberOfPages
+    price
+    publisher {
+      address
+      city
+      country
+      createdAt
+      deletedAt
+      email
+      id
+      image {
+        contentType
+        createdAt
+        filename
+        height
+        id
+        originalName
+        sizeInBytes
+        uri
+        width
+      }
+      name
+      organisationNumber
+      phoneNumber
+      postalCode
+      updatedAt
+    }
+    releaseYear
+    subjects
+    title
+    tracking {
+      bookmarkedAt
+      createdAt
+      currentPlacementEpub
+      currentPlacementPdf
+      favourite
+      finishedAt
+      id
+      readAtLeastOneMin
+      totalDuration
+      updatedAt
+    }
+    updatedAt
+    version
+  }
+}
+mutation UpdateBookmark($id: ID!, $input: UpdateBookmarkInput!) {
+  updateBookmark(id: $id, input: $input) {
+    bookId
+    createdAt
+    description
+    epubPage
+    id
+    pdfPage
+    title
+    updatedAt
+    userId
+  }
+}
+mutation UpdateHighlight($id: ID!, $input: UpdateHighlightInput!) {
+  updateHighlight(id: $id, input: $input) {
+    bookId
+    createdAt
+    epubPage
+    highlight
+    id
+    pdfPage
+    updatedAt
+    userId
+  }
+}
+mutation UpdatePlacement(
+  $currentPlacementEpub: String
+  $currentPlacementPdf: Int
+  $id: ID!
+) {
+  updatePlacement(
+    currentPlacementEpub: $currentPlacementEpub
+    currentPlacementPdf: $currentPlacementPdf
+    id: $id
+  ) {
+    bookmarkedAt
+    createdAt
+    currentPlacementEpub
+    currentPlacementPdf
+    favourite
+    finishedAt
+    id
+    readAtLeastOneMin
+    totalDuration
+    updatedAt
+  }
+}
+mutation UpdatePublisher($id: ID!, $input: UpdatePublisherInput!) {
+  updatePublisher(id: $id, input: $input) {
+    address
+    city
+    country
+    createdAt
+    deletedAt
+    email
+    id
+    image {
+      contentType
+      createdAt
+      filename
+      height
+      id
+      originalName
+      sizeInBytes
+      uri
+      width
+    }
+    name
+    organisationNumber
+    phoneNumber
+    postalCode
+    updatedAt
+  }
+}
+mutation UpdateUser($id: ID!, $input: UpdateUserInput) {
+  updateUser(id: $id, input: $input) {
+    blocked
+    createdAt
+    deletedAt
+    email
+    emailVerified
+    firstName
+    id
+    image {
+      contentType
+      createdAt
+      filename
+      height
+      id
+      originalName
+      sizeInBytes
+      uri
+      width
+    }
+    joinReason {
+      id
+      occupation
+      school
+      subject
+    }
+    language
+    lastName
+    mobileNumber
+    newsletter
+    role
+    signupReason
+    subscription {
+      PaidAt
+      amount
+      cancelAtPeriodEnd
+      createdAt
+      currency
+      currentPeriodEnd
+      customerId
+      id
+      interval
+      plan
+      planBillingInterval
+      status
+      trialUntil
+      updatedAt
+    }
+    updatedAt
+  }
+}
+mutation UserChangePassword($input: UserChangePasswordInput!) {
+  userChangePassword(input: $input) {
+    success
+  }
+}
+mutation VerifyEmail($email: String!, $nonce: String!) {
+  verifyEmail(email: $email, nonce: $nonce) {
+    blocked
+    createdAt
+    deletedAt
+    email
+    emailVerified
+    firstName
+    id
+    image {
+      contentType
+      createdAt
+      filename
+      height
+      id
+      originalName
+      sizeInBytes
+      uri
+      width
+    }
+    joinReason {
+      id
+      occupation
+      school
+      subject
+    }
+    language
+    lastName
+    mobileNumber
+    newsletter
+    role
+    signupReason
+    subscription {
+      PaidAt
+      amount
+      cancelAtPeriodEnd
+      createdAt
+      currency
+      currentPeriodEnd
+      customerId
+      id
+      interval
+      plan
+      planBillingInterval
+      status
+      trialUntil
+      updatedAt
+    }
+    updatedAt
+  }
+}

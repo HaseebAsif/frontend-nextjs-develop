@@ -1,0 +1,1 @@
+export { HeaderSearchFieldDesktop } from './HeaderSearchFieldDesktop';

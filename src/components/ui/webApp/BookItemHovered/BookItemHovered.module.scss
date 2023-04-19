@@ -1,0 +1,60 @@
+@import '~styles/framework';
+
+.box {
+  height: 236px;
+  margin-bottom: spacing(1);
+  position: relative;
+  width: 100%;
+
+  @include respond-to(sm) {
+    height: 228px;
+  }
+
+  @include respond-to(lg) {
+    height: 252px;
+  }
+
+  .imgWrapper {
+    height: 100%;
+    width: 100%;
+
+    .img {
+      img {
+        max-height: 220px;
+        height: auto;
+        bottom: 0;
+        top: auto;
+        border-radius: 4px;
+
+        @include respond-to(lg) {
+          border-radius: 6px;
+          max-height: 244px;
+        }
+      }
+    }
+  }
+}
+
+.buttonsBox {
+  width: 100%;
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.readButton {
+  width: 99px;
+}
+
+.iconButton {
+  width: 40px;
+  height: 40px;
+
+  &:hover {
+    i {
+      @include get-font-style(lissabon);
+    }
+  }
+}

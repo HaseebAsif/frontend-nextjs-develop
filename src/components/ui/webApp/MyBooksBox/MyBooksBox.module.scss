@@ -1,0 +1,74 @@
+@import '~styles/framework';
+
+.root {
+  @include respond-to(sm) {
+    background-color: get-color(light);
+    border-radius: spacing(1.5);
+    padding: spacing(4);
+    height: 100%;
+  }
+
+  @include respond-to(lg) {
+    padding: spacing(5);
+  }
+}
+
+.boxHeader {
+  margin-bottom: spacing(2);
+
+  h6 {
+    @include get-font-style(bogota);
+    margin-right: spacing(2);
+    @include respond-to(sm) {
+      @include get-font-style(denver);
+    }
+  }
+}
+
+.scrollBox {
+  position: relative;
+  overflow: hidden;
+}
+
+.scrollBoxWrapper {
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  -ms-overflow-style: none; /* IE */
+  overflow: -moz-scrollbars-none; /* Firefox */
+}
+
+.scrollBoxWrapper::-webkit-scrollbar {
+  display: none; /* Chrome and Safari */
+}
+
+.scrollBoxContainer {
+  height: 100%;
+  display: inline-flex;
+
+  > div {
+    margin-right: spacing(2);
+  }
+}
+
+.showAllButton {
+  background-color: get-color(light);
+  display: flex;
+  height: 178px;
+  width: 124px;
+
+  > div {
+    margin: auto;
+    text-align: center;
+  }
+
+  p {
+    @include get-font-style(oslo);
+    margin-bottom: spacing(1.5);
+  }
+}
+
+.bookItem {
+  width: 124px;
+}

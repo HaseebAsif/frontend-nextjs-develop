@@ -1,0 +1,77 @@
+@import '~styles/framework';
+
+$track-width: 48px;
+$track-height: 24px;
+$knob-size: 18px;
+
+.root {
+  display: inline-flex;
+  vertical-align: top;
+  user-select: none;
+  flex-direction: row;
+  align-items: center;
+  @include get-font-style(kramfors);
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.input {
+  position: absolute;
+  left: -9999px;
+}
+
+.switchHolder {
+  position: relative;
+  background-color: get-color(dark, 74);
+  min-width: $track-width;
+  max-width: $track-width;
+  min-height: $track-height;
+  max-height: $track-height;
+  border-radius: $track-height / 2;
+  transition: ease(background-color);
+}
+
+.switch {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: $track-height;
+  height: $track-height;
+  border-radius: $track-height / 2;
+  transition: ease(transform);
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: $knob-size;
+    height: $knob-size;
+    border-radius: $knob-size / 2;
+    background-color: get-color(light);
+  }
+}
+
+.labelRight {
+  padding-left: spacing(1);
+}
+
+.labelLeft {
+  padding-right: spacing(1);
+}
+
+.input:checked ~ .switchHolder {
+  background-color: get-color(success);
+
+  .switch {
+    transform: translateX($track-width - $track-height);
+  }
+}
+
+:global(.is-tabbing) .input:focus ~ .switchHolder {
+  outline: 5px auto -webkit-focus-ring-color !important;
+}

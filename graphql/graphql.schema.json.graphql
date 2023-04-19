@@ -1,0 +1,932 @@
+directive @emailVerified on FIELD | FIELD_DEFINITION
+
+directive @hasRole(roles: [UserRole!]!) on FIELD | FIELD_DEFINITION
+
+"""Exposes a URL that specifies the behaviour of this scalar."""
+directive @specifiedBy(
+  """The URL that specifies the behaviour of this scalar."""
+  url: String!
+) on SCALAR
+
+directive @trim on INPUT_FIELD_DEFINITION
+
+type AuthenticationResponse {
+  jwt: String!
+  message: String!
+  newAccount: Boolean!
+  refreshToken: String!
+  success: Boolean!
+  user: User
+  userId: String!
+}
+
+type Author {
+  createdAt: Time!
+  id: ID!
+  image: Image
+  name: String!
+  updatedAt: Time
+}
+
+type AuthorCollection {
+  edges: [Author!]!
+  meta: PageInfo!
+}
+
+input AuthorFilter {
+  createdAt: TimeRangeFilter
+  limit: Int
+  offset: Int
+  searchTerm: String
+}
+
+input AuthorInput {
+  image: Upload
+  name: String!
+}
+
+type Book {
+  approved: Boolean!
+  authors: [Author!]!
+  bookUrl: String
+  categories: [String!]!
+  createdAt: Time!
+  description: String!
+  format: BookFormat!
+  id: ID!
+  image: Image
+  isbn: String!
+  language: BookLanguage!
+  numberOfPages: Int!
+  price: Float!
+  publisher: Publisher!
+  releaseYear: Int!
+  subjects: [Subject!]!
+  title: String!
+  tracking: Tracking
+  updatedAt: Time
+  version: String!
+}
+
+type BookCollection {
+  edges: [Book!]!
+  meta: PageInfo!
+}
+
+input BookFilter {
+  approved: Boolean
+  favourite: Boolean
+  lastRead: Boolean
+  limit: Int
+  offset: Int
+  publisherId: ID
+
+  """You can search on the fields: title, author and isbn"""
+  searchTerm: String
+  subjects: [Subject!]
+}
+
+enum BookFormat {
+  epub
+  pdf
+}
+
+enum BookLanguage {
+  english
+  other
+  swedish
+}
+
+type Bookmark {
+  bookId: ID!
+  createdAt: Time!
+  description: String
+  epubPage: String
+  id: ID!
+  pdfPage: Int
+  title: String!
+  updatedAt: Time!
+  userId: ID!
+}
+
+type BookmarkCollection {
+  edges: [Bookmark!]!
+  meta: PageInfo!
+}
+
+input BookmarkFilter {
+  bookId: ID
+  limit: Int
+  offset: Int
+  searchTerm: String
+  userId: ID
+}
+
+type BookSubjects {
+  count: Int!
+  subject: Subject!
+}
+
+enum ContactFormCategory {
+  account
+  books
+  other
+  subscription
+  technical
+}
+
+input ContactFormInput {
+  category: ContactFormCategory!
+  email: String!
+  message: String!
+  name: String!
+}
+
+type Coupon {
+  id: ID!
+  promoCode: String!
+  user: User!
+}
+
+input CreateBookInput {
+  authors: [ID!]!
+  categories: [String!]!
+  description: String!
+  format: BookFormat!
+  image: Upload
+  isbn: String!
+  language: BookLanguage!
+  numberOfPages: Int!
+  publisherId: ID!
+  releaseYear: Int!
+  subjects: [Subject!]!
+  title: String!
+  version: String!
+}
+
+input CreateBookmarkInput {
+  bookId: ID!
+  description: String
+  epubPage: String
+  pdfPage: Int
+  title: String!
+}
+
+input CreateCheckoutPortalInput {
+  cancelUrl: String
+  priceId: String!
+  successUrl: String
+}
+
+input CreateHighlightInput {
+  bookId: ID!
+  epubPage: String
+  highlight: String!
+  pdfPage: Int
+}
+
+input CreatePublisherInput {
+  address: String!
+  city: String!
+  country: String!
+  email: String!
+  image: Upload
+  name: String!
+  organisationNumber: String!
+  phoneNumber: String!
+  postalCode: String!
+}
+
+input CreateUserInput {
+  email: String!
+  firstName: String!
+  image: Upload
+  language: Language
+  lastName: String!
+  mobileNumber: String
+  newsletter: Boolean
+  password: String!
+  role: UserRole
+}
+
+input FloatRangeFilter {
+  from: Float
+  to: Float
+}
+
+type Highlight {
+  bookId: ID!
+  createdAt: Time!
+  epubPage: String
+  highlight: String!
+  id: ID!
+  pdfPage: Int
+  updatedAt: Time!
+  userId: ID!
+}
+
+type HighlightCollection {
+  edges: [Highlight!]!
+  meta: PageInfo!
+}
+
+input HighlightFilter {
+  bookId: ID
+  epubPage: String
+  limit: Int
+  offset: Int
+  pdfPage: Int
+  userId: ID
+}
+
+type Image {
+  contentType: String!
+  createdAt: Time!
+  filename: String!
+  height: Uint32!
+  id: ID!
+  originalName: String!
+  sizeInBytes: Uint64!
+  uri: String!
+  width: Uint32!
+}
+
+type ImageCollection {
+  edges: [Image!]!
+  meta: PageInfo!
+}
+
+input ImageFilter {
+  limit: Int
+  name: String
+  offset: Int
+}
+
+input ImageUpdate {
+  id: ID
+  image: Upload
+}
+
+input IntRangeFilter {
+  from: Int
+  to: Int
+}
+
+type JoinReason {
+  id: ID!
+  occupation: JoinReasonOccupation!
+  school: School
+  subject: Subject
+}
+
+input JoinReasonInput {
+  occupation: JoinReasonOccupation!
+  school: School
+  subject: Subject
+}
+
+enum JoinReasonOccupation {
+  personal_interest
+  studies
+  work
+}
+
+enum Language {
+  english
+  swedish
+}
+
+type MissedSearch {
+  rows: Int!
+  searchTerm: String!
+  user: User
+}
+
+type MissedSearchCollection {
+  edges: [MissedSearch!]!
+  meta: PageInfo!
+}
+
+input MissedSearchFilter {
+  createdAt: TimeRangeFilter
+  limit: Int
+  offset: Int
+  searchTerm: String
+}
+
+type Mutation {
+  """addSignupReason: adds signup reson to the current user"""
+  addSignupReason(input: JoinReasonInput!): User!
+
+  """createAuthor, creates author from input"""
+  createAuthor(input: AuthorInput!): Author
+
+  """createBook, create a new book"""
+  createBook(input: CreateBookInput!): Book
+
+  """createBookmark, create a new bookmark"""
+  createBookmark(input: CreateBookmarkInput!): Bookmark
+
+  """createHighlight, create a new highlight"""
+  createHighlight(input: CreateHighlightInput!): Highlight
+
+  """createPublisher, create a new publisher"""
+  createPublisher(input: CreatePublisherInput!): Publisher
+
+  """
+  createStripeCustomerPortal, returns a session id for you to create a stripe checkout porta
+  if a user has a subscription an error will be returned, use createStripeCustomerPortal instead
+  """
+  createStripeCheckoutPortal(input: CreateCheckoutPortalInput!): String
+
+  """
+  createStripeCustomerPortal, returns a url to navigate to the stripe customer portal
+  """
+  createStripeCustomerPortal(returnUrl: String): String
+
+  """createUser, create a new user"""
+  createUser(input: CreateUserInput): AuthenticationResponse!
+
+  """deleteAuthor, deletes author by id"""
+  deleteAuthor(id: ID!): NoContent!
+
+  """deleteBook, removes an existing book"""
+  deleteBook(id: ID!): NoContent!
+
+  """deleteBookmark, removes an existing bookmark"""
+  deleteBookmark(id: ID!): NoContent!
+
+  """deleteHighlight, removes an existing highlight"""
+  deleteHighlight(id: ID!): NoContent!
+
+  """deletePublisher, removes an existing publisher"""
+  deletePublisher(id: ID!): NoContent!
+
+  """deleteUser, removes a user in the system"""
+  deleteUser(id: ID!): NoContent!
+
+  """
+  exportBooksCSV, creates and saves csv file for download of all the books
+  within the filter, returning the url for that file
+  """
+  exportBooksCSV(filter: BookFilter): String
+
+  """
+  exportCSV, creates and saves csv file for download, returning the url for that file
+  """
+  exportCSV(filter: StatisticsFilter!, sorting: SortOrdering): String
+
+  """
+  exportPacktSalesCSV, creates a report from a date and to a date, marking it as fixed
+  """
+  exportPacktSalesCSV(from: Time!, to: Time!): String
+
+  """
+  exportSearchesCSV, creates and saves csv file for download, returning the url for that file
+  """
+  exportSearchesCSV(filter: MissedSearchFilter!, sorting: SortOrdering): String
+
+  """inactivateBook, sets a book as inactive"""
+  inactivateBook(id: ID!): NoContent!
+
+  """
+  loginApple, This endpoint is used by users which have loged in the apple and
+  sent the apple token to backend for validation.
+  If the validation is successful the user have access to the website the jwt token
+  Apple only returns the name of the users in frontend and only in the first request
+  """
+  loginApple(appleToken: String!, firstName: String, lastName: String): AuthenticationResponse!
+
+  """
+  loginEmail, This endpoint is used by users with a valid email and password. Get access to the website with the jwt token
+  """
+  loginEmail(email: String!, password: String!): AuthenticationResponse!
+
+  """
+  loginGoogle, This endpoint is used by users which have loged in the google and
+  sent the google token to backend for validation.
+  If the validation is successful the user have access to the website the jwt token
+  """
+  loginGoogle(googleToken: String!): AuthenticationResponse!
+
+  """
+  preSignup, registers email for email when service is launched, and/ or newsletter interest
+  """
+  preSignup(input: PreSignupInput!): NoContent!
+
+  """reSendUserInvite, resend the activation email"""
+  reSendUserInvite(id: ID!): NoContent!
+
+  """
+  refreshToken, called when jwt has expired. Param, the refresh token, returns new AuthenticationResponse
+  """
+  refreshToken(token: String!): AuthenticationResponse!
+
+  """removePreSignup, removes signed up user"""
+  removePreSignup(email: String!): NoContent!
+
+  """resendVerifyEmail, resends the users email"""
+  resendVerifyEmail(id: ID!): User
+
+  """
+  resetPasswordFinalize, finilize the reset of password and returns a jwt token.
+  """
+  resetPasswordFinalize(input: ResetPasswordFinalizeInput!): AuthenticationResponse!
+
+  """
+  resetPasswordInitiate, sends an email to the user for initiation of reset password.
+  """
+  resetPasswordInitiate(email: String!): NoContent!
+
+  """
+  sendContactForm, takes the arguments from contact form and emails to booksquare
+  """
+  sendContactForm(input: ContactFormInput!): NoContent!
+
+  """approveBook set a  book as approved, making it searchable"""
+  setApproveBook(approved: Boolean!, id: ID!): Book
+
+  """
+  setFavourite, takes book id as parameter and adds as favourite in tracking
+  """
+  setFavourite(favourite: Boolean!, id: ID!): Tracking!
+
+  """
+  track, adds tracking session if tracking has not been created it will create,
+  otherwise updates last opened at, taking the book id as identifier
+  """
+  track(id: ID!, startSession: Boolean!): Tracking
+
+  """unregisterNewsletter, removes the user from newsletter signup"""
+  unregisterNewsletter(email: String!): NoContent!
+
+  """updateAuthor, updates the author specified by id"""
+  updateAuthor(id: ID!, input: AuthorInput): Author
+
+  """updateBook, update an existing book"""
+  updateBook(id: ID!, input: UpdateBookInput!): Book
+
+  """updateBookmark, update an existing bookmark"""
+  updateBookmark(id: ID!, input: UpdateBookmarkInput!): Bookmark
+
+  """updateHighlight, update an existing highlight"""
+  updateHighlight(id: ID!, input: UpdateHighlightInput!): Highlight
+
+  """
+  updatePlacement, updates tracking session page placement, taking the book id as identifier
+  """
+  updatePlacement(currentPlacementEpub: String, currentPlacementPdf: Int, id: ID!): Tracking
+
+  """updatePublisher, update an existing publisher"""
+  updatePublisher(id: ID!, input: UpdatePublisherInput!): Publisher
+
+  """updateUser, update a user in the system"""
+  updateUser(id: ID!, input: UpdateUserInput): User
+
+  """userChangePassword, change the password of the user"""
+  userChangePassword(input: UserChangePasswordInput!): NoContent!
+
+  """verifyEmail, sets user  email to verified, consuming nonce"""
+  verifyEmail(email: String!, nonce: String!): User
+}
+
+type NoContent {
+  success: Boolean!
+}
+
+type PageInfo {
+  limit: Int!
+  offset: Int!
+  total: Int!
+}
+
+type PreSignup {
+  createdAt: Time!
+  email: String!
+  newsletter: Boolean!
+}
+
+type PreSignupCollection {
+  edges: [PreSignup!]!
+  meta: PageInfo!
+}
+
+input PreSignupFilter {
+  createdAt: TimeRangeFilter
+  limit: Int
+  newsletter: Boolean
+  offset: Int
+  searchTerm: String
+}
+
+input PreSignupInput {
+  email: String!
+  newsletter: Boolean!
+}
+
+type Price {
+  active: Boolean!
+  billingScheme: String!
+  currency: String!
+  id: String!
+  interval: String!
+  intervalCount: Int!
+  unitAmountDecimal: Float
+}
+
+type Product {
+  active: Boolean!
+  description: String!
+  id: String!
+  name: String!
+  prices: [Price!]!
+  url: String
+}
+
+type Publisher {
+  address: String!
+  city: String!
+  country: String!
+  createdAt: Time!
+  deletedAt: Time
+  email: String!
+  id: ID!
+  image: Image
+  name: String!
+  organisationNumber: String!
+  phoneNumber: String!
+  postalCode: String!
+  updatedAt: Time!
+}
+
+type PublisherCollection {
+  edges: [Publisher!]!
+  meta: PageInfo!
+}
+
+input PublisherFilter {
+  approved: Boolean
+  limit: Int
+  offset: Int
+  searchTerm: String
+}
+
+type Query {
+  """author returns the author by its id"""
+  author(id: ID!): Author
+
+  """author returns the authors adjusted from filter"""
+  authors(filter: AuthorFilter, sorting: SortOrdering): AuthorCollection!
+  book(id: ID!): Book
+  bookIsbn(isbn: String!): Book
+  bookRecommendations(id: ID!, limit: Int): BookCollection!
+  bookUrl(checksum: String!, id: ID!): Book
+
+  """bookmark returns a specific bookmarks"""
+  bookmark(id: ID!): Bookmark
+
+  """
+  bookmarks returns a list of bookmarks, if the user isn't an admin
+  the returned bookmarks will be filtered on the current user
+  """
+  bookmarks(filter: BookmarkFilter, sorting: SortOrdering): BookmarkCollection!
+  books(filter: BookFilter, sorting: SortOrdering): BookCollection!
+
+  """highlight returns a specific highlight"""
+  highlight(id: ID!): Highlight
+
+  """
+  highlights returns a list of highlights, if the user isn't an admin
+  the returned highlights will be filtered on the current user
+  """
+  highlights(filter: HighlightFilter, sorting: SortOrdering): HighlightCollection!
+  me: User
+
+  """missedSearches, returns a list of searches that got no hits"""
+  missedSearches(filter: MissedSearchFilter!, sorting: SortOrdering): MissedSearchCollection!
+
+  """
+  preSignups, returns a list of users that has signed up for email before release
+  """
+  preSignups(filter: PreSignupFilter, sorting: SortOrdering): PreSignupCollection!
+  products: [Product!]!
+  publisher(id: ID!): Publisher
+  publishers(filter: PublisherFilter, sorting: SortOrdering): PublisherCollection!
+  referral(id: ID!): Referral
+  referrals(filter: ReferralFilter, sorting: SortOrdering): ReferralCollection!
+
+  """
+  statistics, returns books and number of times read, and the sum earnings per book.
+  For sorting on mediatedIncome, use field share_points, and for total use period_points
+  """
+  statistics(filter: StatisticsFilter!, sorting: SortOrdering): StatisticsCollection!
+  subjects: [BookSubjects!]!
+
+  """tracking, returns a tracking by it's id"""
+  tracking(bookId: ID!, userId: ID!): Tracking
+
+  """trackings, returns a list of tracking"""
+  trackings(filter: TrackingFilter, sorting: SortOrdering): TrackingCollection!
+  user(id: ID!): User
+
+  """userCoupon return the current users coupon for sharing"""
+  userCoupon: Coupon
+  users(filter: UserFilter, sorting: SortOrdering): UserCollection!
+}
+
+type Referral {
+  coupon: Coupon!
+  createdAt: Time!
+  id: ID!
+  receiver: User!
+  rewarded: Boolean!
+  updatedAt: Time!
+}
+
+type ReferralCollection {
+  edges: [Referral!]!
+  meta: PageInfo!
+}
+
+input ReferralFilter {
+  CreatedAt: TimeRangeFilter
+  limit: Int
+  offset: Int
+  receiver: ID
+  sender: ID
+  used: Boolean
+}
+
+input ResetPasswordFinalizeInput {
+  email: String!
+  nonce: String!
+  password: String!
+}
+
+enum School {
+  beckmans_designhogskola
+  blekinge_tekniska_hogskola
+  brunnsviks_folkhogskola
+  chalmers_tekniska_hogskola
+  enskilda_hogskolan_stockholm
+  ericastiftelsen
+  ersta_skondal_bracke_hogskola
+  forsvarshogskolan
+  gammelkroppa_skogsskola
+  goteborgs_universitet
+  gymnastik_och_idrottshogskolan
+  handelshogskolan_i_stockholm
+  hogskolan_dalarna
+  hogskolan_evidens
+  hogskolan_i_boras
+  hogskolan_i_gavle
+  hogskolan_i_halmstad
+  hogskolan_i_skovde
+  hogskolan_kristianstad
+  hogskolan_vast
+  johannelunds_teologiska_hogskola
+  karlstads_universitet
+  karolinska_institutet
+  konstfack
+  kungl_konsthogskolan
+  kungl_musikhogskolan_i_stockholm
+  kungl_tekniska_hogskolan
+  linkopings_universitet
+  linneuniversitetet
+  lulea_tekniska_universitet
+  lunds_universitet
+  malardalens_hogskola
+  malmo_universitet
+  mittuniversitetet
+  newmaninstitutet
+  orebro_teologiska_hogskola
+  orebro_universitet
+  other
+  roda_korsets_hogskola
+  skandinaviens_akademi_for_psykoterapiutveckling
+  sodertorns_hogskola
+  sophiahemmet_hogskola
+  stiftelsen_hogskolan_i_jonkoping
+  stockholms_konstnarliga_hogskola
+  stockholms_musikpedagogiska_institut
+  stockholms_universitet
+  svenska_institutet_for_kognitiv_psykoterapi
+  sveriges_lantbruksuniversitet
+  umea_universitet
+  uppsala_universitet
+}
+
+input SortOrdering {
+  sorting: [SortOrderingInput!]
+}
+
+input SortOrderingInput {
+  direction: String!
+  field: String!
+}
+
+type Statistics {
+  book: Book!
+  mediatedIncome: Float!
+  rows: Int!
+  totalIncome: Float!
+}
+
+type StatisticsCollection {
+  edges: [Statistics!]!
+  meta: PageInfo!
+  mrr: Float!
+}
+
+input StatisticsFilter {
+  bookId: ID
+  interval: TimeRangeFilter
+  limit: Int!
+  offset: Int!
+  publisherIds: [ID!]
+  searchTerm: String
+  userId: ID
+}
+
+type StripeSubscription {
+  PaidAt: Time
+  amount: Int
+  cancelAtPeriodEnd: Boolean!
+  createdAt: Time!
+  currency: String
+  currentPeriodEnd: Time
+  customerId: String!
+  id: ID!
+  interval: Int
+  plan: String
+  planBillingInterval: String!
+  status: String
+  trialUntil: Time
+  updatedAt: Time
+}
+
+enum Subject {
+  agriculture_horticulture_forestry_and_fishery
+  arts_design_and_media
+  business_administration_and_economics
+  computer_science_and_engineering
+  education_educational_sciences_didactics
+  health_and_medical_care
+  humanities
+  journalism_communication_and_information
+  languages
+  law_and_legal_studies
+  materials_construction_and_manufactoring
+  mathematics
+  natural_science
+  other
+  religious_studies
+  social_science_and_behavioural_science
+  social_work_and_welfare
+  technology
+  veterinary_medicine_and_nursing
+}
+
+scalar Time
+
+input TimeRangeFilter {
+  from: Time!
+  to: Time!
+}
+
+type Tracking {
+  bookmarkedAt: Time
+  createdAt: Time!
+  currentPlacementEpub: String
+  currentPlacementPdf: Int
+  favourite: Boolean!
+  finishedAt: Time
+  id: String!
+  readAtLeastOneMin: Boolean!
+  totalDuration: Float!
+  updatedAt: Time
+}
+
+type TrackingCollection {
+  edges: [Tracking!]!
+  meta: PageInfo!
+}
+
+input TrackingFilter {
+  bookId: ID
+  bookTitle: String
+  createdAt: TimeRangeFilter
+  favourite: Boolean
+  limit: Int
+  offset: Int
+  publisherId: ID
+  updatedAt: TimeRangeFilter
+  userId: ID
+}
+
+scalar Uint32
+
+scalar Uint64
+
+input UpdateBookInput {
+  authors: [ID!]!
+  categories: [String!]!
+  description: String!
+  format: BookFormat!
+  image: Upload
+  isbn: String!
+  language: BookLanguage!
+  numberOfPages: Int!
+  publisherId: ID!
+  releaseYear: Int!
+  subjects: [Subject!]!
+  title: String!
+  version: String!
+}
+
+input UpdateBookmarkInput {
+  bookId: ID!
+  description: String
+  epubPage: String
+  pdfPage: Int
+  title: String!
+}
+
+input UpdateHighlightInput {
+  bookId: ID!
+  epubPage: String
+  highlight: String!
+  pdfPage: Int
+}
+
+input UpdatePublisherInput {
+  address: String!
+  city: String!
+  country: String!
+  email: String!
+  image: Upload
+  name: String!
+  organisationNumber: String!
+  phoneNumber: String!
+  postalCode: String!
+}
+
+input UpdateUserInput {
+  email: String!
+  firstName: String!
+  image: Upload
+  language: Language
+  lastName: String!
+  mobileNumber: String
+  newsletter: Boolean
+  role: UserRole
+}
+
+scalar Upload
+
+type User {
+  blocked: Boolean!
+  createdAt: Time!
+  deletedAt: Time
+  email: String!
+  emailVerified: Boolean!
+  firstName: String!
+  id: ID!
+  image: Image
+  joinReason: JoinReason
+  language: Language
+  lastName: String!
+  mobileNumber: String
+  newsletter: Boolean
+  role: UserRole!
+  signupReason: Boolean!
+  subscription: StripeSubscription
+  updatedAt: Time!
+}
+
+input UserChangePasswordInput {
+  newPassword: String!
+  oldPassword: String!
+}
+
+type UserCollection {
+  edges: [User!]!
+  meta: PageInfo!
+}
+
+input UserFilter {
+  blocked: Boolean
+  createdAt: TimeRangeFilter
+  deleted: Boolean
+  emailVerified: Boolean
+  limit: Int
+  offset: Int
+  roles: [UserRole!]
+  searchTerm: String
+}
+
+enum UserRole {
+  admin
+  user
+}
+

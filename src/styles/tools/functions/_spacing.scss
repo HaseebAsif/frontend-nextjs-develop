@@ -1,0 +1,12 @@
+@function spacing($top: 1, $right: null, $bottom: null, $left: null) {
+  $spacings: $top, $right, $bottom, $left;
+  $return-spacing: '';
+
+  @each $spacing in $spacings {
+    @if ($spacing) {
+      $return-spacing: #{$return-spacing + ' ' + $spacing * $spacing-unit};
+    }
+  }
+
+  @return $return-spacing;
+}

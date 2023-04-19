@@ -1,0 +1,25 @@
+schema:
+  - https://api.booksquare.isdemo.se/graphql:
+      method: GET
+extensions:
+  codegen:
+    generates:
+      ../src/graphql/introspection-result.json:
+        plugins:
+          - fragment-matcher
+        config:
+          apolloClientVersion: 3
+          module: commonjs
+          useExplicitTyping: true
+          withHooks: true
+
+      graphql.schema.json:
+        plugins:
+          - introspection
+      ../src/types/graphql.ts:
+        plugins:
+          - typescript
+          - typescript-operations
+          - typed-document-node
+          - typescript-react-apollo
+overwrite: true

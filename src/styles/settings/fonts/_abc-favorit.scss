@@ -1,0 +1,21 @@
+$font-folder: '~assets/fonts/abc-favorit';
+
+@font-face {
+  font-family: 'abc-favorit';
+  font-weight: 400;
+  font-style: normal;
+  src: url('#{$font-folder}/ABCFavorit-Regular.woff2') format('woff2'),
+    url('#{$font-folder}/ABCFavorit-Regular.woff') format('woff'),
+    url('#{$font-folder}/ABCFavorit-Regular.otf') format('otf');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'abc-favorit';
+  font-weight: 700;
+  font-style: normal;
+  src: url('#{$font-folder}/ABCFavorit-Bold.woff2') format('woff2'),
+    url('#{$font-folder}/ABCFavorit-Bold.woff') format('woff'),
+    url('#{$font-folder}/ABCFavorit-Bold.otf') format('otf');
+  font-display: swap;
+}

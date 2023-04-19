@@ -1,0 +1,29 @@
+@import '~styles/framework';
+
+.menuLink {
+  display: block;
+  text-align: left;
+  color: get-color(dark);
+  padding-top: spacing(1.5);
+  padding-bottom: spacing(1.5);
+  padding-left: spacing(3);
+  padding-right: spacing(3);
+
+  &:hover {
+    color: get-color(dark);
+    background-color: get-color(alpha, 88);
+  }
+}
+
+.menuItem {
+  list-style: none;
+}
+
+.logoutButton {
+  display: flex;
+  justify-content: left;
+  background-color: transparent;
+  box-shadow: none;
+  box-sizing: content-box;
+  border-radius: 0;
+}

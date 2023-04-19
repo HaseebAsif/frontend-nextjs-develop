@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: booksquare-frontend
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: booksquare-frontend
+  template:
+    spec:
+      containers:
+        - name: booksquare-frontend
+          env:
+            - name: TEST_ENV_VAR
+              value: "test overwrite"

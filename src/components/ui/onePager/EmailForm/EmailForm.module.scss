@@ -1,0 +1,67 @@
+@import '~styles/framework';
+
+.form {
+  margin-bottom: spacing(1);
+
+  @include respond-to(sm) {
+    width: 523px;
+    margin-top: spacing(1);
+  }
+
+  @include respond-to(lg) {
+    min-width: 733px;
+  }
+}
+
+.text {
+  @include get-font-style(palermo);
+  color: get-color(light);
+  margin-top: spacing(2);
+
+  @include respond-to(sm) {
+    width: 515px;
+    margin-top: spacing(1);
+  }
+}
+
+.smallText {
+  @include get-font-style(sunne);
+  color: get-color(alpha, 62);
+  margin-top: spacing(2);
+
+  @include respond-to(sm) {
+    width: 715px;
+  }
+  @include respond-to(lg) {
+    width: 760px;
+  }
+}
+
+.input {
+  margin-top: spacing(4);
+  margin-bottom: spacing(2);
+
+  @include respond-to(sm) {
+    display: flex;
+    width: 670px;
+  }
+
+  @include respond-to(lg) {
+    width: 750px;
+  }
+}
+
+.textInput {
+  flex-grow: 1;
+  margin: spacing(0.2);
+}
+
+.link {
+  @include get-font-style(sunne);
+  color: get-color(alpha, 62);
+  text-decoration: underline;
+}
+
+.submitButton {
+  margin-left: spacing(2);
+}

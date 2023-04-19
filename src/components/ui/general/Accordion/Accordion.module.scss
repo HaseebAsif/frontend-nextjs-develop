@@ -1,0 +1,52 @@
+@import '~styles/framework';
+
+.root {
+  overflow: hidden;
+}
+
+.item {
+  width: 100%;
+}
+
+.label {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  text-align: left;
+  user-select: none;
+  border-radius: 0;
+  background-color: transparent;
+  color: currentColor;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.labelHolder {
+  flex: 1;
+}
+
+.iconHolder {
+  padding-left: spacing(2);
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-right: spacing(1);
+}
+
+.icon {
+  backface-visibility: hidden;
+  transition: ease(transform);
+
+  .label.isActive & {
+    transform: rotate(-180deg);
+  }
+}
+
+.content {
+  overflow: hidden;
+}

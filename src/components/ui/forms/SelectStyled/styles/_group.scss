@@ -1,0 +1,32 @@
+.group {
+  > div {
+    padding: 0;
+  }
+}
+
+.groupHeading {
+  > div {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.mdSize {
+  .groupHeading {
+    padding: spacing(2);
+  }
+}
+
+.lightColor {
+  .group {
+    background-color: get-color(light);
+  }
+
+  .groupHeading {
+    background-color: get-color(info);
+
+    > div {
+      color: get-color(light);
+    }
+  }
+}

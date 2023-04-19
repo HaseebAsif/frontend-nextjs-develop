@@ -1,0 +1,21 @@
+@import '~styles/framework';
+@import './styles/control';
+@import './styles/group';
+@import './styles/indicators';
+@import './styles/menuList';
+@import './styles/values';
+@import './styles/option';
+@import './styles/input';
+
+.root {
+  display: inline-block;
+}
+
+.disabled {
+  cursor: not-allowed;
+}
+
+.fullWidth {
+  width: 100%;
+  display: block;
+}

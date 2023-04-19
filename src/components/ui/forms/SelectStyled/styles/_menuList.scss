@@ -1,0 +1,21 @@
+.menuList {
+  > div {
+    padding: 0;
+  }
+}
+
+.mdSize {
+  .menuListHeading {
+    padding: spacing(1);
+  }
+}
+
+.lightColor {
+  .menuList {
+    background-color: get-color(info);
+
+    .menuListHeading {
+      color: get-color(light);
+    }
+  }
+}

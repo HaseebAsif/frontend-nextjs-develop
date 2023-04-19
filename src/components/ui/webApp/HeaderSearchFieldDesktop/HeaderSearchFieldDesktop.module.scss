@@ -1,0 +1,18 @@
+@import '~styles/framework';
+
+.root {
+  padding-left: spacing(2);
+  padding-right: spacing(2);
+  max-width: 300px;
+  display: flex;
+  align-items: center;
+  border-radius: spacing(2.5);
+}
+
+.alpha93Color {
+  background-color: get-color(alpha, 93);
+}
+
+.lightColor {
+  background-color: get-color(light);
+}

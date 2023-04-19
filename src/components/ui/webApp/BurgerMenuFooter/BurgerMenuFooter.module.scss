@@ -1,0 +1,19 @@
+@import '~styles/framework';
+
+.stickyFooter {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: spacing(2);
+  padding-bottom: spacing(2);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: get-color(light);
+  border-top: 1px solid get-color(alpha, 93);
+}
+
+.loginButton {
+  margin-right: spacing(2);
+}

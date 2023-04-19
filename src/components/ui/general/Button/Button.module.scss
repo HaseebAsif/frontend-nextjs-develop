@@ -1,0 +1,325 @@
+@import '~styles/framework';
+
+$border-width: 1px;
+$sizes: (
+  sm: (
+    padding-top-bottom: spacing(0.5),
+    padding-right-left: spacing(1.5),
+    font-style: kapstaden
+  ),
+  md: (
+    padding-top-bottom: spacing(1),
+    padding-right-left: spacing(2),
+    font-style: bukarest
+  ),
+  lg: (
+    padding-top-bottom: spacing(1.5),
+    padding-right-left: spacing(3),
+    font-style: bukarest
+  ),
+  xl: (
+    padding-top-bottom: spacing(2),
+    padding-right-left: spacing(3),
+    font-style: bukarest
+  )
+);
+$colors: (
+  secondary: (
+    default: (
+      background-color: get-color(secondary),
+      color: get-color(primary),
+      border-color: get-color(secondary)
+    ),
+    default-hover: (
+      background-color: get-color(secondary, 57),
+      color: get-color(primary),
+      border-color: get-color(secondary, 57)
+    ),
+    ghost: (
+      background-color: transparent,
+      color: get-color(primary),
+      border-color: get-color(primary)
+    ),
+    ghost-hover: (
+      background-color: get-color(primary),
+      color: get-color(light),
+      border-color: get-color(primary)
+    ),
+    naked: (
+      background-color: transparent,
+      color: get-color(primary),
+      border-color: transparent
+    ),
+    naked-hover: (
+      background-color: transparent,
+      color: get-color(primary),
+      border-color: transparent
+    ),
+    loading: (
+      background-color: get-color(secondary),
+      color: get-color(primary),
+      border-color: get-color(secondary)
+    )
+  ),
+  alpha93: (
+    default: (
+      background-color: get-color(alpha, 93),
+      color: get-color(primary),
+      border-color: get-color(alpha, 93)
+    ),
+    default-hover: (
+      background-color: get-color(alpha, 88),
+      color: get-color(primary),
+      border-color: get-color(alpha, 88)
+    ),
+    ghost: (
+      background-color: transparent,
+      color: get-color(primary),
+      border-color: get-color(primary)
+    ),
+    ghost-hover: (
+      background-color: get-color(primary),
+      color: get-color(light),
+      border-color: get-color(primary)
+    ),
+    naked: (
+      background-color: transparent,
+      color: get-color(primary),
+      border-color: transparent
+    ),
+    naked-hover: (
+      background-color: transparent,
+      color: get-color(primary),
+      border-color: transparent
+    ),
+    loading: (
+      background-color: get-color(secondary),
+      color: get-color(primary),
+      border-color: get-color(secondary)
+    )
+  ),
+  error: (
+    default: (
+      background-color: get-color(error),
+      color: get-color(light),
+      border-color: get-color(error)
+    ),
+    default-hover: (
+      background-color: get-color(error),
+      color: get-color(light),
+      border-color: get-color(error)
+    ),
+    ghost: (
+      background-color: transparent,
+      color: get-color(primary),
+      border-color: get-color(primary)
+    ),
+    ghost-hover: (
+      background-color: get-color(primary),
+      color: get-color(light),
+      border-color: get-color(primary)
+    ),
+    naked: (
+      background-color: transparent,
+      color: get-color(error),
+      border-color: transparent
+    ),
+    naked-hover: (
+      background-color: transparent,
+      color: get-color(error),
+      border-color: transparent
+    ),
+    loading: (
+      background-color: get-color(error),
+      color: get-color(light),
+      border-color: get-color(error)
+    )
+  ),
+  primary: (
+    default: (
+      background-color: get-color(primary),
+      color: get-color(light),
+      border-color: get-color(primary)
+    ),
+    default-hover: (
+      background-color: get-color(primary),
+      color: get-color(light),
+      border-color: get-color(primary)
+    ),
+    ghost: (
+      background-color: transparent,
+      color: get-color(light),
+      border-color: get-color(light)
+    ),
+    ghost-hover: (
+      background-color: get-color(primary),
+      color: get-color(light),
+      border-color: get-color(primary)
+    ),
+    naked: (
+      background-color: transparent,
+      color: get-color(light),
+      border-color: transparent
+    ),
+    naked-hover: (
+      background-color: transparent,
+      color: get-color(light),
+      border-color: transparent
+    ),
+    loading: (
+      background-color: get-color(primary),
+      color: get-color(light),
+      border-color: get-color(primary)
+    )
+  )
+);
+
+.root {
+  position: relative;
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  transition: ease(background-color), ease(color), ease(box-shadow),
+    ease(opacity);
+  border-radius: 4px;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed !important;
+}
+
+@each $name, $styles in $sizes {
+  $font-styles: map-get($all-font-styles, map-get($styles, font-style));
+
+  .#{$name}Size {
+    padding: map-get($styles, padding-top-bottom)
+      map-get($styles, padding-right-left);
+    @include get-font-style(map-get($styles, font-style));
+
+    &.rounded,
+    &.rounded .spinner {
+      border-radius: calc(
+        #{map-get($font-styles, line-height)} +
+          (#{map-get($styles, padding-top-bottom)} * 2)
+      );
+    }
+
+    &:not(.hasChildren) {
+      padding: map-get($styles, padding-top-bottom);
+    }
+  }
+}
+
+@each $name, $styles in $colors {
+  $default: map-get($styles, default);
+  $default-hover: map-get($styles, default-hover);
+  $ghost: map-get($styles, ghost);
+  $ghost-hover: map-get($styles, ghost-hover);
+  $naked: map-get($styles, naked);
+  $naked-hover: map-get($styles, naked-hover);
+  $loading: map-get($styles, loading);
+
+  .#{$name}Color {
+    background-color: map-get($default, background-color);
+    color: map-get($default, color);
+    box-shadow: inset 0 0 0 $border-width map-get($default, border-color);
+
+    &:not(.disabled):not(.loading):hover {
+      background-color: map-get($default-hover, background-color);
+      color: map-get($default-hover, color);
+      box-shadow: inset
+        0
+        0
+        0
+        $border-width
+        map-get($default-hover, border-color);
+    }
+
+    &.ghost {
+      background-color: map-get($ghost, background-color);
+      color: map-get($ghost, color);
+      box-shadow: inset 0 0 0 $border-width map-get($ghost, border-color);
+    }
+
+    &.ghost:not(.disabled):not(.loading):hover {
+      background-color: map-get($ghost-hover, background-color);
+      color: map-get($ghost-hover, color);
+      box-shadow: inset 0 0 0 $border-width map-get($ghost-hover, border-color);
+    }
+
+    &.naked {
+      background-color: map-get($naked, background-color);
+      color: map-get($naked, color);
+      box-shadow: inset 0 0 0 $border-width map-get($naked, border-color);
+    }
+
+    &.naked:not(.disabled):not(.loading):hover {
+      background-color: map-get($naked-hover, background-color);
+      color: map-get($naked-hover, color);
+      box-shadow: inset 0 0 0 $border-width map-get($naked-hover, border-color);
+    }
+
+    &:not(.naked).loading {
+      background-color: map-get($loading, background-color);
+      color: map-get($loading, color);
+      box-shadow: inset 0 0 0 $border-width map-get($loading, border-color);
+    }
+  }
+}
+
+.stripPadding {
+  padding: 0 !important;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  transition: ease(opacity);
+
+  .loading & {
+    opacity: 0;
+  }
+}
+
+.iconRight,
+.iconLeft {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconRight {
+  .hasChildren & {
+    margin-left: spacing(0.5);
+  }
+}
+
+.iconLeft {
+  .hasChildren & {
+    margin-right: spacing(0.5);
+  }
+}
+
+.spinner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fullWidth {
+  width: 100%;
+  display: block;
+}

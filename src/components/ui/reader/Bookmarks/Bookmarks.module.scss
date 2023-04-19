@@ -1,0 +1,163 @@
+@import '~styles/framework';
+
+.root {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1001;
+
+  @include respond-to(sm) {
+    top: auto;
+    height: 648px;
+  }
+}
+
+.button {
+  height: spacing(6);
+  width: spacing(6);
+
+  @include respond-to(sm) {
+    height: spacing(5);
+    width: spacing(5);
+  }
+
+  @include respond-to(lg) {
+    height: spacing(6);
+    width: spacing(6);
+  }
+}
+
+.bookmarksPicker {
+  background-color: get-color(light);
+  display: block;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+
+  box-shadow: 0 0 50px 0 hsla(0, 0%, 0%, 0.1);
+
+  @include respond-to(lg) {
+    border-radius: 4px;
+    position: absolute;
+    margin-left: spacing(2);
+    left: spacing(6);
+    width: 461px;
+    height: 494px;
+  }
+}
+
+.scroll {
+  height: calc(100vh - 144px); // overflow-y: scroll needs set height
+  overflow-y: auto;
+
+  @include respond-to(sm) {
+    height: 504px;
+  }
+
+  @include respond-to(lg) {
+    height: 346px; // wierd number to prevent scroll bar from cutting off rounded corner
+  }
+}
+
+.contentButton {
+  margin: spacing(2, 0);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  color: get-color(dark);
+  text-align: left;
+  align-items: flex-start;
+
+  .titleWrapper {
+    width: 100%;
+
+    .title {
+      flex-grow: 1;
+    }
+  }
+
+  .titleIconWrapper {
+    height: map-get(map-get($all-font-styles, kramfors), line-height);
+    align-items: center;
+    margin-left: spacing(2);
+    display: flex;
+  }
+
+  &.center {
+    align-items: center;
+  }
+}
+
+.closeButton {
+  padding: 0;
+}
+
+.titleRow {
+  margin-top: 0;
+  margin-bottom: spacing(2);
+}
+
+.controls {
+  border-bottom: 1px solid;
+  border-color: get-color(alpha, 93);
+  padding-bottom: spacing(3);
+  margin: spacing(3, 3, 0);
+
+  @include respond-to(md) {
+    margin: spacing(4, 3, 0);
+  }
+
+  @include respond-to(md) {
+    margin: spacing(3, 3, 0);
+  }
+}
+
+.bookmarksItem {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid;
+  border-color: get-color(alpha, 93);
+  margin: spacing(0, 3);
+
+  > button:first-child {
+    margin-right: spacing(2);
+  }
+}
+
+.bookmarksItem:last-of-type {
+  border-bottom: none;
+  margin-bottom: spacing(3);
+
+  @include respond-to(md) {
+    margin-bottom: spacing(4);
+  }
+
+  @include respond-to(md) {
+    margin-bottom: spacing(3);
+  }
+}
+
+.deleteButton {
+  @include respond-to(lg) {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 16px;
+  }
+}
+
+.hoverIcon {
+  i {
+    @include respond-to(lg) {
+      opacity: 0;
+    }
+  }
+}
+
+.hoverIcon:hover {
+  i {
+    opacity: 1;
+  }
+}

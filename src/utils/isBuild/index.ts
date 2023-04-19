@@ -1,0 +1,1 @@
+export { isBuild } from './isBuild';

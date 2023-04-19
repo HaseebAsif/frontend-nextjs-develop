@@ -1,0 +1,25 @@
+@import '~styles/framework';
+
+.menuWrapper {
+  display: flex;
+  box-sizing: border-box;
+  width: 205px;
+  position: fixed;
+  overflow: hidden;
+  top: 80px;
+  right: 0;
+  border-radius: 4px;
+  z-index: -1;
+}
+
+.menu {
+  background-color: get-color(light);
+  padding-top: spacing(1);
+  padding-bottom: spacing(1);
+  width: 100%;
+}
+
+.accordionLabel {
+  @include get-font-style(bogota);
+  padding-left: spacing(2);
+}

@@ -1,0 +1,16 @@
+@import '~styles/framework';
+
+.root {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  background-color: get-color(dark, null, 0.75);
+}
+
+.inner {
+  height: 100%;
+  overflow: auto;
+}

@@ -1,0 +1,47 @@
+@import '~styles/framework';
+
+.root {
+  margin-bottom: spacing(12);
+  margin-top: spacing(6);
+
+  @include respond-to(sm) {
+    margin-bottom: spacing(25);
+    margin-top: spacing(25);
+    max-width: 520px;
+    padding: 0;
+  }
+
+  @include respond-to(md) {
+    max-width: 688px;
+  }
+
+  @include respond-to(lg) {
+    margin-bottom: spacing(31);
+    max-width: 738px;
+  }
+
+  p {
+    @include get-font-style(kramfors);
+    margin-bottom: spacing(4);
+
+    @include respond-to(sm) {
+      @include get-font-style(torsby);
+    }
+  }
+
+  p:last-of-type {
+    margin-bottom: 0;
+  }
+
+  h1 {
+    margin-bottom: spacing(2);
+    @include get-font-style(rio);
+
+    @include respond-to(sm) {
+      @include get-font-style(moscow);
+    }
+    @include respond-to(md) {
+      @include get-font-style(berlin);
+    }
+  }
+}

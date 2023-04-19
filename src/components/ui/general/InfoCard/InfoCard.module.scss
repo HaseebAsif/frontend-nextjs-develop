@@ -1,0 +1,56 @@
+@import '~styles/framework';
+
+.cardContainer {
+  background-color: get-color(light);
+  border-radius: 18px;
+  box-shadow: 5px 5px 40px rgba(179, 179, 179, 0.25);
+  padding: spacing(3);
+  width: 100%;
+
+  @include respond-to(lg) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 30px;
+    padding: spacing(8);
+  }
+}
+
+.logoContainer {
+  height: 60px;
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: get-color(primary);
+  margin-bottom: spacing(6);
+
+  @include respond-to(lg) {
+    height: 104px;
+    width: 104px;
+    margin-bottom: spacing(23);
+  }
+}
+
+.icon {
+  color: get-color(light);
+
+  @include respond-to(lg) {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+.highlightedWord {
+  color: get-color(primary);
+}
+
+.cardTextContainer {
+  overflow-wrap: anywhere;
+  @include get-font-style(moscow);
+
+  @include respond-to(lg) {
+    @include get-font-style(nairobi);
+  }
+}

@@ -1,0 +1,24 @@
+@import '~styles/framework';
+
+.root {
+  width: 100%;
+  margin: 0 auto;
+
+  @each $breakpoint, $padding, $max-width in $container-settings {
+    @if ($breakpoint == 'root') {
+      padding-left: spacing($padding);
+      padding-right: spacing($padding);
+      max-width: calc($max-width + spacing($padding * 2));
+    } @else {
+      @include respond-to($breakpoint) {
+        padding-left: spacing($padding);
+        padding-right: spacing($padding);
+        max-width: calc($max-width + spacing($padding * 2));
+      }
+    }
+  }
+}
+
+.fullWidth {
+  max-width: none;
+}

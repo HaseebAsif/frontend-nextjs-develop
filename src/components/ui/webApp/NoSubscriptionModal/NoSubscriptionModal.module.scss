@@ -1,0 +1,23 @@
+@import '~styles/framework';
+
+.modal {
+  padding: spacing(2);
+  @include respond-to(sm) {
+    padding: spacing(4);
+  }
+}
+
+.subscribeButton {
+  margin-top: spacing(3);
+  margin-bottom: spacing(2);
+  @include respond-to(sm) {
+    margin-top: spacing(4);
+  }
+}
+
+.message {
+  @include get-font-style(kramfors);
+  @include respond-to(sm) {
+    @include get-font-style(denver);
+  }
+}

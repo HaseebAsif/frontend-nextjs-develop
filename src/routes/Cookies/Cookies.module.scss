@@ -1,0 +1,33 @@
+@import '~styles/framework';
+
+.root {
+  white-space: pre-wrap;
+  margin-top: spacing(4);
+  margin-bottom: spacing(28);
+  padding: spacing(0, 3);
+
+  > div:not(.header):not(:last-child) {
+    margin-bottom: spacing(6);
+  }
+
+  h6 {
+    @include get-font-style(bogota);
+    margin-bottom: spacing(1);
+  }
+
+  .header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: spacing(4);
+  }
+
+  @include respond-to(sm) {
+    margin-top: spacing(7);
+    width: 100%;
+  }
+
+  @include respond-to(lg) {
+    max-width: 648px;
+    margin-bottom: spacing(30);
+  }
+}

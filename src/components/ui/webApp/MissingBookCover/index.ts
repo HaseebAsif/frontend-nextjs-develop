@@ -1,0 +1,1 @@
+export { MissingBookCover } from './MissingBookCover';

@@ -1,0 +1,136 @@
+@import '~styles/framework';
+
+.root {
+  @include respond-to(sm) {
+    padding: spacing(0, 15.5);
+  }
+
+  @include respond-to(lg) {
+    padding: 0;
+    min-width: 1128px;
+  }
+}
+
+.infoBox {
+  background-color: get-color(light);
+  box-shadow: 0 2px 8px get-color(primary, null, 0.17);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: spacing(1);
+  padding: spacing(5);
+  border-radius: spacing(1);
+  height: 100%;
+
+  p {
+    @include get-font-style(kramfors);
+    margin-top: spacing(1.5);
+    text-align: center;
+  }
+
+  h6 {
+    @include get-font-style(denver);
+    text-align: center;
+  }
+}
+
+.infoWrapper {
+  @include respond-to(lg) {
+    display: flex;
+  }
+}
+
+.imageWrapper {
+  display: flex;
+  height: 430px;
+  position: relative;
+  margin-bottom: spacing(3);
+
+  @include respond-to(sm) {
+    height: 653px;
+    margin-bottom: spacing(6);
+  }
+
+  @include respond-to(lg) {
+    height: 684px;
+  }
+}
+
+.sLightOne {
+  @include respond-to(sm) {
+    mask-image: url('~assets/icons/s-logo-light-1.svg');
+    transition: ease(transform, sloth), ease(opacity, medium);
+    background-color: get-color(beta);
+    mask-size: cover;
+    position: absolute;
+    opacity: 0;
+    left: -50px;
+    height: 622px;
+    width: 620px;
+    top: 10px;
+  }
+  @include respond-to(lg) {
+    height: 679px;
+    width: 657px;
+    left: -45px;
+  }
+}
+
+.img {
+  img {
+    border-radius: spacing(1);
+  }
+  opacity: 0;
+  transition: ease(transform, sloth), ease(opacity, medium);
+  width: 100%;
+}
+
+.visible {
+  opacity: 1;
+}
+
+.infoSection {
+  margin-bottom: spacing(9);
+  margin-top: spacing(9);
+
+  @include respond-to(sm) {
+    margin-bottom: spacing(12);
+  }
+
+  @include respond-to(lg) {
+    margin-top: spacing(20);
+  }
+}
+
+.sectionText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include respond-to(lg) {
+    width: 447px;
+  }
+
+  h5 {
+    @include get-font-style(rio);
+    margin-bottom: spacing(1);
+    text-align: left;
+    margin: spacing(2);
+
+    @include respond-to(sm) {
+      @include get-font-style(moscow);
+    }
+
+    @include respond-to(lg) {
+      @include get-font-style(berlin);
+    }
+  }
+
+  p {
+    @include get-font-style(kramfors);
+    margin: spacing(2);
+
+    @include respond-to(lg) {
+      @include get-font-style(torsby);
+    }
+  }
+}

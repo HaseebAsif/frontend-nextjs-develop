@@ -1,0 +1,65 @@
+@import '~styles/framework';
+
+.navigation {
+  padding-bottom: 0;
+  position: relative;
+  margin-bottom: spacing(2);
+}
+
+.navigationInner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow: auto;
+  padding-bottom: 0;
+
+  &.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: unset;
+    overflow: auto;
+  }
+}
+
+.button {
+  display: block;
+  text-align: center;
+  user-select: none;
+  padding: spacing(1.5, 3);
+  border-radius: 0;
+  background-color: transparent;
+  position: relative;
+  transition: ease(opacity), ease(color);
+
+  .grid & {
+    padding: 0;
+  }
+
+  &::after,
+  .nonHover {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: ease(height);
+  }
+
+  &:not(:disabled):not(.nonHover):hover,
+  &.active {
+    color: get-color(primary);
+
+    &::after {
+      background-color: get-color(secondary);
+      height: 2px;
+    }
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

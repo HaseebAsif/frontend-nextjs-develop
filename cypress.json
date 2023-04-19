@@ -1,0 +1,8 @@
+{
+  "baseUrl": "http://localhost:9000",
+  "supportFile": "./cypress/support/index.ts",
+  "pluginsFile": "./cypress/plugins/index.ts",
+  "viewportWidth": 1280,
+  "viewportHeight": 720,
+  "userAgent": "cypress-testing"
+}

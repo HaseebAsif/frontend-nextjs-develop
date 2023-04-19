@@ -1,0 +1,84 @@
+@import '~styles/framework';
+
+.root {
+  z-index: 1;
+  margin-bottom: spacing(9);
+  margin-top: spacing(9);
+  white-space: pre-wrap;
+
+  h4 {
+    text-align: center;
+    @include get-font-style(denver);
+
+    @include respond-to(sm) {
+      @include get-font-style(rio);
+    }
+
+    @include respond-to(lg) {
+      text-align: left;
+      @include get-font-style(moscow);
+    }
+  }
+
+  h5 {
+    margin-bottom: spacing(0.5);
+    @include get-font-style(bogota);
+
+    @include respond-to(sm) {
+      @include get-font-style(denver);
+    }
+  }
+
+  .header {
+    margin-bottom: spacing(4);
+  }
+
+  @include respond-to(sm) {
+    margin-bottom: spacing(12);
+  }
+
+  @include respond-to(lg) {
+    margin-bottom: spacing(25.5);
+    margin-top: spacing(12);
+    padding: 0;
+    width: 544px;
+  }
+}
+
+.background {
+  background-color: get-color(beta);
+  height: 1760px;
+  left: -4240px;
+  mask-image: url('~assets/icons/booksquare.svg');
+  mask-size: cover;
+  position: absolute;
+  top: -670px;
+  transform: rotate(-14.71deg);
+  width: 10639px;
+  z-index: 0;
+
+  @include respond-to(sm) {
+    height: 3063px;
+    left: -7460px;
+    top: -1490px;
+    transform: rotate(-24.9deg);
+    width: 18537px;
+  }
+
+  @include respond-to(lg) {
+    height: 4917px;
+    left: -12300px;
+    top: -2960px;
+    transform: rotate(-35.22deg);
+    width: 29721px;
+  }
+}
+
+.backgroundContainer {
+  height: calc(100% + #{map-get($header-heights, navbar-down)});
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: -#{map-get($header-heights, navbar-down)};
+  width: 100%;
+}

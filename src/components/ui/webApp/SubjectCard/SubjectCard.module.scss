@@ -1,0 +1,22 @@
+@import '~styles/framework';
+
+.root {
+  padding: spacing(2);
+  border-radius: spacing(1);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-right: spacing(2);
+}
+
+.lightColor {
+  background-color: get-color(light);
+  color: get-color(alpha);
+}

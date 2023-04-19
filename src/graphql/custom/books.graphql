@@ -1,0 +1,13 @@
+query CustomBooks($filter: BookFilter, $sorting: SortOrdering) {
+  books(filter: $filter, sorting: $sorting) {
+    edges {
+      id
+      title
+    }
+    meta {
+      limit
+      offset
+      total
+    }
+  }
+}

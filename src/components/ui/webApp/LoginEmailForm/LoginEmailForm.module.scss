@@ -1,0 +1,14 @@
+@import '~styles/framework';
+
+.form {
+  margin-bottom: spacing(3);
+}
+
+.forgotSection {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.forgotLabel {
+  @include get-font-style(oslo);
+}

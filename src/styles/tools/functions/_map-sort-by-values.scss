@@ -1,0 +1,49 @@
+// https://gist.github.com/Jakobud/a0ac11e80a1de453cd86f0d3fc0a1410
+
+@function map-sort-by-values($map) {
+  // Transform map to zipped list
+  $keys: ();
+  $values: ();
+
+  @each $key, $val in $map {
+    $keys: append($keys, $key);
+    $values: append($values, $val);
+  }
+
+  $list: zip($keys, $values);
+
+  $sorted-map: ();
+  @while length($list) > 0 {
+    // Find smallest pair
+    $smallest-pair: nth($list, 1);
+    @each $pair in $list {
+      $value: nth($pair, 2);
+      $smallest-value: nth($smallest-pair, 2);
+      @if $value < $smallest-value {
+        $smallest-pair: $pair;
+      }
+    }
+
+    // Add smallest pair to sorted map
+    $key: nth($smallest-pair, 1);
+    $value: nth($smallest-pair, 2);
+    $sorted-map: map-merge(
+      $sorted-map,
+      (
+        $key: $value
+      )
+    );
+
+    // Remove from list smallest pair
+    $smallest-pair-index: index($list, $smallest-pair);
+    $new-list: ();
+    @for $i from 1 through length($list) {
+      @if $i != $smallest-pair-index {
+        $new-list: append($new-list, nth($list, $i), 'space');
+      }
+    }
+    $list: $new-list;
+  }
+
+  @return $sorted-map;
+}

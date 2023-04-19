@@ -1,0 +1,76 @@
+// Wrapper
+.multiValue {
+  > div {
+    background: none;
+    overflow: hidden;
+    line-height: initial;
+  }
+}
+
+.multiValueLabel {
+  display: flex;
+  align-items: center;
+}
+
+.multiValueRemove {
+  display: flex;
+  cursor: pointer;
+
+  // Icon wrapper
+  > div {
+    border-radius: 0;
+  }
+}
+
+.mdSize {
+  .multiValueLabel {
+    padding: spacing(0, 0.5);
+
+    // Text container
+    > div {
+      @include get-font-style(kramfors);
+    }
+  }
+
+  .multiValueRemove > div {
+    padding: spacing(0, 1);
+  }
+}
+
+.lightColor {
+  .singleValue > div {
+    color: get-color(dark);
+  }
+
+  &.disabled .singleValue > div {
+    color: get-color(dark, 38);
+  }
+
+  .multiValue > div {
+    background-color: get-color(dark);
+  }
+
+  .multiValueLabel > div {
+    color: get-color(light);
+  }
+
+  .multiValueRemove {
+    background-color: get-color(dark) !important;
+
+    > div {
+      i,
+      svg {
+        color: get-color(light);
+      }
+
+      &:hover {
+        background-color: get-color(dark);
+      }
+
+      &:hover i,
+      &:hover svg {
+        color: get-color(light);
+      }
+    }
+  }
+}

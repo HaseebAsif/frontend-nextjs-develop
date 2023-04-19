@@ -1,0 +1,23 @@
+$heading-styles: (
+  h1: tokyo,
+  h2: nairobi,
+  h3: berlin,
+  h4: moscow,
+  h5: rio,
+  h6: denver
+);
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+
+@each $element, $type in $heading-styles {
+  #{$element} {
+    @include get-font-style($type);
+  }
+}

@@ -1,0 +1,11 @@
+@function get-color($color, $lightness: null, $alpha: null) {
+  $get-color: map-get($all-colors, $color);
+  $get-lightness: $lightness or lightness($get-color);
+  $get-alpha: $alpha or alpha($get-color);
+
+  @return change-color(
+    $get-color,
+    $lightness: $get-lightness,
+    $alpha: $get-alpha
+  );
+}

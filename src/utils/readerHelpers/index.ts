@@ -1,0 +1,1 @@
+export { getIdFromCfi } from './readerHelpers';

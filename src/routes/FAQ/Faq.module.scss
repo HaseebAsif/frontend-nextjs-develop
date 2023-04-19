@@ -1,0 +1,69 @@
+@import '~styles/framework';
+
+.root {
+  white-space: pre-wrap;
+  margin-top: spacing(4);
+  margin-bottom: spacing(12);
+
+  > div:not(.header):not(:last-child) {
+    margin-bottom: spacing(7);
+
+    @include respond-to(sm) {
+      margin-bottom: spacing(9);
+    }
+  }
+
+  @include respond-to(sm) {
+    margin-top: spacing(9);
+    width: 100%;
+  }
+
+  @include respond-to(lg) {
+    max-width: 738px;
+    margin-bottom: spacing(30);
+    padding: 0;
+  }
+
+  .contact {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    p {
+      margin-bottom: spacing(2);
+      @include get-font-style(palermo);
+
+      @include respond-to(sm) {
+        max-width: 548px;
+        @include get-font-style(torsby);
+      }
+      @include respond-to(sm) {
+        max-width: 100%;
+      }
+    }
+
+    h6 {
+      margin-bottom: spacing(1);
+    }
+
+    h5 {
+      margin-bottom: spacing(1);
+      @include get-font-style(bogota);
+
+      @include respond-to(sm) {
+        @include get-font-style(denver);
+      }
+
+      @include respond-to(lg) {
+        @include get-font-style(rio);
+      }
+    }
+  }
+
+  .faqHeader {
+    text-align: center;
+    margin-bottom: spacing(4);
+  }
+}

@@ -1,0 +1,49 @@
+$border-width: 1px;
+
+.control {
+  .label {
+    @include get-font-style(kramfors);
+    font-weight: 700;
+  }
+
+  .inner {
+    border-radius: 4px;
+    box-shadow: none;
+    transition: none;
+    min-height: 0;
+    border: none;
+    transition: ease(box-shadow);
+    padding-right: spacing(1);
+    cursor: pointer;
+  }
+}
+
+.mdSize .inner {
+  @include get-font-style(kramfors);
+
+  > div:nth-child(1) {
+    padding: spacing(0, 0.25);
+  }
+}
+
+.lightColor {
+  .inner {
+    background-color: get-color(light);
+  }
+}
+
+:global(.is-tabbing) .hasFocus .controlInner {
+  outline: 5px auto -webkit-focus-ring-color !important;
+}
+
+.mdSize {
+  $padding: spacing(1);
+  $padding-right: spacing(1.5);
+  $font-style: kramfors;
+
+  .inner {
+    @include get-font-style($font-style);
+    padding: $padding;
+    padding-right: $padding-right;
+  }
+}

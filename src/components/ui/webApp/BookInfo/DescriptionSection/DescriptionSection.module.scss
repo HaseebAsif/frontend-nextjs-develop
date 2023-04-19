@@ -1,0 +1,67 @@
+@import '~styles/framework';
+
+.box {
+  display: flex;
+  flex-direction: column;
+}
+
+.textBox {
+  margin-bottom: spacing(2);
+  position: relative;
+  overflow: hidden;
+  height: auto;
+  min-height: 290px;
+}
+
+.gradientText {
+  max-height: 290px;
+}
+
+.descriptionHeadline {
+  @include get-font-style(bogota);
+  margin-bottom: spacing(1);
+}
+
+.gradientBox {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  margin: 0;
+  padding: 100px 0;
+  width: 100%;
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 1)
+  );
+  transition: padding 1s ease;
+}
+
+.gradientBoxNoShow {
+  padding: 0;
+}
+
+.buttonBox {
+  align-self: center;
+  @include respond-to(sm) {
+    align-self: auto;
+  }
+}
+
+.toggleDescriptionButton {
+  margin-bottom: spacing(7);
+
+  i {
+    transition: ease(transform, fast);
+  }
+
+  @include respond-to(sm) {
+    padding-left: 0;
+  }
+}
+
+.showDescription {
+  i {
+    transform: rotate(-180deg);
+  }
+}

@@ -1,0 +1,1 @@
+export { SearchFavourites } from './SearchFavourites';

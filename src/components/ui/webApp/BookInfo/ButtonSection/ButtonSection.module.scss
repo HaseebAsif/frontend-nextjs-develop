@@ -1,0 +1,12 @@
+@import '~styles/framework';
+
+.box {
+  margin-bottom: spacing(6);
+}
+
+.readBookButton {
+  margin-bottom: spacing(1);
+  @include respond-to(sm) {
+    margin-bottom: spacing(2);
+  }
+}

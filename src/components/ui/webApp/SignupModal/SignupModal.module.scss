@@ -1,0 +1,29 @@
+@import '~styles/framework';
+
+.modalWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: spacing(3);
+
+  @include respond-to(sm) {
+    padding: spacing(4);
+  }
+}
+
+.paddingDown {
+  padding-bottom: spacing(3);
+}
+
+.select {
+  label {
+    :nth-child(2) {
+      background-color: get-color(alpha, 93);
+
+      span {
+        background-color: get-color(alpha, 93);
+      }
+    }
+  }
+}

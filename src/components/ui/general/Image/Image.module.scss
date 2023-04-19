@@ -1,0 +1,64 @@
+@import 'styles/framework';
+
+$background-colors: (
+  dark: get-color(dark),
+  light: get-color(light)
+);
+
+.root,
+.fixedLayout,
+.intrinsicLayout {
+  display: inline-block;
+}
+
+.cover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.fillLayout,
+.responsiveLayout {
+  display: block;
+}
+
+.fadeIn .image {
+  opacity: 0;
+  transition: ease(opacity, medium);
+}
+
+.fadeIn.loaded .image {
+  opacity: 1;
+}
+
+@each $name, $color in $background-colors {
+  .#{$name}BackgroundColor > span {
+    background-color: $color !important;
+  }
+}
+
+.fit-fill .image {
+  object-fit: fill;
+}
+
+.fit-contain .image {
+  object-fit: contain;
+}
+
+.fit-cover .image {
+  object-fit: cover;
+}
+
+.fit-none .image {
+  object-fit: none;
+}
+
+.fit-scale-down .image {
+  object-fit: scale-down;
+}
+
+.position-bottom {
+  object-position: bottom;
+}

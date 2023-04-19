@@ -1,0 +1,38 @@
+.option {
+  .isSelected {
+    font-weight: 700;
+  }
+}
+
+.mdSize {
+  .option {
+    @include get-font-style(kramfors);
+  }
+
+  .noOptionsMessage > div {
+    padding: spacing(2);
+  }
+}
+
+.lightColor {
+  .option {
+    color: get-color(dark);
+    background-color: get-color(light);
+
+    &:hover,
+    .isFocused {
+      background-color: get-color(dark);
+      color: get-color(light);
+    }
+
+    .isSelected {
+      background-color: get-color(dark);
+      color: get-color(light);
+    }
+  }
+
+  .noOptionsMessage > div {
+    color: get-color(light);
+    background-color: get-color(dark);
+  }
+}

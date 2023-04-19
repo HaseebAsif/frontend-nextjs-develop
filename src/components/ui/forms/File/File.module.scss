@@ -1,0 +1,35 @@
+@import '~styles/framework';
+
+.root {
+  display: inline-block;
+  position: relative;
+}
+
+.fullWidth {
+  width: 100%;
+  display: block;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: transparent;
+  }
+}
+
+.input {
+  position: absolute;
+  left: -9999px;
+}
+
+:global(.is-tabbing) .input:focus + .button {
+  outline: 5px auto -webkit-focus-ring-color !important;
+}

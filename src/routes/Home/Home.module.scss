@@ -1,0 +1,61 @@
+@import '~styles/framework';
+
+.root {
+  flex: 1;
+}
+
+.hero {
+  padding: spacing(6, 0, 8, 0);
+
+  @include respond-to(sm) {
+    padding: spacing(5, 0, 7, 0);
+  }
+
+  @include respond-to(lg) {
+    padding: spacing(12, 0);
+  }
+}
+
+.problemDefinition {
+  margin-bottom: spacing(8);
+
+  @include respond-to(sm) {
+    margin-bottom: spacing(7);
+  }
+
+  @include respond-to(lg) {
+    margin-bottom: spacing(22);
+  }
+}
+
+.cardSection {
+  margin-bottom: spacing(8);
+
+  @include respond-to(sm) {
+    margin-bottom: spacing(7);
+  }
+
+  @include respond-to(lg) {
+    margin-bottom: spacing(12.75);
+  }
+}
+
+.purposeSection {
+  margin-bottom: spacing(6);
+
+  @include respond-to(sm) {
+    margin-bottom: spacing(7);
+  }
+
+  @include respond-to(lg) {
+    margin-bottom: spacing(12.75);
+  }
+}
+
+.bookADemoSection {
+  margin-bottom: spacing(6.75);
+
+  @include respond-to(lg) {
+    margin-bottom: spacing(12.75);
+  }
+}

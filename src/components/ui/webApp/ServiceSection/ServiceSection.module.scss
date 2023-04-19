@@ -1,0 +1,197 @@
+@import '~styles/framework';
+
+.root {
+  margin-bottom: spacing(9);
+  margin-top: spacing(4);
+
+  @include respond-to(sm) {
+    margin-bottom: spacing(12);
+    margin-top: spacing(9);
+  }
+
+  @include respond-to(lg) {
+    margin-bottom: spacing(15);
+    margin-top: spacing(12);
+  }
+}
+
+.imageWrapper {
+  display: flex;
+  height: 430px;
+  position: relative;
+
+  @include respond-to(sm) {
+    height: 653px;
+    // width: 544px;
+  }
+
+  @include respond-to(lg) {
+    height: 684px;
+  }
+}
+
+.img {
+  opacity: 0;
+  transition: ease(transform, sloth), ease(opacity, medium);
+  width: 100%;
+
+  img {
+    border-radius: 8px;
+
+    @include respond-to(lg) {
+      border-radius: 12px;
+    }
+  }
+}
+
+.sLightOne {
+  opacity: 0;
+  transition: ease(transform, sloth), ease(opacity, medium);
+  background-color: get-color(beta);
+  mask-image: url('~assets/icons/s-logo-light-mobile.svg');
+  mask-size: cover;
+  position: absolute;
+  height: 459px;
+  width: 375px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  @include respond-to(sm) {
+    mask-image: url('~assets/icons/s-logo-light-1.svg');
+    height: 622px;
+    width: 601px;
+  }
+  @include respond-to(lg) {
+    height: 679px;
+    width: 657px;
+  }
+}
+
+.sLightTwo {
+  opacity: 0;
+  transition: ease(transform, sloth), ease(opacity, medium);
+  background-color: get-color(beta);
+  mask-image: url('~assets/icons/s-logo-light-mobile.svg');
+  mask-size: cover;
+  position: absolute;
+  height: 459px;
+  width: 375px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  @include respond-to(sm) {
+    mask-image: url('~assets/icons/s-logo-light-2.svg');
+    height: 622px;
+    width: 601px;
+  }
+  @include respond-to(lg) {
+    height: 680px;
+    width: 657px;
+  }
+}
+
+.visible {
+  opacity: 1;
+}
+
+.infoSection {
+  margin-bottom: spacing(9);
+
+  @include respond-to(sm) {
+    margin-bottom: spacing(12);
+  }
+
+  @include respond-to(lg) {
+    margin-bottom: spacing(15);
+  }
+}
+
+.section {
+  margin-bottom: spacing(11);
+
+  @include respond-to(sm) {
+    margin-bottom: spacing(12);
+  }
+
+  @include respond-to(lg) {
+    margin-bottom: spacing(19);
+  }
+}
+
+.sectionInternal {
+  margin-bottom: spacing(4);
+
+  @include respond-to(sm) {
+    margin-bottom: spacing(6);
+  }
+
+  @include respond-to(lg) {
+    margin-bottom: spacing(10);
+  }
+}
+
+.sectionText {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.headline {
+  margin-bottom: spacing(2);
+  @include get-font-style(rio);
+
+  @include respond-to(sm) {
+    @include get-font-style(moscow);
+    margin-bottom: spacing(3);
+  }
+
+  @include respond-to(lg) {
+    @include get-font-style(berlin);
+  }
+}
+
+.info {
+  @include respond-to(lg) {
+    @include get-font-style(torsby);
+  }
+}
+
+.boxes {
+  padding-bottom: spacing(8);
+
+  @include respond-to(sm) {
+    padding-bottom: spacing(11);
+  }
+
+  @include respond-to(lg) {
+    padding-bottom: spacing(22);
+  }
+}
+
+.infoBox {
+  background-color: get-color(light);
+  box-shadow: 0 2px 8px get-color(primary, null, 0.17);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: spacing(1);
+  padding: spacing(4);
+  border-radius: spacing(1);
+
+  @include respond-to(lg) {
+    height: 428px;
+  }
+
+  p {
+    @include get-font-style(kramfors);
+    margin-top: spacing(1.5);
+    text-align: center;
+  }
+
+  h2 {
+    @include get-font-style(denver);
+    text-align: center;
+  }
+}

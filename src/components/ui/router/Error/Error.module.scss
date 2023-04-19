@@ -1,0 +1,26 @@
+@import '~styles/framework';
+
+.root {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding-top: spacing(12);
+  padding-bottom: spacing(12);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.iconHolder svg {
+  height: 272px;
+  margin-bottom: spacing(7);
+}
+
+.heading {
+  @include get-font-style(moscow);
+  margin-bottom: spacing(4);
+}
+
+.button {
+  min-width: 240px;
+}

@@ -1,0 +1,132 @@
+@import '~styles/framework';
+
+.container {
+  margin-bottom: spacing(10);
+  margin-top: spacing(4);
+
+  @include respond-to(sm) {
+    max-width: 336px;
+    padding: 0;
+  }
+
+  @include respond-to(lg) {
+    max-width: 350px;
+  }
+}
+
+.registerAccount {
+  @include get-font-style(rio);
+  margin-bottom: spacing(3);
+}
+
+.emailLabel {
+  @include get-font-style(oslo);
+}
+
+.subTitle {
+  @include get-font-style(oslo);
+}
+
+.arrowButton {
+  margin-bottom: spacing(6);
+}
+
+.password {
+  @include get-font-style(denver);
+  max-width: 360px;
+  margin-bottom: spacing(1);
+  text-align: left;
+
+  input {
+    margin-top: spacing(1);
+  }
+}
+
+.buttonWrapper {
+  background-color: get-color(dark);
+  border-radius: 4px;
+  height: 48px;
+}
+
+.darkBackground {
+  background-color: get-color(dark);
+}
+
+.epsilonBackground {
+  background-color: get-color(epsilon);
+}
+
+.line {
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  margin-bottom: spacing(3);
+  margin-top: spacing(4);
+}
+
+.lineText {
+  padding-left: spacing(3);
+  padding-right: spacing(3);
+  text-align: center;
+}
+
+.button {
+  height: 100%;
+}
+
+.buttonContent {
+  color: get-color(light);
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.icon {
+  align-items: center;
+  display: flex;
+  left: 0;
+  margin-left: spacing(2);
+  position: absolute;
+}
+
+.input {
+  @include get-font-style(oslo);
+  max-width: 360px;
+  margin-bottom: spacing(2);
+}
+
+.checkbox {
+  margin-top: spacing(6);
+  text-align: center;
+  width: 330px;
+
+  @include respond-to(sm) {
+    margin-top: spacing(7);
+    width: 390px;
+    margin-left: spacing(-3);
+  }
+
+  @include respond-to(lg) {
+    margin-top: spacing(9);
+  }
+}
+
+.checkboxText {
+  @include get-font-style(palermo);
+  color: get-color(alpha, 62);
+}
+
+.link {
+  @include get-font-style(palermo);
+  text-decoration: underline;
+  color: get-color(alpha, 62);
+}
+
+.errorLabel {
+  @include get-font-style(sunne);
+  align-items: center;
+  color: get-color(error);
+}

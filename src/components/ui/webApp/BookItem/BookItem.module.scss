@@ -1,0 +1,86 @@
+@import '~styles/framework';
+
+.box {
+  height: 178px;
+  margin-bottom: spacing(1);
+  position: relative;
+  width: 100%;
+
+  @include respond-to(sm) {
+    height: 312px;
+  }
+
+  @include respond-to(lg) {
+    height: 208px;
+  }
+
+  .imgWrapper {
+    height: 100%;
+    width: 100%;
+
+    .img {
+      img {
+        max-height: 220px;
+        height: auto;
+        bottom: 0;
+        top: auto;
+
+        border-radius: 4px;
+        @include respond-to(lg) {
+          border-radius: 6px;
+          max-height: 244px;
+        }
+      }
+    }
+  }
+}
+
+.searchItemBox {
+  height: 236px;
+
+  @include respond-to(sm) {
+    height: 228px;
+  }
+
+  @include respond-to(lg) {
+    height: 252px;
+  }
+}
+
+.textBox {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.bookTitle {
+  @include get-font-style(bogota);
+  width: auto;
+}
+
+.author {
+  color: get-color(alpha, 38);
+
+  @include respond-to(sm) {
+    @include get-font-style(palermo);
+  }
+
+  @include respond-to(lg) {
+    @include get-font-style(kramfors);
+  }
+}
+
+.year {
+  color: get-color(alpha, 38);
+  @include get-font-style(palermo);
+
+  @include respond-to(sm) {
+    @include get-font-style(sunne);
+  }
+
+  @include respond-to(lg) {
+    @include get-font-style(palermo);
+  }
+}

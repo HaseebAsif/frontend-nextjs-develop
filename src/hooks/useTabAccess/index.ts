@@ -1,0 +1,1 @@
+export { useTabAccess } from './useTabAccess';

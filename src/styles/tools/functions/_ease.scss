@@ -1,0 +1,23 @@
+@function ease(
+  $property,
+  $duration: null,
+  $timing-function: null,
+  $delay: null
+) {
+  $get-duration: map-get($durations, fast);
+  $get-timing-function: map-get($easings, ease);
+
+  @if map-has-key($durations, $duration) {
+    $get-duration: map-get($durations, $duration);
+  }
+
+  @if map-has-key($easings, $timing-function) {
+    $get-timing-function: map-get($easings, $timing-function);
+  }
+
+  @if map-has-key($durations, $delay) {
+    $delay: map-get($durations, $delay);
+  }
+
+  @return $property $get-duration $get-timing-function $delay;
+}

@@ -1,0 +1,59 @@
+@import '~styles/framework';
+
+.desktopContainer {
+  z-index: 9999;
+  position: fixed;
+  top: #{map-get($header-heights, navbar-down)};
+  background-color: #fff;
+  left: 0;
+  padding: 0;
+  border-top: 1px solid get-color(alpha, 93);
+  border-bottom: 1px solid get-color(alpha, 93);
+}
+
+.desktopInnerContainer {
+  margin: 0 auto;
+
+  @include respond-to(md) {
+    padding-left: spacing(4);
+    padding-right: spacing(4);
+    padding-top: spacing(4);
+    padding-bottom: spacing(3);
+  }
+  @include respond-to(lg) {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 1128px;
+  }
+}
+
+.title {
+  @include get-font-style(bogota);
+  margin-top: spacing(3.5);
+  margin-bottom: spacing(3);
+  @include respond-to(md) {
+    @include get-font-style(denver);
+    margin-top: 0;
+  }
+}
+
+.subject {
+  color: get-color(alpha, 38);
+
+  &:hover {
+    color: get-color(dark);
+  }
+}
+
+.list {
+  column-count: 2;
+  @include respond-to(lg) {
+    column-count: 3;
+  }
+  list-style: none;
+  margin: 0;
+}
+
+.listItem {
+  padding-bottom: spacing(2);
+}

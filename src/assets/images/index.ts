@@ -1,0 +1,17 @@
+export { default as BooksquareHeroImageDesktop } from './booksquare_hero_price_middle.png';
+export { default as CoffeeCup } from './coffee_cup.png';
+export { default as homeHeroImage } from './home-hero-image.png';
+export { default as homeServiceSectionImage1 } from './home-service-section-image-1.png';
+export { default as homeServiceSectionImage2 } from './home-service-section-image-2.png';
+export { default as publisherImage3Md } from './inspirera.jpg';
+export { default as publisherImage3Sm } from './inspirera.jpg';
+export { default as publisherImage3Lg } from './inspirera.jpg';
+export { default as publisherImage3Xs } from './inspirera.jpg';
+export { default as publisherImage1 } from './publisher-image1.jpg';
+export { default as publisherImage2 } from './publisher-image2.jpeg';
+export { default as StudyOnePager } from './study_1.png';
+export { default as StudyTwo } from './study_2.png';
+export { default as StudyThree } from './study_3.png';
+export { default as StudyFour } from './study_4.png';
+export { default as BooksquareOg } from './booksquare-og.png';
+export { default as BooksquareHeroImageMobile } from './booksquare_hero_price_middle.png';

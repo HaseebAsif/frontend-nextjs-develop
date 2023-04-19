@@ -1,0 +1,140 @@
+@import '~styles/framework';
+
+.header {
+  margin-top: spacing(9);
+  margin-bottom: spacing(9);
+  @include respond-to(sm) {
+    margin-top: spacing(15);
+    margin-bottom: spacing(15);
+  }
+  @include respond-to(md) {
+    margin-top: spacing(20);
+  }
+
+  h1 {
+    text-align: center;
+    @include get-font-style(moscow);
+    @include respond-to(sm) {
+      @include get-font-style(nairobi);
+    }
+  }
+}
+
+.sectionContainer {
+  margin: 0;
+  padding: spacing(9) spacing(2);
+  @include respond-to(sm) {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+
+  @include respond-to(md) {
+    padding-top: 160px;
+    padding-bottom: 160px;
+  }
+
+  &First {
+    padding-top: 0;
+  }
+
+  &Middle {
+    background: linear-gradient(
+      98.96deg,
+      #fdf9f1 -6.68%,
+      #f1e8db 38.94%,
+      #f1e8db 90.4%
+    );
+  }
+}
+
+.subSection {
+  margin: 0 auto;
+  padding: 0;
+
+  .sectionText {
+    max-width: 552px;
+
+    .subTitle {
+      margin-bottom: spacing(3);
+      @include get-font-style(rio);
+
+      @include respond-to(xs) {
+        @include get-font-style(berlin);
+      }
+    }
+
+    .paragraph {
+      @include get-font-style(kramfors);
+      @include respond-to(xs) {
+        @include get-font-style(torsby);
+      }
+    }
+  }
+
+  .sectionImage {
+    position: relative;
+    height: 217px;
+    margin-top: spacing(3);
+
+    img {
+      border-radius: 16px;
+      filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.08));
+    }
+
+    @include respond-to(sm) {
+      height: 224px;
+    }
+
+    @include respond-to(md) {
+      height: 332px;
+      margin-top: 0;
+      margin-left: spacing(3);
+    }
+    @include respond-to(lg) {
+      margin-left: spacing(12);
+    }
+  }
+
+  .sectionContainerFirst & {
+    .sectionImage {
+      @include respond-to(sm) {
+        height: 320px;
+      }
+    }
+  }
+
+  .sectionContainerMiddle & {
+    .sectionImage {
+      @include respond-to(md) {
+        order: -1;
+      }
+      margin-left: 0;
+    }
+
+    .sectionText {
+      @include respond-to(md) {
+        margin-left: spacing(3);
+      }
+      @include respond-to(lg) {
+        margin-left: spacing(12);
+      }
+    }
+  }
+
+  @include respond-to(xs) {
+    max-width: 343px;
+  }
+  @include respond-to(sm) {
+    max-width: 534px;
+  }
+  @include respond-to(md) {
+    max-width: 944px;
+  }
+  @include respond-to(lg) {
+    max-width: 1127px;
+  }
+}
+
+.boardSection {
+  padding: 0;
+}

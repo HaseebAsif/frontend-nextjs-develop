@@ -1,0 +1,56 @@
+.indicatorsContainer {
+  // This allows buttons to adapt to height
+  // and vertically center if container height grows
+  align-self: stretch;
+  display: flex;
+  // windows fix
+  margin: -1px -1px -1px 0;
+
+  svg,
+  i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.mdSize {
+  .indicatorsContainer {
+    align-self: center;
+
+    > div {
+      padding: 0;
+    }
+  }
+
+  svg,
+  i {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.lightColor {
+  .indicatorsContainer {
+    background-color: get-color(light);
+
+    svg,
+    i {
+      color: get-color(dark, 13);
+    }
+
+    // Separator
+    span {
+      background-color: get-color(light);
+    }
+  }
+
+  &.disabled .indicatorsContainer {
+    background-color: get-color(light);
+
+    svg,
+    i {
+      color: get-color(dark, 38);
+    }
+  }
+}

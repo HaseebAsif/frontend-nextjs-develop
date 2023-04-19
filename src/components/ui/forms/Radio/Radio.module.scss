@@ -1,0 +1,55 @@
+@import '~styles/framework';
+
+$font-style: kramfors;
+$font-styles: map-get($all-font-styles, $font-style);
+
+.root {
+  display: inline-flex;
+  vertical-align: top;
+  user-select: none;
+  flex-direction: row;
+  align-items: center;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.input {
+  position: absolute;
+  left: -9999px;
+}
+
+.radioHolder {
+  height: map-get($font-styles, line-height);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.radio {
+  $size: 18px;
+
+  min-width: $size;
+  min-height: $size;
+  max-width: $size;
+  max-height: $size;
+  background-color: get-color(light);
+  border: 2px solid get-color(dark);
+  border-radius: 50%;
+  transition: ease(background-color), ease(border-color);
+}
+
+.text {
+  padding-left: spacing(1);
+}
+
+.input:checked + .radioHolder .radio {
+  background-color: get-color(primary);
+  border: 2px solid get-color(primary);
+}
+
+:global(.is-tabbing) .input:focus + .radioHolder .radio {
+  outline: 5px auto -webkit-focus-ring-color !important;
+}

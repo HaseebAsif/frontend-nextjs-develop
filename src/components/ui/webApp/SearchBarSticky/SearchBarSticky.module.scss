@@ -1,0 +1,28 @@
+@import '~styles/framework';
+
+.searchBar {
+  position: sticky;
+  top: map-get($header-heights, navbar-down);
+  width: 100%;
+  z-index: 900;
+  padding-top: spacing(1.5);
+  padding-bottom: spacing(1.5);
+  border: none;
+}
+
+.changeSearchBar {
+  $padding: calc((100vw - 100%) / 2);
+  $margin: calc(-1 * (100vw - 100%) / 2);
+  box-sizing: content-box;
+  padding-bottom: spacing(1.5);
+  padding-top: spacing(1.5);
+  background-color: get-color(light);
+  padding-left: $padding;
+  padding-right: $padding;
+  margin-left: $margin;
+  width: 100%;
+}
+
+.wrapper {
+  border-bottom: solid 1px get-color(dark);
+}

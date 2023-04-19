@@ -1,0 +1,55 @@
+@import '~styles/framework';
+
+.deleteSection {
+  display: flex;
+  flex-direction: column;
+
+  @include respond-to(sm) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.deleteInfo {
+  @include get-font-style(palermo);
+  margin-bottom: spacing(3);
+
+  @include respond-to(sm) {
+    margin-bottom: 0;
+    align-self: center;
+  }
+}
+
+.modalWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: spacing(3);
+
+  @include respond-to(sm) {
+    padding: spacing(4);
+  }
+}
+
+.buttonSection {
+  display: flex;
+  flex-direction: column;
+  margin-top: spacing(3);
+
+  @include respond-to(sm) {
+    flex-direction: row;
+  }
+}
+
+.confirmButton {
+  margin-bottom: spacing(2);
+
+  @include respond-to(sm) {
+    margin-right: spacing(2);
+    margin-bottom: 0;
+  }
+}
+
+.confirmInfo {
+  margin-top: spacing(2);
+  margin-bottom: spacing(2);
+}

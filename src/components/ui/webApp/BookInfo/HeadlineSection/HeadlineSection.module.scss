@@ -1,0 +1,30 @@
+@import '~styles/framework';
+
+.headline {
+  margin-bottom: spacing(3);
+  text-align: center;
+  @include respond-to(sm) {
+    text-align: left;
+  }
+}
+
+.title {
+  @include get-font-style(denver);
+  margin-bottom: spacing(2);
+
+  @include respond-to(sm) {
+    @include get-font-style(rio);
+    margin-bottom: spacing(3);
+  }
+  @include respond-to(lg) {
+    @include get-font-style(moscow);
+  }
+}
+
+.subTitle {
+  @include get-font-style(palermo);
+}
+
+.authorLabel {
+  @include get-font-style(oslo);
+}

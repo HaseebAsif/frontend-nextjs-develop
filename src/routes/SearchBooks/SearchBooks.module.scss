@@ -1,0 +1,55 @@
+@import '~styles/framework';
+
+.background {
+  background-color: get-color(beta);
+  width: 100%;
+  position: absolute;
+  z-index: 0;
+  top: -#{map-get($header-heights, navbar-down)};
+  height: calc(345px + #{map-get($header-heights, navbar-down)});
+  @include respond-to(sm) {
+    height: calc(346px + #{map-get($header-heights, navbar-down)});
+  }
+  @include respond-to(lg) {
+    height: calc(390px + #{map-get($header-heights, navbar-down)});
+  }
+}
+
+.smallBackground {
+  height: calc(180px + #{map-get($header-heights, navbar-down)});
+  @include respond-to(sm) {
+    height: calc(176px + #{map-get($header-heights, navbar-down)});
+  }
+  @include respond-to(lg) {
+    height: calc(200px + #{map-get($header-heights, navbar-down)});
+  }
+}
+
+.wrapper {
+  position: relative;
+}
+
+.container {
+  position: relative;
+  margin-bottom: spacing(16);
+  margin-top: spacing(1);
+  @include respond-to(sm) {
+    margin-bottom: spacing(18);
+    margin-top: spacing(4);
+  }
+  @include respond-to(lg) {
+    margin-top: spacing(5);
+  }
+}
+
+.titleBox {
+  margin-bottom: spacing(1.5);
+  width: 100%;
+}
+
+.title {
+  @include get-font-style(denver);
+  @include respond-to(sm) {
+    @include get-font-style(rio);
+  }
+}

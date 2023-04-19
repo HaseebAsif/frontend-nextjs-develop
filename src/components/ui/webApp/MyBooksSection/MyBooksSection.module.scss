@@ -1,0 +1,14 @@
+@import '~styles/framework';
+
+.box {
+  @include respond-to(sm) {
+    background-color: get-color(light);
+    border-radius: spacing(1.5);
+    padding: spacing(4);
+    height: 100%;
+  }
+
+  @include respond-to(lg) {
+    padding: spacing(5);
+  }
+}

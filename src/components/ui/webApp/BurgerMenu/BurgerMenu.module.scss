@@ -1,0 +1,105 @@
+@import '~styles/framework';
+
+.toggle {
+  height: 100%;
+  display: flex;
+  background-color: transparent;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.toggleIconClosed,
+.toggleIconOpened {
+  transition: ease(opacity);
+}
+
+.toggleIconClosed {
+  .menuIsOpen & {
+    opacity: 0;
+  }
+}
+
+.toggleIconOpened {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+
+  .menuIsOpen & {
+    opacity: 1;
+  }
+}
+
+.menuWrapper {
+  height: calc(100vh - 80px);
+  display: flex;
+  position: fixed;
+  visibility: hidden;
+  top: 80px;
+  right: 0;
+  left: 0;
+}
+
+.menu {
+  border-top: 1px solid get-color(alpha, 93);
+  background-color: get-color(delta);
+  overflow-y: scroll;
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s;
+  transform: translateX(-100%);
+  max-width: none;
+  padding-bottom: 72px;
+  padding-left: spacing(2);
+  padding-right: spacing(2);
+  @include respond-to(sm) {
+    padding-left: spacing(4);
+    padding-right: spacing(4);
+  }
+}
+
+.visible {
+  visibility: visible;
+  transition: all 0.5s;
+  transform: translateX(0);
+}
+
+.menuLink {
+  display: block;
+  text-align: left;
+  color: get-color(dark);
+  margin-bottom: spacing(4);
+}
+
+.menuList {
+  list-style: none;
+  margin-left: spacing(0);
+}
+
+.logoutButton {
+  display: flex;
+  justify-content: left;
+  padding-left: spacing(1);
+}
+
+.exploreMenuItem {
+  padding-top: spacing(3.5);
+  padding-bottom: spacing(4);
+}
+
+.exploreMenuTitleLoggedOut {
+  margin-top: spacing(3);
+  margin-bottom: spacing(3);
+}
+
+.exploreMenuLoggedOut {
+  margin-bottom: spacing(3);
+}
+
+.iconStyle {
+  div {
+    padding-right: 0;
+  }
+}

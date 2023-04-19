@@ -1,0 +1,20 @@
+@import '~styles/framework';
+
+.box {
+  padding: spacing(3);
+  width: 100%;
+
+  > :not(:last-child) {
+    padding-bottom: spacing(2);
+  }
+}
+
+.content {
+  @include get-font-style(oslo);
+  color: get-color(dark);
+}
+
+.label {
+  @include get-font-style(palermo);
+  color: get-color(alpha, 38);
+}

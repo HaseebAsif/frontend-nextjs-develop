@@ -1,0 +1,11 @@
+@import '~styles/framework';
+
+.root {
+  display: flex;
+  flex-direction: row;
+}
+
+.content {
+  padding: spacing(4);
+  width: 100%;
+}

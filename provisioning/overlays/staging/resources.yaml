@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: booksquare-frontend
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: booksquare-frontend
+  template:
+    spec:
+      containers:
+        - name: booksquare-frontend
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "100m"
+            limits:
+              memory: "512Mi"

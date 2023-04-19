@@ -1,0 +1,162 @@
+{
+  "BookADemo.button": {
+    "defaultMessage": "Book a demo",
+    "description": "Button text"
+  },
+  "BookADemo.heading": {
+    "defaultMessage": "Ready to know more?",
+    "description": "Heading"
+  },
+  "BookADemo.paragraph": {
+    "defaultMessage": "Reach out to us for a free demo",
+    "description": "Paragraph"
+  },
+  "CardSection.cardTextFour": {
+    "defaultMessage": "Analyze and monitor your data",
+    "description": "Card text four"
+  },
+  "CardSection.cardTextOne": {
+    "defaultMessage": "Follow index on your purchased material",
+    "description": "Card text one"
+  },
+  "CardSection.cardTextThree": {
+    "defaultMessage": "Track your savings projects",
+    "description": "Card text three"
+  },
+  "CardSection.cardTextTwo": {
+    "defaultMessage": "Understand international currency effect",
+    "description": "Card text two"
+  },
+  "CardSection.highlightWordFour,": {
+    "defaultMessage": "data",
+    "description": "Fourth highlighted word"
+  },
+  "CardSection.highlightWordOne": {
+    "defaultMessage": "purchased",
+    "description": "First highlighted word"
+  },
+  "CardSection.highlightWordThree": {
+    "defaultMessage": "savings",
+    "description": "Third highlighted word"
+  },
+  "CardSection.highlightWordTwo": {
+    "defaultMessage": "currency",
+    "description": "Second highlighted word"
+  },
+  "Error.button": {
+    "defaultMessage": "Return to Home",
+    "description": "Button"
+  },
+  "Error.heading": {
+    "defaultMessage": "Whoops! Page not found.",
+    "description": "Heading"
+  },
+  "Error.message": {
+    "defaultMessage": "Required field",
+    "description": "Form error message"
+  },
+  "Footer.bottomText": {
+    "defaultMessage": "booksquare.io is a product by 3rd Floor Savings AB, 559369-2030",
+    "description": "Bottom text"
+  },
+  "Header.contactButtonText": {
+    "defaultMessage": "hello@booksquare.io",
+    "description": "Label for contact button"
+  },
+  "Hero.button": {
+    "defaultMessage": "Book a demo",
+    "description": "Button"
+  },
+  "Hero.headingPartOne": {
+    "defaultMessage": "Record Everything.",
+    "description": "Heading part one"
+  },
+  "Hero.headingPartTwo": {
+    "defaultMessage": "See yourself saving more.",
+    "description": "Heading part two"
+  },
+  "Home.seoTitle": {
+    "defaultMessage": "Record Everything. See yourself saving more.",
+    "description": "Seo title"
+  },
+  "ProblemDefinition.textHighlight": {
+    "defaultMessage": "cost in a manufacturing company",
+    "description": "Highlight text"
+  },
+  "ProblemDefinition.textOne": {
+    "defaultMessage": "Did you know that 80% of the",
+    "description": "Main text one"
+  },
+  "ProblemDefinition.textTwo": {
+    "defaultMessage": "is from purchased items for production?",
+    "description": "Main text two"
+  },
+  "Purpose.highlight": {
+    "defaultMessage": "savings",
+    "description": "Highlight text"
+  },
+  "Purpose.textOne": {
+    "defaultMessage": "booksquare is an engine that creates BI-fuelled savings for manufacturing companies. It removes the need for complex integrations, heavy crashing excel documents and big investments. So that you as a purchaser can do your real job instead of putting out fires.",
+    "description": "Purpose text one"
+  },
+  "Select.noOptionsMessage": {
+    "defaultMessage": "No matching results found",
+    "description": "No options message"
+  },
+  "UseValidate.isAtLeast": {
+    "defaultMessage": "Needs to be at least {atLeast}",
+    "description": "Is at least passed number"
+  },
+  "UseValidate.isEmail": {
+    "defaultMessage": "Incorrect format of email",
+    "description": "Incorrect format of email"
+  },
+  "UseValidate.isInt": {
+    "defaultMessage": "Needs to be an integer",
+    "description": "Is integer"
+  },
+  "UseValidate.isLatitude": {
+    "defaultMessage": "Incorrect format of latitude, needs to be between -90 and 90",
+    "description": "Incorrect format of latitude"
+  },
+  "UseValidate.isLongitude": {
+    "defaultMessage": "Incorrect format of longitude, needs to be between -180 and 180",
+    "description": "Incorrect format of longitude"
+  },
+  "UseValidate.isNumeric": {
+    "defaultMessage": "Incorrect format of numeric",
+    "description": "Incorrect format of numeric"
+  },
+  "UseValidate.isOrganisationNumber": {
+    "defaultMessage": "Incorrect format of organisation number",
+    "description": "Incorrect format of organisation number"
+  },
+  "UseValidate.isPhoneNumber": {
+    "defaultMessage": "Incorrect format of phone number",
+    "description": "Incorrect format of phone number"
+  },
+  "UseValidate.isPostalCode": {
+    "defaultMessage": "Incorrect format of postal code",
+    "description": "Incorrect format of postal code"
+  },
+  "UseValidate.isURL": {
+    "defaultMessage": "Incorrect format of URL",
+    "description": "Incorrect format of URL"
+  },
+  "userRole.admin": {
+    "defaultMessage": "Superadmin",
+    "description": "Admin"
+  },
+  "userRole.company_admin": {
+    "defaultMessage": "Admin",
+    "description": "Company admin"
+  },
+  "userRole.company_user": {
+    "defaultMessage": "Bokare",
+    "description": "Company user"
+  },
+  "userRole.user": {
+    "defaultMessage": "Användare",
+    "description": "User"
+  }
+}

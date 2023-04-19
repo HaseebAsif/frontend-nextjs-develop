@@ -1,0 +1,21 @@
+@import '~styles/framework';
+
+.fallbackBookCover {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: get-color(alpha, 93);
+  border-radius: 6px;
+  border: solid;
+  border-color: get-color(alpha, 62);
+  border-width: 1px;
+}
+
+.imageMissingText {
+  @include get-font-style(sunne);
+  color: get-color(alpha, 62);
+  margin-top: 18.5px;
+}

@@ -1,0 +1,16 @@
+@import '~styles/framework';
+
+.root {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: spacing(2);
+  margin-top: spacing(2);
+  width: 100%;
+}
+
+.sortingLabel {
+  @include get-font-style(bogota);
+  text-align: right;
+  width: 100%;
+}

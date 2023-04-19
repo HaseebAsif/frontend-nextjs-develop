@@ -1,0 +1,13 @@
+@import '~styles/framework';
+
+.subject {
+  color: get-color(alpha, 38);
+
+  &:hover {
+    color: get-color(dark);
+  }
+}
+
+.mobileGrid {
+  margin-top: spacing(3);
+}

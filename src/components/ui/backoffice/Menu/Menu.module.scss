@@ -1,0 +1,60 @@
+@import '~styles/framework';
+
+.menuSection {
+  min-width: 256px;
+  min-height: 100vh;
+  background-color: get-color(primary);
+  color: get-color(light);
+  display: flex;
+  flex-direction: column;
+  padding: spacing(4);
+}
+
+.logo {
+  margin-bottom: spacing(2);
+  text-align: center;
+}
+
+.line {
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  margin-bottom: spacing(3);
+  color: get-color(alpha, 38);
+  border-width: 1px;
+}
+
+.user {
+  text-align: center;
+  margin-bottom: spacing(0.5);
+}
+
+.role {
+  @include get-font-style(oslo);
+  text-align: center;
+  margin-bottom: spacing(3);
+}
+
+.menuOption {
+  margin-bottom: spacing(4);
+  color: get-color(alpha, 74);
+}
+
+.logoutButton {
+  width: fit-content;
+  margin-bottom: spacing(4);
+  color: get-color(alpha, 74) !important;
+  box-shadow: none;
+
+  i {
+    margin-right: 9px;
+  }
+}
+
+.activeLink {
+  color: get-color(light);
+}
+
+.icon {
+  margin-right: 13px;
+}

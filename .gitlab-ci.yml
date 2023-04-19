@@ -1,0 +1,296 @@
+variables:
+  NODE_VERSION: "16.13.0"
+  npm_config_cache: "$CI_PROJECT_DIR/.npm"
+  CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
+  NAMESPACE: "internal"
+  FF_USE_FASTZIP: "true"
+  ARTIFACT_COMPRESSION_LEVEL: "fast"
+  CACHE_COMPRESSION_LEVEL: "fast"
+  PROVISIONING_NAME: "nextjs-boilerplate"
+
+  NEXT_PUBLIC_SENTRY_AUTH_TOKEN: $SENTRY_AUTH_TOKEN
+  NEXT_PUBLIC_SENTRY_DSN: https://4e3072c6d2484c22b20604750b12af5e@sentry.interactivesolutions.se/127
+  NEXT_PUBLIC_SENTRY_RELEASE: $CI_PIPELINE_ID
+  NEXT_PUBLIC_SENTRY_ENVIRONMENT: $CI_ENVIRONMENT_NAME
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - .npm
+    - cache/Cypress
+    - node_modules
+
+stages:
+  - dependencies
+  - graphql
+  - test
+  - build
+  - docker
+  - deploy
+
+dependencies:install:
+  stage: dependencies
+  image: node:$NODE_VERSION
+  script:
+    - yarn --frozen-lockfile
+  artifacts:
+    expire_in: 1 hour
+    paths:
+      - node_modules
+  tags:
+    - docker
+
+graphql:generate:
+  stage: graphql
+  image: node:$NODE_VERSION
+  cache: {}
+  dependencies:
+    - dependencies:install
+  script:
+    - yarn graphql:generate
+  artifacts:
+    expire_in: 1 hour
+    paths:
+      - src/api/graphql.ts
+  tags:
+    - docker
+
+test:cypress:
+  stage: test
+  image: cypress/base:16.13.0
+  cache: {}
+  dependencies:
+    - dependencies:install
+    - graphql:generate
+  script:
+    - $(npm bin)/cypress install
+    - $(npm bin)/cypress cache path
+    - $(npm bin)/cypress cache list
+    - $(npm bin)/cypress verify
+    - yarn cypress:ci:staging
+  artifacts:
+    when: always
+    expire_in: 1 day
+    paths:
+      - cypress/junit.xml
+      - cypress/videos/**/*.mp4
+      - cypress/screenshots/**/*.png
+    reports:
+      junit:
+        - $CI_PROJECT_DIR/cypress/junit.xml
+  tags:
+    - docker
+
+test:lint:
+  stage: test
+  image: node:$NODE_VERSION
+  cache: {}
+  dependencies:
+    - dependencies:install
+    - graphql:generate
+  script:
+    - yarn npm-run-all eslint:report prettier:report stylelint:report typescript:report
+  tags:
+    - docker
+
+build:storybook:
+  stage: build
+  image: node:$NODE_VERSION
+  cache: {}
+  dependencies:
+    - dependencies:install
+    - graphql:generate
+  script:
+    - yarn storybook:build
+  artifacts:
+    untracked: false
+    paths:
+      - storybook-static/
+  tags:
+    - docker
+  only:
+    - develop
+
+docker:staging:
+  stage: docker
+  image: docker:20.10.16
+  dependencies:
+    - graphql:generate
+  script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    - docker build . -t ${CI_REGISTRY_IMAGE}:${CI_PIPELINE_IID}
+      --build-arg DOCKER_ENVIRONMENT=staging
+      --build-arg CI_PIPELINE_IID=$CI_PIPELINE_IID
+      --build-arg NEXT_PUBLIC_SENTRY_AUTH_TOKEN=$NEXT_PUBLIC_SENTRY_AUTH_TOKEN
+      --build-arg NEXT_PUBLIC_SENTRY_DSN=$NEXT_PUBLIC_SENTRY_DSN
+      --build-arg NEXT_PUBLIC_SENTRY_RELEASE=$NEXT_PUBLIC_SENTRY_RELEASE
+      --build-arg NEXT_PUBLIC_SENTRY_ENVIRONMENT=$NEXT_PUBLIC_SENTRY_ENVIRONMENT
+    - docker push ${CI_REGISTRY_IMAGE}:${CI_PIPELINE_IID}
+  services:
+    - docker:20.10.16-dind
+  needs:
+    - graphql:generate
+    - test:cypress
+    - test:lint
+  tags:
+    - docker
+
+docker:production:
+  stage: docker
+  image: docker:20.10.16
+  dependencies:
+    - graphql:generate
+  script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    - docker build . -t ${CI_REGISTRY_IMAGE}:${CI_PIPELINE_IID}
+      --build-arg DOCKER_ENVIRONMENT=production
+      --build-arg CI_PIPELINE_IID=$CI_PIPELINE_IID
+      --build-arg NEXT_PUBLIC_SENTRY_AUTH_TOKEN=$NEXT_PUBLIC_SENTRY_AUTH_TOKEN
+      --build-arg NEXT_PUBLIC_SENTRY_DSN=$NEXT_PUBLIC_SENTRY_DSN
+      --build-arg NEXT_PUBLIC_SENTRY_RELEASE=$NEXT_PUBLIC_SENTRY_RELEASE
+      --build-arg NEXT_PUBLIC_SENTRY_ENVIRONMENT=$NEXT_PUBLIC_SENTRY_ENVIRONMENT
+    - docker push ${CI_REGISTRY_IMAGE}:${CI_PIPELINE_IID}
+  services:
+    - docker:20.10.16-dind
+  needs:
+    - graphql:generate
+    - test:cypress
+    - test:lint
+  tags:
+    - docker
+  only:
+    - master
+    - main
+
+deploy:review:
+  stage: deploy
+  image:
+    name: alpine/k8s:1.21.2
+    entrypoint: [""]
+  script:
+    - chmod go-r $KUBECONFIG_STAGING
+    - export KUBECONFIG=$KUBECONFIG_STAGING
+    - cd provisioning/overlays/review
+    - kustomize edit set nameprefix $CI_ENVIRONMENT_SLUG
+    - kustomize edit set image image=${CI_REGISTRY_IMAGE}:${CI_PIPELINE_IID}
+    - |
+      kustomize edit add patch --patch '[{"op": "replace", "path": "/spec/rules/0/host", "value": "'${CI_ENVIRONMENT_SLUG}-${ENTIRE_HOSTNAME_STAGING}'"},{"op": "replace", "path": "/spec/rules/0/http/paths/0/backend/service/name", "value": "'${CI_ENVIRONMENT_SLUG}${PROVISIONING_NAME}-web-service'"}]' target: --kind Ingress
+    - |
+      kustomize edit add patch --patch '[{"op": "replace", "path": "/spec/selector/name", "value": "'${CI_ENVIRONMENT_SLUG}'"}]' target: --kind Service
+    - kustomize edit set label name:$CI_ENVIRONMENT_SLUG
+    - kubectl diff -k ./ || true
+    - kubectl apply -k ./
+    - kubectl -n $NAMESPACE rollout status deployment/${CI_ENVIRONMENT_SLUG}${PROVISIONING_NAME}
+    - |
+      curl -s -X POST "https://api.cloudflare.com/client/v4/zones/${CLOUDFLARE_ZONE_ID}/dns_records" \
+      -H "Authorization: Bearer ${CF_AUTH_TOKEN}" \
+      -H "Content-Type: application/json" \
+      --data '{"type":"CNAME","name":"'${CI_ENVIRONMENT_SLUG}-${ENTIRE_HOSTNAME_STAGING}'","content":"scw-ingress.isdemo.se","ttl":1,"proxied":true}'
+  tags:
+    - docker
+  environment:
+    name: staging/review/$CI_COMMIT_REF_NAME
+    url: https://$CI_ENVIRONMENT_SLUG-$ENTIRE_HOSTNAME_STAGING/
+    on_stop: deploy:review:cleanup
+    auto_stop_in: 2 days
+  needs:
+    - docker:staging
+  except:
+    - develop
+    - master
+    - main
+
+deploy:review:cleanup:
+  stage: deploy
+  image:
+    name: alpine/k8s:1.21.2
+    entrypoint: [ "" ]
+  cache: {}
+  variables:
+    GIT_STRATEGY: none
+  dependencies:
+    - deploy:review
+  script:
+    - chmod go-r $KUBECONFIG_STAGING
+    - export KUBECONFIG=$KUBECONFIG_STAGING
+    - kubectl delete deployment,service,ingress -l name=${CI_ENVIRONMENT_SLUG} -n $NAMESPACE
+    - 'curl -F "hostname=$CI_ENVIRONMENT_SLUG-$ENTIRE_HOSTNAME_STAGING" -H "CF-Access-Client-Id: $CF_ACCESS_CLIENT_ID_STAGING" -H "CF-Access-Client-Secret: $CF_ACCESS_CLIENT_SECRET_STAGING" https://reactserve-k8s.infra.isdemo.se/removedns'
+  when: manual
+  environment:
+    name: staging/review/$CI_COMMIT_REF_NAME
+    url: https://$CI_ENVIRONMENT_SLUG-$ENTIRE_HOSTNAME_STAGING
+    action: stop
+  except:
+    - develop
+    - master
+    - main
+
+deploy:storybook:
+  stage: deploy
+  image: alpine/curl
+  cache: {}
+  dependencies:
+    - build:storybook
+  script:
+    - tar -cvf dist.tar.gz -C storybook-static .
+    - 'curl -F "hostname=$ENTIRE_HOSTNAME_STORYBOOK" -F "file=@dist.tar.gz" -H "CF-Access-Client-Id: $CF_ACCESS_CLIENT_ID_STAGING" -H "CF-Access-Client-Secret: $CF_ACCESS_CLIENT_SECRET_STAGING" https://reactserve-k8s.infra.isdemo.se/publish'
+  environment:
+    name: storybook
+    url: https://$ENTIRE_HOSTNAME_STORYBOOK
+  tags:
+    - docker
+  only:
+    - develop
+
+deploy:staging:
+  stage: deploy
+  image:
+    name: alpine/k8s:1.21.2
+    entrypoint: [""]
+  script:
+    - chmod go-r $KUBECONFIG_STAGING
+    - export KUBECONFIG=$KUBECONFIG_STAGING
+    - cd provisioning/overlays/staging;
+    - kustomize edit set image image=${CI_REGISTRY_IMAGE}:${CI_PIPELINE_IID}
+    - kubectl diff -k ./ || true
+    - kubectl label configMaps -n $NAMESPACE -l currently-used-by-kustomize="true" --overwrite currently-used-by-kustomize="false"
+    - kubectl apply -k ./
+    - kubectl -n $NAMESPACE rollout status deployment/${PROVISIONING_NAME}
+    - kubectl delete configMaps -n $NAMESPACE -l currently-used-by-kustomize="false"
+  tags:
+    - docker
+  environment:
+    name: frontend
+    url: https://$ENTIRE_HOSTNAME_STAGING
+  needs:
+    - docker:staging
+  only:
+    - develop
+
+
+deploy:production:
+  stage: deploy
+  image:
+    name: alpine/k8s:1.21.2
+    entrypoint: [""]
+  script:
+    - chmod go-r $KUBECONFIG_PRODUCTION
+    - export KUBECONFIG=$KUBECONFIG_PRODUCTION
+    - cd provisioning/overlays/production;
+    - kustomize edit set image image=${CI_REGISTRY_IMAGE}:${CI_PIPELINE_IID}
+    - kubectl diff -k ./ || true
+    - kubectl label configMaps -n $NAMESPACE -l currently-used-by-kustomize="true" --overwrite currently-used-by-kustomize="false"
+    - kubectl apply -k ./
+    - kubectl -n $NAMESPACE rollout status deployment/${PROVISIONING_NAME}
+    - kubectl delete configMaps -n $NAMESPACE -l currently-used-by-kustomize="false"
+  tags:
+    - docker
+  environment:
+    name: frontend
+    url: https://$ENTIRE_HOSTNAME_PRODUCTION
+  needs:
+    - docker:production
+  only:
+    - master
+    - main
+

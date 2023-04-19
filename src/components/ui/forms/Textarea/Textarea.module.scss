@@ -1,0 +1,190 @@
+@import '~styles/framework';
+
+$border-width: 1px;
+$sizes: (
+  sm: (
+    padding-top-bottom: spacing(0.5),
+    padding-right-left: spacing(1),
+    icon-container-size: spacing(6),
+    font-style: kramfors
+  ),
+  md: (
+    padding-top-bottom: spacing(1),
+    padding-right-left: spacing(1.5),
+    icon-container-size: spacing(6),
+    font-style: kramfors
+  ),
+  lg: (
+    padding-top-bottom: spacing(1.5),
+    padding-right-left: spacing(2),
+    icon-container-size: spacing(6),
+    font-style: kramfors
+  )
+);
+$colors: (
+  light: (
+    default: (
+      background-color: get-color(light),
+      border-color: get-color(alpha, 62),
+      color: get-color(dark),
+      icon-color: get-color(dark),
+      placeholder: get-color(dark)
+    ),
+    disabled: (
+      border-color: get-color(dark, 90)
+    ),
+    hover: (
+      border-color: get-color(dark)
+    ),
+    focus: (
+      border-color: get-color(dark)
+    )
+  )
+);
+
+.root {
+  position: relative;
+  display: inline-block;
+}
+
+.disabled,
+.disabled * {
+  cursor: not-allowed;
+}
+
+.label {
+  font-weight: 700;
+}
+
+.textareaHolder {
+  position: relative;
+}
+
+.textarea {
+  border-radius: 4px;
+  appearance: none;
+  outline: none;
+  border: none;
+  width: 100%;
+  display: block;
+  max-width: 100%;
+  resize: none;
+  transition: ease(box-shadow);
+}
+
+.iconRight,
+.iconLeft {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  user-select: none;
+  pointer-events: none;
+}
+
+.iconRight {
+  right: 0;
+}
+
+.iconLeft {
+  left: 0;
+}
+
+@each $name, $styles in $colors {
+  $default: map-get($styles, default);
+  $disabled: map-get($styles, disabled);
+  $hover: map-get($styles, hover);
+  $focus: map-get($styles, focus);
+
+  .#{$name}Color {
+    .textarea {
+      background-color: map-get($default, background-color);
+      box-shadow: inset 0 0 0 $border-width map-get($default, border-color);
+      color: map-get($default, color);
+
+      @include placeholder() {
+        color: map-get($default, placeholder);
+      }
+    }
+
+    .iconRight,
+    .iconLeft {
+      color: map-get($default, icon-color);
+    }
+
+    &.disabled .textarea {
+      box-shadow: inset 0 0 0 $border-width map-get($disabled, border-color);
+    }
+
+    &:not(.disabled):not(.success):not(.error) {
+      .textarea:hover {
+        box-shadow: inset 0 0 0 $border-width map-get($hover, border-color);
+      }
+
+      .textarea:focus {
+        box-shadow: inset 0 0 0 $border-width map-get($focus, border-color);
+      }
+    }
+
+    &.success .textarea {
+      box-shadow: inset 0 0 0 $border-width get-color(success);
+    }
+
+    &.error .textarea {
+      box-shadow: inset 0 0 0 $border-width get-color(error);
+    }
+  }
+}
+
+@each $name, $styles in $sizes {
+  $font-styles: map-get($all-font-styles, map-get($styles, font-style));
+
+  .#{$name}Size {
+    .textarea {
+      @include get-font-style(map-get($styles, font-style));
+      padding: map-get($styles, padding-top-bottom)
+        map-get($styles, padding-right-left);
+    }
+
+    &.rounded .textarea {
+      border-radius: calc(
+        (
+            #{map-get($font-styles, line-height)} +
+              (#{map-get($styles, padding-top-bottom)} * 2)
+          ) /
+          2
+      );
+    }
+
+    &.hasIconRight .textarea {
+      padding-right: #{map-get($styles, icon-container-size)};
+    }
+
+    &.hasIconLeft .textarea {
+      padding-left: #{map-get($styles, icon-container-size)};
+    }
+
+    .iconRight,
+    .iconLeft {
+      width: map-get($styles, icon-container-size);
+
+      .icon {
+        height: calc(
+          #{map-get($font-styles, line-height)} +
+            (#{map-get($styles, padding-top-bottom)} * 2)
+        );
+        line-height: calc(
+          #{map-get($font-styles, line-height)} +
+            (#{map-get($styles, padding-top-bottom)} * 2)
+        );
+      }
+    }
+  }
+}
+
+.fullWidth {
+  width: 100%;
+  display: block;
+}

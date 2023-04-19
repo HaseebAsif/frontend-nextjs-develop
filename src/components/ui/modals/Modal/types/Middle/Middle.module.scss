@@ -1,0 +1,58 @@
+@import '~styles/framework';
+
+.root {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  height: 100%;
+  outline: none;
+
+  @each $breakpoint, $padding in $container-paddings {
+    @if ($breakpoint == 'root') {
+      padding: spacing($padding);
+    } @else {
+      @include respond-to($breakpoint) {
+        padding: spacing($padding);
+      }
+    }
+  }
+}
+
+.body {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.dialog {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.smSize .dialog {
+  max-width: 350px;
+}
+
+.mdSize .dialog {
+  max-width: 550px;
+}
+
+.lgSize .dialog {
+  max-width: 750px;
+}
+
+.content {
+  background-color: get-color(light);
+  border-radius: 5px;
+  position: relative;
+}
+
+.close {
+  width: spacing(3);
+  height: spacing(3);
+  display: block;
+  background-color: get-color(error);
+  position: absolute;
+  top: 0;
+  right: 0;
+}

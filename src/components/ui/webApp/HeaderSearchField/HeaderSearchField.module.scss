@@ -1,0 +1,50 @@
+@import '~styles/framework';
+
+.searchBarWrapper {
+  display: flex;
+  max-height: 68px;
+  position: fixed;
+  visibility: hidden;
+  top: map-get($header-heights, navbar-down);
+  right: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.searchBar {
+  background-color: get-color(light);
+  width: 100%;
+  transition: all 0.5s;
+  transform: translateY(-64px);
+}
+
+.search {
+  width: 100%;
+}
+
+.visible {
+  visibility: visible;
+  transition: all 0.5s;
+  transform: translateY(0);
+}
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  padding-right: spacing(2);
+  border-top: 1px solid get-color(alpha, 93);
+  border-bottom: 1px solid get-color(alpha, 93);
+  @include respond-to(sm) {
+    padding-right: spacing(4);
+    padding-left: spacing(2);
+  }
+}
+
+.closeButtonWrapper {
+  min-height: 100%;
+  display: flex;
+}
+
+.test {
+  padding-left: 0;
+}

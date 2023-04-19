@@ -1,0 +1,377 @@
+/**
+ * Colors
+ *
+ * Naming convention of our color keys has some rules. What we want to avoid is
+ * to name colors by its color. E.g. to name #000000 'black' and later down the
+ * road the customer wants to change all black colors to red. Then the name is
+ * missleading and just wrong.
+ *
+ * How to use:
+ *
+ * Use the get-color($color, $lightness, $alpha) function. So lets say you get
+ * "primary/50/0.75" from the designer, that means you'll use the function as
+ * get-color(primary, 50, 0.75). Always use get-color() when referring to
+ * colors. Pattern from the designer is "$color/$lightness?/$alpha?".
+ *
+ * Collection of names:
+ *
+ * - Base
+ *   - primary, secondary, tertiary and so on...
+ *   - Use this for brand color and other hierarchy colors.
+ *   - Fixed collection of colors.
+ *   - Exists in every project.
+ *   - Has (often) great impact from the customer graphic profile.
+ *   - Most often not more than three colors.
+ *
+ * - Common
+ *   - error, success, info, warning, dark, light.
+ *   - Common colors communicated between frontend and design.
+ *   - Fixed collection of colors.
+ *   - Exists in every project.
+ *
+ * - Other
+ *   - alpha, beta, gamma and so on...
+ *   - Greek alphabet.
+ *   - Here's "the rest" of the colors.
+ */
+$base-colors: (
+  primary: #03121e,
+  secondary: #fac300
+);
+$common-colors: (
+  dark: #000,
+  error: #e33142,
+  info: #0038ec,
+  light: #fff,
+  success: #20933b,
+  warning: #fac300
+);
+$other-colors: (
+  alpha: #212121,
+  beta: #f3f0ec,
+  delta: #fdfcfa,
+  epsilon: #db4437,
+  gamma: #f7f7f7
+);
+$all-colors: map-merge($base-colors, map-merge($common-colors, $other-colors));
+
+/**
+ * Spacings
+ *
+ * We have a base unit when it comes to spacings. The idea is to scale the
+ * project based on this. To make use of this base unit you'll include the
+ * spacing($top, $right, $bottom, $left) function. Each parameter you pass
+ * to the function will be multiplied with $spacing-unit.
+ *
+ * E.g. spacing(1, 2, 3) would generate "8px 16px 24px".
+ */
+$spacing-unit: 8px;
+
+// Breakpoints
+$breakpoints: (
+  xs: 480px,
+  sm: 768px,
+  md: 992px,
+  lg: 1200px,
+  navbar: 700px,
+  xl: 1920px
+);
+
+// Font families
+$font-stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+  'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+  'Segoe UI Symbol';
+$font-families: (
+  primary: (
+    'Roboto',
+    $font-stack
+  ),
+  secondary: (
+    'century-gothic',
+    $font-stack
+  ),
+  font-awesome: (
+    'Font Awesome',
+    $font-stack
+  ),
+  tertiary: (
+    'azo-sans-web',
+    $font-stack
+  )
+);
+
+/**
+ * Font styles
+ *
+ * Append reusable font styles here. The key of every font style is a city, this
+ * way the key will never be a problem if styling changes. A common problem is
+ * that a style is named "18px" because the font size is 18px, and later down
+ * the road someone decides to increase the font size to 19px, then the naming
+ * is incorrect and missleading.
+ *
+ * Include it with @include get-font-style($type).
+ *
+ * It respects our $breakpoints. Breakpoint 'root' renders without a @media
+ * query. If you don't pass a map it will be applied as 'root' styling:
+ *
+ * font-weight:
+ *   (
+ *     root: 100,
+ *     xs: 400,
+ *     navbar: 700
+ *   )
+ *
+ * Collection of names:
+ *
+ * - Base
+ *   - Fixed collection of font styles.
+ *   - Exists in every project.
+ *   - Least usage of this collection:
+ *     - kramfors = body
+ *     - tokyo = h1
+ *     - nairobi = h2
+ *     - berlin = h3
+ *     - moscow = h4
+ *     - rio = h5
+ *     - denver = h6
+ *
+ * - Other
+ *   - Project specific font styles.
+ *   - Styles for icons.
+ *   - Here's "the rest" of the font styles.
+ */
+$base-font-styles: (
+  kramfors: (
+    font-family: map-get($font-families, tertiary),
+    font-size: 16px,
+    line-height: 24px,
+    font-weight: 400
+  ),
+  denver: (
+    font-family: map-get($font-families, tertiary),
+    font-size: 20px,
+    line-height: 32px,
+    font-weight: 700
+  ),
+  rio: (
+    font-family: map-get($font-families, tertiary),
+    font-size: 24px,
+    line-height: 32px,
+    font-weight: 700
+  ),
+  moscow: (
+    font-family: map-get($font-families, tertiary),
+    font-size: 32px,
+    line-height: 42px,
+    font-weight: 700
+  ),
+  berlin: (
+    font-family: map-get($font-families, tertiary),
+    font-size: 40px,
+    line-height: 52px,
+    font-weight: 700
+  ),
+  nairobi: (
+    font-family: map-get($font-families, tertiary),
+    font-size: 48px,
+    line-height: 56px,
+    font-weight: 700
+  ),
+  tokyo: (
+    font-family: map-get($font-families, tertiary),
+    font-size: 56px,
+    line-height: 64px,
+    font-weight: 700
+  )
+);
+
+$other-font-styles: (
+  karachi: (
+    font-size: 24px,
+    line-height: 38px,
+    font-weight: 400
+  ),
+  reykjavik: (
+    font-size: 14px,
+    line-height: 24px,
+    font-weight: 500
+  ),
+  quebec: (
+    font-size: 20px,
+    line-height: 30px,
+    font-weight: 400
+  ),
+  auckland: (
+    font-family: map-get($font-families, secondary),
+    font-size: 56px,
+    line-height: 56px,
+    font-weight: 700
+  ),
+  male: (
+    font-family: map-get($font-families, secondary),
+    font-size: 48px,
+    line-height: 48px,
+    font-weight: 700
+  ),
+  neapel: (
+    font-family: map-get($font-families, secondary),
+    font-size: 32px,
+    line-height: 32px,
+    font-weight: 700
+  ),
+  sunne: (
+    font-size: 13px,
+    line-height: 16px,
+    font-weight: 400
+  ),
+  palermo: (
+    font-family: map-get($font-families, tertiary),
+    font-size: 14px,
+    line-height: 24px,
+    font-weight: 400
+  ),
+  bogota: (
+    font-family: map-get($font-families, tertiary),
+    font-size: 16px,
+    line-height: 24px,
+    font-weight: 500
+  ),
+  oslo: (
+    font-family: map-get($font-families, tertiary),
+    font-size: 14px,
+    line-height: 24px,
+    font-weight: 600
+  ),
+  madrid: (
+    font-size: 18px,
+    line-height: 18px,
+    font-weight: 400
+  ),
+  lissabon: (
+    font-size: 16px,
+    line-height: 16px,
+    font-weight: 900
+  ),
+  antananarivo: (
+    font-size: 18px,
+    line-height: 18px,
+    font-weight: 300
+  ),
+  nuuk: (
+    font-size: 20px,
+    line-height: 20px,
+    font-weight: 400
+  ),
+  honolulu: (
+    font-size: 20px,
+    line-height: 20px,
+    font-weight: 900
+  ),
+  trondheim: (
+    font-size: 32px,
+    line-height: 32px,
+    font-weight: 400
+  ),
+  bukarest: (
+    font-family: map-get($font-families, tertiary),
+    font-size: 16px,
+    line-height: 24px,
+    font-weight: 400
+  ),
+  kapstaden: (
+    font-family: map-get($font-families, tertiary),
+    font-size: 14px,
+    line-height: 24px,
+    font-weight: 400
+  ),
+  stockholm: (
+    font-size: 18px,
+    line-height: 18px,
+    font-weight: 300
+  ),
+  hobart: (
+    font-size: 24px,
+    line-height: 24px,
+    font-weight: 900
+  ),
+  torsby: (
+    font-family: map-get($font-families, tertiary),
+    font-size: 18px,
+    line-height: 32px,
+    font-weight: 400
+  ),
+  toledo: (
+    font-size: 24px,
+    line-height: 24px,
+    font-weight: 400
+  ),
+  kopavogur: (
+    font-size: 21px,
+    line-height: 21px,
+    font-weight: 400
+  ),
+  natal: (
+    font-family: map-get($font-families, tertiary),
+    font-size: 20px,
+    line-height: 32px,
+    font-weight: 400
+  )
+);
+
+$all-font-styles: map-merge($base-font-styles, $other-font-styles);
+
+// Durations
+$durations: (
+  fast: 0.25s,
+  medium: 0.5s,
+  slow: 0.75s,
+  sloth: 1s
+);
+
+// Header heights
+$header-heights: (
+  navbar-up: 80px,
+  navbar-down: 80px
+);
+
+// Container paddings
+$container-paddings: (
+  root: 2,
+  lg: 3
+);
+
+//Container settings
+$container-settings: 'root' 2 343px, 'sm' 4 720px, 'lg' 3 1128px;
+
+// Easing curves
+$easings: (
+  ease: cubic-bezier(0.25, 0.1, 0.25, 1),
+  in: cubic-bezier(0.42, 0, 1, 1),
+  out: cubic-bezier(0, 0, 0.58, 1),
+  in-out: cubic-bezier(0.42, 0, 0.58, 1),
+  in-sine: cubic-bezier(0.47, 0, 0.745, 0.715),
+  out-sine: cubic-bezier(0.39, 0.575, 0.565, 1),
+  in-out-sine: cubic-bezier(0.445, 0.05, 0.55, 0.95),
+  in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53),
+  out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94),
+  in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955),
+  in-cubic: cubic-bezier(0.55, 0.055, 0.675, 0.19),
+  out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1),
+  in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1),
+  in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22),
+  out-quart: cubic-bezier(0.165, 0.84, 0.44, 1),
+  in-out-quart: cubic-bezier(0.77, 0, 0.175, 1),
+  in-quint: cubic-bezier(0.755, 0.05, 0.855, 0.06),
+  out-quint: cubic-bezier(0.23, 1, 0.32, 1),
+  in-out-quint: cubic-bezier(0.86, 0, 0.07, 1),
+  in-expo: cubic-bezier(0.95, 0.05, 0.795, 0.035),
+  out-expo: cubic-bezier(0.19, 1, 0.22, 1),
+  in-out-expo: cubic-bezier(1, 0, 0, 1),
+  in-circ: cubic-bezier(0.6, 0.04, 0.98, 0.335),
+  out-circ: cubic-bezier(0.075, 0.82, 0.165, 1),
+  in-out-circ: cubic-bezier(0.785, 0.135, 0.15, 0.86),
+  in-back: cubic-bezier(0.6, -0.28, 0.735, 0.045),
+  out-back: cubic-bezier(0.175, 0.885, 0.32, 1.275),
+  in-out-back: cubic-bezier(0.68, -0.55, 0.265, 1.55),
+  linear: cubic-bezier(0, 0, 1, 1)
+);

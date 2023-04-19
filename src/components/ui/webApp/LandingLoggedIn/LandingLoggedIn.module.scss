@@ -1,0 +1,47 @@
+@import '~styles/framework';
+
+.root {
+  margin-bottom: spacing(9);
+  margin-top: spacing(4);
+
+  @include respond-to(sm) {
+    margin-bottom: spacing(15);
+    margin-top: spacing(9);
+  }
+  @include respond-to(lg) {
+    margin-bottom: spacing(27.5);
+    margin-top: spacing(12);
+  }
+}
+
+.searchIntro {
+  margin-bottom: spacing(4);
+
+  @include respond-to(sm) {
+    margin-bottom: spacing(7);
+  }
+
+  @include respond-to(lg) {
+    margin-bottom: spacing(9);
+  }
+
+  h5 {
+    text-align: center;
+
+    @include respond-to(sm) {
+      @include get-font-style(moscow);
+    }
+  }
+}
+
+.info {
+  text-align: center;
+}
+
+.searchBar {
+  margin-bottom: spacing(9);
+
+  @include respond-to(lg) {
+    margin-bottom: spacing(12);
+  }
+}

@@ -1,0 +1,22 @@
+/**
+ * This file will be included in every SASS Module, so you should
+ * only import variables, mixins, functions etc. here. If you would
+ * import element styling it would be rendered multiple times, that
+ * type of styling should be imported in _global.scss.
+ */
+
+@import '~styles/settings/variables';
+
+@import '~styles/tools/functions/ease';
+@import '~styles/tools/functions/get-color';
+@import '~styles/tools/functions/map-sort-by-values';
+@import '~styles/tools/functions/spacing';
+@import '~styles/tools/functions/str-replace';
+
+@import '~styles/tools/mixins/aspect-ratio';
+@import '~styles/tools/mixins/get-font-style';
+@import '~styles/tools/mixins/make-gutters';
+@import '~styles/tools/mixins/make-offsets';
+@import '~styles/tools/mixins/respond-to';
+@import '~styles/tools/mixins/placeholder';
+@import '~styles/tools/mixins/truncate';

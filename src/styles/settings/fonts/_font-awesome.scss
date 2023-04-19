@@ -1,0 +1,71 @@
+$font-folder: '~assets/fonts/font-awesome';
+
+@font-face {
+  font-family: 'Font Awesome';
+  font-style: normal;
+  font-weight: 300;
+  font-display: block;
+  src: url('#{$font-folder}/fa-light-300.eot');
+  src: url('#{$font-folder}/fa-light-300.eot?#iefix')
+      format('embedded-opentype'),
+    url('#{$font-folder}/fa-light-300.woff2') format('woff2'),
+    url('#{$font-folder}/fa-light-300.woff') format('woff'),
+    url('#{$font-folder}/fa-light-300.ttf') format('truetype'),
+    url('#{$font-folder}/fa-light-300.svg#fontawesome') format('svg');
+}
+
+@font-face {
+  font-family: 'Font Awesome';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('#{$font-folder}/fa-regular-400.eot');
+  src: url('#{$font-folder}/fa-regular-400.eot?#iefix')
+      format('embedded-opentype'),
+    url('#{$font-folder}/fa-regular-400.woff2') format('woff2'),
+    url('#{$font-folder}/fa-regular-400.woff') format('woff'),
+    url('#{$font-folder}/fa-regular-400.ttf') format('truetype'),
+    url('#{$font-folder}/fa-regular-400.svg#fontawesome') format('svg');
+}
+
+@font-face {
+  font-family: 'Font Awesome';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('#{$font-folder}/fa-brands-400.eot');
+  src: url('#{$font-folder}/fa-brands-400.eot?#iefix')
+      format('embedded-opentype'),
+    url('#{$font-folder}/fa-brands-400.woff2') format('woff2'),
+    url('#{$font-folder}/fa-brands-400.woff') format('woff'),
+    url('#{$font-folder}/fa-brands-400.ttf') format('truetype'),
+    url('#{$font-folder}/fa-brands-400.svg#fontawesome') format('svg');
+}
+
+@font-face {
+  font-family: 'Font Awesome';
+  font-style: normal;
+  font-weight: 800; // default 900, but we'll set 800 so it doesn't interfere with solid
+  font-display: block;
+  src: url('#{$font-folder}/fa-duotone-900.eot');
+  src: url('#{$font-folder}/fa-duotone-900.eot?#iefix')
+      format('embedded-opentype'),
+    url('#{$font-folder}/fa-duotone-900.woff2') format('woff2'),
+    url('#{$font-folder}/fa-duotone-900.woff') format('woff'),
+    url('#{$font-folder}/fa-duotone-900.ttf') format('truetype'),
+    url('#{$font-folder}/fa-duotone-900.svg#fontawesome') format('svg');
+}
+
+@font-face {
+  font-family: 'Font Awesome';
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url('#{$font-folder}/fa-solid-900.eot');
+  src: url('#{$font-folder}/fa-solid-900.eot?#iefix')
+      format('embedded-opentype'),
+    url('#{$font-folder}/fa-solid-900.woff2') format('woff2'),
+    url('#{$font-folder}/fa-solid-900.woff') format('woff'),
+    url('#{$font-folder}/fa-solid-900.ttf') format('truetype'),
+    url('#{$font-folder}/fa-solid-900.svg#fontawesome') format('svg');
+}

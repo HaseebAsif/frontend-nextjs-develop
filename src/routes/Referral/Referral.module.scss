@@ -1,0 +1,67 @@
+@import '~styles/framework';
+
+.container {
+  display: flex;
+  min-height: 600px;
+  flex-direction: column;
+  justify-content: center;
+  width: 343px;
+
+  @include respond-to(sm) {
+    width: 520px;
+  }
+
+  @include respond-to(lg) {
+    width: 544px;
+  }
+}
+
+.block {
+  padding: spacing(3);
+  box-shadow: 0 4px 35px 0 hsla(0, 0%, 0%, 0.08);
+  background-color: get-color(light);
+  border-radius: spacing(1.5);
+  margin-bottom: spacing(5);
+}
+
+.title {
+  margin-bottom: spacing(2);
+}
+
+.headerSection,
+.list,
+.paragraph {
+  margin-bottom: spacing(2);
+}
+
+.buttonsSection {
+  margin-top: spacing(2);
+  @include respond-to(sm) {
+    align-self: flex-end;
+    margin-left: spacing(2);
+  }
+}
+
+.inputSection {
+  display: flex;
+  flex-direction: column;
+
+  @include respond-to(sm) {
+    flex-direction: row;
+  }
+}
+
+.copyInput {
+  * {
+    cursor: copy;
+  }
+}
+
+.icon {
+  margin-left: spacing(1);
+  color: get-color('success');
+}
+
+.bold {
+  font-weight: bold;
+}

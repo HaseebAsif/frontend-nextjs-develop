@@ -1,0 +1,126 @@
+@import '~styles/framework';
+
+.header {
+  padding-top: spacing(12);
+  padding-bottom: spacing(12);
+  @include respond-to(sm) {
+    padding-top: spacing(15);
+    padding-bottom: spacing(8);
+  }
+  @include respond-to(md) {
+    padding-bottom: spacing(6);
+  }
+  @include respond-to(lg) {
+    padding-bottom: spacing(8);
+  }
+
+  h3 {
+    text-align: center;
+    @include get-font-style(moscow);
+    @include respond-to(sm) {
+      @include get-font-style(berlin);
+    }
+  }
+}
+
+.boardContainer {
+  margin: 0 auto spacing(9) auto;
+  background: get-color(primary);
+  color: get-color(light);
+  padding: 0 spacing(2);
+
+  .boardWrapper {
+    margin: 0 auto;
+    padding-bottom: spacing(12);
+
+    @include respond-to(xs) {
+      max-width: 343px;
+    }
+
+    @include respond-to(sm) {
+      max-width: 534px;
+      padding-bottom: spacing(15);
+    }
+
+    @include respond-to(md) {
+      margin-bottom: spacing(15);
+      max-width: 944px;
+    }
+
+    @include respond-to(lg) {
+      max-width: 936px;
+    }
+
+    .tabs {
+      margin: 0 auto;
+
+      button {
+        padding: 0;
+      }
+    }
+
+    .paneLabel {
+      flex-direction: column;
+      color: get-color(light);
+      justify-content: flex-start;
+      padding-top: spacing(3);
+      padding-bottom: spacing(3);
+
+      @include respond-to(md) {
+        min-height: 144px;
+      }
+
+      .memberHeader {
+        @include get-font-style(bogota);
+
+        @include respond-to(md) {
+          margin-bottom: spacing(1);
+          @include get-font-style(denver);
+          font-weight: 600;
+        }
+      }
+
+      .memberRole {
+        @include get-font-style(palermo);
+
+        @include respond-to(md) {
+          @include get-font-style(kramfors);
+          line-height: 28px;
+        }
+      }
+    }
+  }
+
+  .contentWrapper {
+    .contentText {
+      padding-bottom: spacing(2);
+      @include get-font-style(kramfors);
+      line-height: 28px;
+
+      color: get-color(light);
+      @include respond-to(md) {
+        padding-bottom: 0;
+        @include get-font-style(torsby);
+      }
+    }
+  }
+
+  .accordionWrapper {
+    .accordionItem {
+      border-top: 2px solid rgba(255, 255, 255, 0.2);
+
+      &:first-child:not(.accordionItemActive) {
+        border-color: transparent;
+      }
+
+      &Active {
+        border-color: get-color(secondary);
+
+        .paneLabel {
+          color: get-color(secondary);
+          padding-bottom: spacing(2);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+@import '~styles/framework';
+@import './icons';
+@import './duotone';
+
+// Sync with $all-font-styles
+// TODO: Clear these and sync with the design system for the current project
+$icon-styles: (
+  moscow: 34px,
+  rio: 44px,
+  denver: 54px,
+  madrid: 18px,
+  lissabon: 16px,
+  antananarivo: 18px,
+  stockholm: 18px,
+  hobart: 24px,
+  toledo: 24px,
+  kopavogur: 21px
+);
+
+.root {
+  font-family: map-get($font-families, font-awesome);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+}
+
+.duotone::before {
+  position: absolute;
+}
+
+.duotone::after {
+  opacity: 0.5;
+}
+
+@each $style, $size in $icon-styles {
+  .#{$style} {
+    @include get-font-style($style);
+    $size: 24px;
+    width: $size;
+    min-width: $size;
+    height: $size;
+    min-height: $size;
+  }
+}

@@ -1,0 +1,24 @@
+/**
+ * Import global element styling within this file, it will be imported once
+ * in the root. Variables, mixins, functions etc. should be imported in
+ * _framework.scss.
+ */
+
+@import '~styles/framework';
+
+@import '~styles/settings/fonts';
+
+@import '~styles/tools/keyframes/rotate';
+
+@import '~styles/generic/normalize';
+@import '~styles/generic/reset';
+@import '~styles/generic/placeholder';
+@import '~styles/generic/scaffolding';
+
+@import '~styles/elements/headings';
+@import '~styles/elements/links';
+
+@import '~styles/objects/grid';
+@import '~styles/objects/gutter';
+
+@import '~styles/utilities/shame';

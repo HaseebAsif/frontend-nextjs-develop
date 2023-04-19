@@ -1,0 +1,22 @@
+@import '~styles/framework';
+
+.root {
+  flex-grow: 1;
+  display: flex;
+}
+
+.block {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: get-color(alpha);
+  z-index: 50000;
+}
+
+.center {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  margin-top: spacing(14);
+}

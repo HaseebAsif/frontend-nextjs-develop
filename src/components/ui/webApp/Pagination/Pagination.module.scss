@@ -1,0 +1,21 @@
+@import '~styles/framework';
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.pageButton {
+  width: 40px;
+  height: 40px;
+}
+
+.prevButton {
+  margin-right: spacing(1);
+}
+
+.nextButton {
+  margin-left: spacing(1);
+}

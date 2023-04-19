@@ -1,0 +1,81 @@
+@import '~styles/framework';
+
+.subscriptionSection {
+  display: flex;
+  flex-direction: column;
+
+  @include respond-to(sm) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.subscriptionBox {
+  display: flex;
+  margin-bottom: spacing(3);
+
+  @include respond-to(sm) {
+    margin-bottom: 0;
+  }
+}
+
+.inactiveLabel {
+  @include get-font-style(oslo);
+  background-color: get-color(alpha, 88);
+  padding-right: spacing(2);
+  padding-left: spacing(2);
+  padding-top: spacing(0.5);
+  padding-bottom: spacing(0.5);
+  border-radius: spacing(0.5);
+  align-self: flex-start;
+  margin-bottom: spacing(3);
+
+  @include respond-to(sm) {
+    margin-bottom: 0;
+  }
+}
+
+.status {
+  @include get-font-style(oslo);
+  background-color: get-color(primary);
+  color: get-color(light);
+  padding-bottom: spacing(0.5);
+  padding-top: spacing(0.5);
+  padding-left: spacing(3);
+  padding-right: spacing(3);
+  border-radius: spacing(0.5);
+  margin-right: spacing(1);
+}
+
+.type {
+  @include get-font-style(palermo);
+  padding-top: spacing(0.5);
+}
+
+.infoBox {
+  margin-top: spacing(2);
+  @include get-font-style(palermo);
+}
+
+.buttonSection {
+  display: flex;
+}
+
+.editButton {
+  width: 100%;
+  margin-right: spacing(1);
+}
+
+.cancelButton {
+  width: 100%;
+  margin-left: spacing(1);
+}
+
+.renewPlanButton {
+  width: 100%;
+
+  @include respond-to(sm) {
+    width: auto;
+  }
+}

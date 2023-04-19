@@ -1,0 +1,1 @@
+export { ExploreMenuFooter } from './BurgerMenuFooter';

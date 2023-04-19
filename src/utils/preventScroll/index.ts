@@ -1,0 +1,1 @@
+export { preventScroll } from './preventScroll';

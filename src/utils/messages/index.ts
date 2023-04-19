@@ -1,0 +1,1 @@
+export { subjectTranslations } from './messages';

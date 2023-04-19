@@ -1,0 +1,28 @@
+@import '~styles/framework';
+
+.root {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  @include get-font-style(kramfors);
+}
+
+.icon {
+  margin-right: spacing(0.75);
+}
+
+.infoStatus {
+  color: get-color(info);
+}
+
+.successStatus {
+  color: get-color(success);
+}
+
+.errorStatus {
+  color: get-color(error);
+}
+
+.warningStatus {
+  color: get-color(warning);
+}
