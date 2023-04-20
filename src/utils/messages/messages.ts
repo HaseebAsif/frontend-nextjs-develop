@@ -21,6 +21,7 @@ export const subjectTranslations = defineMessages({
     description: 'BusinessAdministrationAndEconomics',
     defaultMessage: 'Ekonomi'
   },
+
   ComputerScienceAndEngineering: {
     id: 'ComputerScienceAndEngineering',
     description: 'ComputerScienceAndEngineering',

@@ -69,8 +69,7 @@ export const texts = defineMessages({
   exploreText: {
     id: 'LandingLoggedOut.exploreText',
     description: 'Text for the explore subjects seection',
-    defaultMessage:
-      'Bläddra bland Bläddra bland hundratals böcker inom olika ämnen. böcker inom olika ämnen.'
+    defaultMessage: 'Bläddra bland Tusentals böcker inom olika ämnen.'
   },
   exploreButtonShow: {
     id: 'LandingLoggedOut.exploreButtonShow',

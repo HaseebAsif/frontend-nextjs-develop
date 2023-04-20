@@ -46,6 +46,7 @@ export const LandingLoggedOut = () => {
   // const { data: productData } = useProductsQuery();
   const [displaySubjects, setDisplaySubjects] = useState(false);
   const { data: subjectData } = useSubjectsQuery();
+  console.log(subjectData);
   const subjectArray = useMemo(
     () =>
       subjectData?.subjects ? getSubjectTuples(subjectData?.subjects) : [],
@@ -58,6 +59,7 @@ export const LandingLoggedOut = () => {
     );
     return sortSubjects(translatedSubjects);
   }, [subjectArray, intl]);
+  // console.log(translatedSortedSubjects);
   // const subscriptionPriceYearly = useMemo(
   //   () => productData?.products[1]?.prices[0],
   //   [productData]
@@ -67,6 +69,30 @@ export const LandingLoggedOut = () => {
   //   [productData]
   // );
 
+  const subjectArray2 = [
+    ['Data', 'computer_science_and_engineering'],
+    ['Ekonomi', 'agriculture_horticulture_forestry_and_fishery'],
+    ['Humaniora', 'humanities'],
+    ['Hälsa och sjukvård', 'health_and_medical_care'],
+    ['Juridik', 'law_and_legal_studies'],
+    ['Konst, design och media', 'arts_design_and_media'],
+    ['Matematik', 'mathematics']
+  ];
+
+  const subjectArray3 = [
+    ['Naturvetenskap', 'natural_science'],
+    [
+      'Pedagogik, utbildning & didaktik',
+      'education_educational_sciences_didactics'
+    ],
+    [
+      'Samhälls- och beteendevetenskap',
+      'social_science_and_behavioural_science'
+    ],
+    ['Socialt arbete och social omsorg', 'social_work_and_welfare'],
+    ['Språk', 'languages'],
+    ['Övrigt', 'other']
+  ];
   return (
     <>
       <div className={styles.heroWrapper}>
@@ -105,6 +131,19 @@ export const LandingLoggedOut = () => {
               {intl.formatMessage(texts.freeTrialButton)}
             </Button>
           </Container>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              flexDirection: 'column',
+              alignItems: 'center',
+              position: 'relative',
+              bottom: '60px'
+            }}
+          >
+            <p style={{ paddingBottom: '15px' }}>Shop smarter with Klarna</p>
+            <img src="./Klarna.svg" alt="" />
+          </div>
         </div>
       </div>
       <Container fullWidth className={styles.sectionPadding}>
@@ -208,8 +247,8 @@ export const LandingLoggedOut = () => {
               className={styles.firstColumn}
             >
               <Grid gutter={{ bottom: 2 }}>
-                {translatedSortedSubjects
-                  .slice(0, Math.ceil(translatedSortedSubjects.length / 2))
+                {subjectArray2
+                  // .slice(0, Math.ceil(subjectArray2.length / 2))
                   .map(([subject, key]) => (
                     <Grid.Item width={12} key={subject}>
                       <SubjectCard
@@ -222,8 +261,8 @@ export const LandingLoggedOut = () => {
             </Grid.Item>
             <Grid.Item width={{ root: 12, lg: 6 }}>
               <Grid gutter={{ bottom: 2 }}>
-                {translatedSortedSubjects
-                  .slice(Math.ceil(translatedSortedSubjects.length / 2))
+                {subjectArray3
+                  // .slice(Math.ceil(translatedSortedSubjects.length / 2))
                   .map(([subject, key]) => (
                     <Grid.Item width={12} key={subject}>
                       <SubjectCard
@@ -265,7 +304,7 @@ export const LandingLoggedOut = () => {
           className={styles.contentBoxWrapper}
         >
           <div className={styles.inspiraimgcontainer}>
-            <img src="./Studera.jpg" alt="" />
+            <img style={{ borderRadius: '16px' }} src="./Studera.jpg" alt="" />
           </div>
           <Container fullWidth className={styles.heroContentBox}>
             <h4>{intl.formatMessage(texts.headerTitle)}</h4>
