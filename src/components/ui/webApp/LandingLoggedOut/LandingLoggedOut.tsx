@@ -1,4 +1,5 @@
-import React, { useState, useMemo, useRef } from 'react';
+/* eslint-disable @calm/react-intl/missing-formatted-message */
+import React, { useState, useRef } from 'react';
 
 import classNames from 'classnames';
 import { useRouter } from 'next/router';
@@ -21,12 +22,7 @@ import { HomeSelectors } from 'consts/cypress';
 import { Paths } from 'consts/router';
 import { useBreakpoint } from 'hooks';
 import { Subject, useSubjectsQuery } from 'types/graphql';
-import {
-  getSubjectTuples,
-  sortSubjects,
-  translateSubjects,
-  useOnScreen
-} from 'utils';
+import { useOnScreen } from 'utils';
 
 import { texts } from './LandingLoggedOut.text';
 
@@ -47,18 +43,18 @@ export const LandingLoggedOut = () => {
   const [displaySubjects, setDisplaySubjects] = useState(false);
   const { data: subjectData } = useSubjectsQuery();
   console.log(subjectData);
-  const subjectArray = useMemo(
-    () =>
-      subjectData?.subjects ? getSubjectTuples(subjectData?.subjects) : [],
-    [subjectData]
-  );
-  const translatedSortedSubjects = useMemo(() => {
-    const translatedSubjects = translateSubjects(
-      subjectArray,
-      intl.formatMessage
-    );
-    return sortSubjects(translatedSubjects);
-  }, [subjectArray, intl]);
+  // const subjectArray = useMemo(
+  //   () =>
+  //     subjectData?.subjects ? getSubjectTuples(subjectData?.subjects) : [],
+  //   [subjectData]
+  // );
+  // const translatedSortedSubjects = useMemo(() => {
+  //   const translatedSubjects = translateSubjects(
+  //     subjectArray,
+  //     intl.formatMessage
+  //   );
+  //   return sortSubjects(translatedSubjects);
+  // }, [subjectArray, intl]);
   // console.log(translatedSortedSubjects);
   // const subscriptionPriceYearly = useMemo(
   //   () => productData?.products[1]?.prices[0],
