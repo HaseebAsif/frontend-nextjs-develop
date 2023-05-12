@@ -4,13 +4,13 @@ export const texts = defineMessages({
   headerTitle: {
     id: 'LandingLoggedOut.headerTitle',
     description: 'Title of LandingLoggedOut page',
-    defaultMessage: 'Studera hållbart med Booksquare'
+    defaultMessage: 'Köp och hyr digital facklitteratur.'
   },
   introText: {
     id: 'LandingLoggedOut.introText',
     description: 'Intro text in hero',
     defaultMessage:
-      'Snabb och enkel tillgång till din kurslitteratur när som helst, var som helst. Köp eller hyr digitala böcker till förmånliga priser och upplev en sömlös läsupplevelse som dessutom är snäll mot miljön. Njut av bekvämligheten att ha din kurslitteratur tillgänglig direkt i fickan. Spara tid, pengar och bidra till en hållbar framtid med Booksquare!'
+      'Få omedelbar tillgång till din kurs- och facklitteratur med Edsquare. Köp eller hyr digitala böcker till förmånliga priser. Upplev sömlös läsning och bidra till en hållbar framtid med digitala böcker.'
   },
   searchPlaceholder: {
     id: 'LandingLoggedOut.searchPlaceholder',

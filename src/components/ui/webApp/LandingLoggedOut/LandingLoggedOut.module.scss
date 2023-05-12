@@ -5,12 +5,16 @@
   overflow: hidden;
   margin-top: -#{map-get($header-heights, navbar-down)};
   width: 100%;
-  background: linear-gradient(
-    100.76deg,
-    #f1e1cc 25.06%,
-    #fdf9f1 71.95%,
-    #f1e8db 96.62%
-  );
+  background-image: url('../../../../../public/HeaderBackground.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white !important;
+  // background: linear-gradient(
+  //   100.76deg,
+  //   #f1e1cc 25.06%,
+  //   #fdf9f1 71.95%,
+  //   #f1e8db 96.62%
+  // );
 }
 
 .contentBoxWrapper {
@@ -104,12 +108,12 @@
   margin: auto;
 
   @include respond-to(lg) {
-    max-width: none;
     position: absolute;
-    left: 681px;
-    top: 233px;
+    left: 730px;
+    top: 200px;
     width: 974px;
     height: 625px;
+    max-width: 600px;
   }
 
   @include respond-to(xl) {
@@ -126,6 +130,10 @@
   @include respond-to(sm) {
     margin-top: spacing(6);
   }
+  color: #32009b;
+  background: white !important;
+  border-radius: 4px !important;
+  border-color: white !important;
 }
 
 .sectionHeading {
@@ -361,5 +369,9 @@
 @media only screen and (max-width: 768px) {
   .inspiraimgcontainer {
     width: 80%;
+  }
+  .heroImg {
+    position: relative;
+    right: 200px;
   }
 }

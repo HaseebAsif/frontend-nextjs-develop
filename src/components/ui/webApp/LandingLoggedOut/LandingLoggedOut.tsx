@@ -6,10 +6,7 @@ import { useRouter } from 'next/router';
 import { useIntl } from 'react-intl';
 import Lottie from 'react-lottie';
 
-import {
-  BooksquareHeroImageMobile,
-  BooksquareHeroImageDesktop
-} from 'assets/images';
+import { iPhone } from 'assets/images';
 import { Container, Button, Grid, Image } from 'components/ui/general';
 import {
   inOne,
@@ -108,16 +105,9 @@ export const LandingLoggedOut = () => {
               />
             </div>
             <div className={styles.imageContainer}>
-              {isDesktop && (
-                <Image cover src={BooksquareHeroImageDesktop} alt="heroImg" />
-              )}
+              {isDesktop && <Image cover src={iPhone} alt="heroImg" />}
               {!isDesktop && (
-                <Image
-                  width={534}
-                  height={287}
-                  src={BooksquareHeroImageMobile}
-                  alt="heroImg"
-                />
+                <Image width={534} height={287} src={iPhone} alt="heroImg" />
               )}
             </div>
             <Button
@@ -127,19 +117,6 @@ export const LandingLoggedOut = () => {
               {intl.formatMessage(texts.freeTrialButton)}
             </Button>
           </Container>
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              flexDirection: 'column',
-              alignItems: 'center',
-              position: 'relative',
-              bottom: '60px'
-            }}
-          >
-            <p style={{ paddingBottom: '15px' }}>Shop smarter with Klarna</p>
-            <img src="./Klarna.svg" alt="" />
-          </div>
         </div>
       </div>
       <Container fullWidth className={styles.sectionPadding}>

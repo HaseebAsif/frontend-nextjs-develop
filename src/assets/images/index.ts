@@ -15,3 +15,4 @@ export { default as StudyThree } from './study_3.png';
 export { default as StudyFour } from './study_4.png';
 export { default as BooksquareOg } from './booksquare-og.png';
 export { default as BooksquareHeroImageMobile } from './booksquare_hero_price_middle.png';
+export { default as iPhone } from './iPhone.png';
