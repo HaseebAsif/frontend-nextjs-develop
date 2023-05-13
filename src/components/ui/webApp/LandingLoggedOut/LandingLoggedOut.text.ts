@@ -20,7 +20,7 @@ export const texts = defineMessages({
   freeTrialButton: {
     id: 'LandingLoggedOut.freeTrialText',
     description: 'Text for trial buttons and links',
-    defaultMessage: 'Hitta din bok'
+    defaultMessage: 'Skapa konto'
   },
   promoHeading: {
     id: 'Home.introHeading',
@@ -64,12 +64,12 @@ export const texts = defineMessages({
   exploreHeading: {
     id: 'LandingLoggedOut.exploreHeading',
     description: 'Main header for explore subjects section',
-    defaultMessage: 'Utforska vår kurslitteratur'
+    defaultMessage: 'Hitta dina böcker'
   },
   exploreText: {
     id: 'LandingLoggedOut.exploreText',
     description: 'Text for the explore subjects seection',
-    defaultMessage: 'Bläddra bland Tusentals böcker inom olika ämnen.'
+    defaultMessage: 'Välj bland tusentals böcker inom olika ämnen.'
   },
   exploreButtonShow: {
     id: 'LandingLoggedOut.exploreButtonShow',

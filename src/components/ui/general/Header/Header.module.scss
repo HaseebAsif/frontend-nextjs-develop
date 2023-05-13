@@ -1,7 +1,7 @@
 @import '~styles/framework';
 
 .root {
-  color: get-color(dark);
+  color: white;
   position: sticky;
   top: 0;
   transition: 0.4s;
@@ -22,7 +22,11 @@
 }
 
 .headerShadow {
-  background-color: get-color(light);
+  background: linear-gradient(
+    180deg,
+    #5200ff 0%,
+    rgba(134, 77, 255, 0.43) 100%
+  );
 }
 
 .logo {
@@ -31,4 +35,19 @@
 
 .headerLink {
   @include get-font-style(bogota);
+}
+.loginButton {
+  background: rgba(255, 255, 255, 0.4) !important;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.16) !important;
+  color: white !important;
+  border-radius: 10px !important;
+}
+.exploreButton {
+  background-color: white !important;
+  color: #2f0092 !important;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.16) !important;
+  border-radius: 10px !important;
+}
+.utforska {
+  color: white !important;
 }

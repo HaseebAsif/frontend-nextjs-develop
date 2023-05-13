@@ -7,12 +7,18 @@
   display: flex;
   align-items: center;
   border-radius: spacing(2.5);
+  color: white !important;
 }
 
 .alpha93Color {
   background-color: get-color(alpha, 93);
+  color: white !important;
 }
 
 .lightColor {
   background-color: get-color(light);
+  color: white !important;
+}
+.search-button {
+  color: white !important;
 }

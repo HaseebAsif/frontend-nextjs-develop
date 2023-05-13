@@ -96,13 +96,13 @@ export const Header = () => {
                 )}
                 <Grid.Item>
                   <HeaderSearchFieldDesktop
-                    color={isScrollTheme ? 'alpha93' : 'light'}
+                    color={isScrollTheme ? 'light' : 'alpha93'}
                   />
                 </Grid.Item>
 
                 <Grid.Item>
                   <Button
-                    className={styles.headerLink}
+                    className={styles.utforska}
                     size="md"
                     color="secondary"
                     naked
@@ -138,31 +138,34 @@ export const Header = () => {
                       data-cy={HeaderSelectors.LOGIN_BUTTON}
                     >
                       <Button
-                        className={styles.headerLink}
+                        className={styles.loginButton}
                         rounded={false}
                         size="md"
                         color="secondary"
-                        naked
                         onClick={() => router.push(Paths.LOGIN(redirect))}
                       >
                         {intl.formatMessage(texts.login)}
                       </Button>
                     </Grid.Item>
-                    {/* <Grid.Item
-                      gutter={{ left: 2 }}
-                      data-cy={HeaderSelectors.FREE_TRIAL_BUTTON}
-                    >
-                      <Button
-                        className={styles.headerLink}
-                        rounded
-                        size="md"
-                        onClick={() => router.push(Paths.REGISTER())}
-                      >
-                        {intl.formatMessage(texts.freeTrial)}
-                      </Button>
-                    </Grid.Item> */}
                   </>
                 )}
+
+                <>
+                  <Grid.Item
+                    gutter={{ left: 2 }}
+                    data-cy={HeaderSelectors.LOGIN_BUTTON}
+                  >
+                    <Button
+                      className={styles.exploreButton}
+                      rounded={false}
+                      size="md"
+                      color="secondary"
+                      onClick={() => router.push(Paths.LOGIN(redirect))}
+                    >
+                      Explore
+                    </Button>
+                  </Grid.Item>
+                </>
               </Grid>
             )}
             {!isDesktop && (

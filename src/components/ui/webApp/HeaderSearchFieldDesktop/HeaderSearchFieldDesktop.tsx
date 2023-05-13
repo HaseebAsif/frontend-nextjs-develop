@@ -45,6 +45,7 @@ export const HeaderSearchFieldDesktop = ({
       <div data-cy={HeaderSelectors.SEARCH_ICON}>
         <Button
           stripPadding
+          className="search-icon"
           naked
           onClick={() => setSearchFieldisVisible(true)}
         >

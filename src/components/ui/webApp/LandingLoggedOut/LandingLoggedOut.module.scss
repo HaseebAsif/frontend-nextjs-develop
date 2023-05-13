@@ -86,7 +86,7 @@
 }
 
 .contentBoxText {
-  margin-bottom: spacing(6);
+  // margin-bottom: spacing(6);
   @include get-font-style(kramfors);
   @include respond-to(sm) {
     @include get-font-style(torsby);
@@ -110,7 +110,7 @@
   @include respond-to(lg) {
     position: absolute;
     left: 730px;
-    top: 200px;
+    top: 150px;
     width: 974px;
     height: 625px;
     max-width: 600px;
@@ -120,7 +120,7 @@
     width: 1176px;
     height: 731px;
     left: 985px;
-    top: 408px;
+    top: 300px;
   }
 }
 
@@ -212,12 +212,14 @@
 }
 
 .exploreBackground {
-  background: linear-gradient(
-    98.96deg,
-    #fdf9f1 -6.68%,
-    #f1e8db 38.94%,
-    #f1e8db 90.4%
-  );
+  // background: linear-gradient(
+  //   98.96deg,
+  //   #fdf9f1 -6.68%,
+  //   #f1e8db 38.94%,
+  //   #f1e8db 90.4%
+  // );
+  background-image: url('../../../../../public/HittaBackground.png');
+  background-repeat: no-repeat;
 }
 
 .exploreSectionContent {
@@ -233,11 +235,14 @@
 
 .exploreHeading {
   margin-bottom: spacing(2);
+  color: white !important;
 }
 
 .exploreText {
   text-align: center;
   margin-bottom: spacing(5);
+  color: white !important;
+
   @include get-font-style(torsby);
 }
 
@@ -266,6 +271,9 @@
   @include get-font-style(bogota);
   display: block;
   margin: 0 auto;
+  background-color: white;
+  color: #32009b;
+  box-shadow: none;
 }
 
 .trialSectionContent {
@@ -362,9 +370,51 @@
 
 .tryTodayButton {
   @include get-font-style(bogota);
+
+  background: linear-gradient(
+    180deg,
+    rgba(84, 4, 255, 0.67) 0%,
+    rgba(118, 53, 255, 0.67) 100%
+  );
+  box-shadow: 0px 4px 31px rgba(0, 0, 0, 0.13);
+  border-radius: 10px;
+  color: white;
 }
 .inspiraimgcontainer {
   width: 40%;
+}
+.integratedaisection {
+  background-color: black;
+  color: white;
+  height: fit-content;
+  padding: 100px 120px;
+  text-align: center;
+}
+.integratedaiheading {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 55px;
+  line-height: 126%;
+}
+.integratedaicontainer {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 80px;
+  margin-top: 160px;
+}
+.integratedaiimagecontainer {
+}
+.integratedaitextcontainer {
+  text-align: left;
+  // font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  width: 85%;
+  font-size: 28px;
+  line-height: 41px;
+}
+.integratedaisecondpara {
+  margin-top: 260px;
 }
 @media only screen and (max-width: 768px) {
   .inspiraimgcontainer {
