@@ -35,7 +35,7 @@ export const texts = defineMessages({
   termsLink: {
     id: 'RegisterForm.termsLink',
     description: 'Text for terms and conditions link',
-    defaultMessage: 'Booksquares Användarvillkor.'
+    defaultMessage: 'Edsquares'
   },
   password: {
     id: 'RegisterForm.password',

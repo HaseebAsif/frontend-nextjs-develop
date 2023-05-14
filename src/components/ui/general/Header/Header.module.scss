@@ -7,6 +7,11 @@
   transition: 0.4s;
   user-select: none;
   z-index: 1000;
+  background: linear-gradient(
+    180deg,
+    #5200ff 0%,
+    rgba(134, 77, 255, 0.43) 100%
+  );
   overflow: hidden;
   height: map-get($header-heights, navbar-down);
 
