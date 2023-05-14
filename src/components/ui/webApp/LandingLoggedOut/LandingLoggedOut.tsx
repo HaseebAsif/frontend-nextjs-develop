@@ -329,7 +329,7 @@ export const LandingLoggedOut = () => {
           </div>
         </section>
         <div>
-          <img src="./Diagnalline.png" alt="" />
+          <img className={styles.diagnolimg} src="./Diagnalline.png" alt="" />
         </div>
         <section className={styles.arbeta}>
           <h2 className={styles.arbetaheading}>

@@ -220,8 +220,11 @@
   // );
   background-image: url('../../../../../public/HittaBackground.png');
   background-repeat: no-repeat;
+  background-size: cover;
 }
-
+.diagnolimg {
+  width: -webkit-fill-available;
+}
 .exploreSectionContent {
   @include respond-to(sm) {
     padding-left: 0;
@@ -470,7 +473,11 @@
     right: 200px;
   }
 }
-
+@media only screen and (min-width: 1500px) {
+  .heroWrapper {
+    height: 120vh;
+  }
+}
 @media only screen and (max-width: 1200px) {
   .integratedaisection {
     padding: 80px 4px;
