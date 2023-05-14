@@ -110,9 +110,9 @@ export const LandingLoggedOut = () => {
             </div>
             <Button
               className={styles.freeTrialButton}
-              onClick={() => router.push(Paths.REGISTER())}
+              onClick={() => router.push(Paths.BOCKER())}
             >
-              {intl.formatMessage(texts.freeTrialButton)}{' '}
+              {intl.formatMessage(texts.freeTrialButton)}
               <span style={{ marginLeft: '4px', paddingTop: '4px' }}>
                 <svg
                   width="20"

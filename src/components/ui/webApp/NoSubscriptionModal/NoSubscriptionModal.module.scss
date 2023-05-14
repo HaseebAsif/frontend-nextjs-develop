@@ -6,8 +6,12 @@
     padding: spacing(4);
   }
 }
+.subscribeBtn {
+  color: black !important;
+}
 
 .subscribeButton {
+  color: black !important;
   margin-top: spacing(3);
   margin-bottom: spacing(2);
   @include respond-to(sm) {

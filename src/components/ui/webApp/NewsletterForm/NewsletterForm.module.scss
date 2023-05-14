@@ -8,11 +8,12 @@
   border-radius: spacing(9);
 }
 
-.subscribeButton {
-  color: get-color(primary);
+.subscribeBtn {
   @include get-font-style(oslo);
 }
-
+.subscribeButton {
+  color: black !important;
+}
 .arrow {
   color: get-color(dark);
 }
