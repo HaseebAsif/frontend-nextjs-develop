@@ -302,33 +302,74 @@ export const LandingLoggedOut = () => {
         </Container>
       </div>
       {/* this is new section for the home page */}
-      <section className={styles.integratedaisection}>
-        <h2 className={styles.integratedaiheading}>
-          Integrerad AI för <br /> effektivare studier.
-        </h2>
-        <div className={styles.integratedaicontainer}>
-          <div className={styles.integratedaiimagecontainer}>
-            <img
-              className={styles.integratedaiimg}
-              src="./IntegratedAI.svg"
-              alt=""
-            />
+      <div className={styles.integratedaiandarbeta}>
+        <section className={styles.integratedaisection}>
+          <h2 className={styles.integratedaiheading}>
+            Integrerad AI för <br /> effektivare studier.
+          </h2>
+          <div className={styles.integratedaicontainer}>
+            <div className={styles.integratedaiimagecontainer}>
+              <img
+                className={styles.integratedaiimg}
+                src="./IntegratedAI.svg"
+                alt=""
+              />
+            </div>
+            <div className={styles.integratedaitextcontainer}>
+              <p>Förklara konceptet av Schrödingers katt genom ett exempel.</p>
+              <p className={styles.integratedaisecondpara}>
+                Schrödingers katt är ett tankeexperiment inom kvantmekanik. Tänk
+                dig en katt i en låda med ett radioaktivt ämne som har 50% chans
+                att sönderfalla och döda katten. <br />
+                <br />
+                Enligt kvantmekanik är katten i ett superpositionstillstånd av
+                att vara både död och levande tills någon öppnar lådan och
+                observerar den. Detta illustrerar konceptet av superposition och
+                problemet med mätning inom kvantmekanik.
+              </p>
+            </div>
           </div>
-          <div className={styles.integratedaitextcontainer}>
-            <p>Förklara konceptet av Schrödingers katt genom ett exempel.</p>
-            <p className={styles.integratedaisecondpara}>
-              Schrödingers katt är ett tankeexperiment inom kvantmekanik. Tänk
-              dig en katt i en låda med ett radioaktivt ämne som har 50% chans
-              att sönderfalla och döda katten. <br />
-              <br />
-              Enligt kvantmekanik är katten i ett superpositionstillstånd av att
-              vara både död och levande tills någon öppnar lådan och observerar
-              den. Detta illustrerar konceptet av superposition och problemet
-              med mätning inom kvantmekanik.
-            </p>
-          </div>
+        </section>
+        <div>
+          <img src="./Diagnalline.png" alt="" />
         </div>
-      </section>
+        <section className={styles.arbeta}>
+          <h2 className={styles.arbetaheading}>
+            Arbeta effektivt med snabbval.
+          </h2>
+          <img className={styles.sammanfatta} src="./sammanfatta.png" alt="" />
+          <img className={styles.forklara} src="./forklara.png" alt="" />
+          <img className={styles.utveckla} src="./utveckla.png" alt="" />
+          <img className={styles.oversatt} src="./oversatt.png" alt="" />
+          <h2 className={styles.redoheading}>
+            Redo att ta dina studier till nästa nivå?
+          </h2>
+          <Button
+            className={styles.freeTrialButton}
+            onClick={() => router.push(Paths.REGISTER())}
+          >
+            {intl.formatMessage(texts.freeTrialButton)}
+            <span style={{ marginLeft: '4px', paddingTop: '4px' }}>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.90997 19.92L15.43 13.4C16.2 12.63 16.2 11.37 15.43 10.6L8.90997 4.08"
+                  stroke="#32009B"
+                  strokeWidth="3"
+                  strokeMiterlimit="10"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </span>
+          </Button>
+        </section>
+      </div>
     </>
   );
 };
