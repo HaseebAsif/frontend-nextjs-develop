@@ -1,3 +1,4 @@
+/* eslint-disable @calm/react-intl/missing-formatted-message */
 import React, { useCallback, useMemo, useState } from 'react';
 
 import classNames from 'classnames';

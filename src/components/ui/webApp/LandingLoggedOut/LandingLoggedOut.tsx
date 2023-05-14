@@ -13,9 +13,7 @@ import {
   effectiveStudies,
   unlimitedReading
 } from 'components/ui/Lotties';
-import { SearchBooksField } from 'components/ui/webApp/SearchBooksField';
 import { SubjectCard } from 'components/ui/webApp/SubjectCard';
-import { HomeSelectors } from 'consts/cypress';
 import { Paths } from 'consts/router';
 import { useBreakpoint } from 'hooks';
 import { Subject, useSubjectsQuery } from 'types/graphql';
@@ -223,10 +221,10 @@ export const LandingLoggedOut = () => {
                 <path
                   d="M8.91 19.92L15.43 13.4C16.2 12.63 16.2 11.37 15.43 10.6L8.91 4.07996"
                   stroke="white"
-                  stroke-width="3"
-                  stroke-miterlimit="10"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="3"
+                  strokeMiterlimit="10"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
             </span>
