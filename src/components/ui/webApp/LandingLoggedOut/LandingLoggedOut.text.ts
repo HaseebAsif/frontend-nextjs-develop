@@ -10,7 +10,7 @@ export const texts = defineMessages({
     id: 'LandingLoggedOut.introText',
     description: 'Intro text in hero',
     defaultMessage:
-      'Få omedelbar tillgång till din kurs- och facklitteratur med Edsquare. Köp eller hyr digitala böcker till förmånliga priser. Upplev sömlös läsning och bidra till en hållbar framtid med digitala böcker.'
+      'Få omedelbar tillgång till din kurs- och facklitteratur med Edsquare. Köp eller hyr digitala böcker till förmånliga priser. Upplev sömlös läsning och bidra till en hållbar framtid med digitala böcker. Nu med AI'
   },
   searchPlaceholder: {
     id: 'LandingLoggedOut.searchPlaceholder',
@@ -74,7 +74,7 @@ export const texts = defineMessages({
   exploreButtonShow: {
     id: 'LandingLoggedOut.exploreButtonShow',
     description: 'Label for explore button show',
-    defaultMessage: 'Visa fler ämnen'
+    defaultMessage: 'Visa alla ämnen'
   },
   exploreButtonHide: {
     id: 'LandingLoggedOut.exploreButtonHide',

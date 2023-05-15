@@ -83,19 +83,25 @@ export const Footer = () => {
           <div className={styles.bottomContainer}>
             <Grid className={styles.socialMediaContainer} gutter={{ left: 3 }}>
               <Grid.Item>
-                <Button stripPadding naked href={SocialLinks.FACEBOOK}>
-                  <Icon name="facebook" />
-                </Button>
+                <a href={SocialLinks.FACEBOOK} target="_blank">
+                  <button className={styles.fbicon}>
+                    <Icon name="facebook" />
+                  </button>
+                </a>
               </Grid.Item>
               <Grid.Item>
-                <Button stripPadding naked href={SocialLinks.INSTAGRAM}>
-                  <Icon name="instagram" />
-                </Button>
+                <a href={SocialLinks.INSTAGRAM}>
+                  <button>
+                    <Icon name="instagram" />
+                  </button>
+                </a>
               </Grid.Item>
               <Grid.Item>
-                <Button stripPadding naked href={SocialLinks.LINKEDIN}>
-                  <Icon name="linkedin" />
-                </Button>
+                <a href={SocialLinks.LINKEDIN}>
+                  <button>
+                    <Icon name="linkedin" />
+                  </button>
+                </a>
               </Grid.Item>
             </Grid>
             <Gutter

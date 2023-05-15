@@ -54,7 +54,7 @@ export const texts = defineMessages({
     id: 'Terms.paragraph4',
     description: 'paragraph #4 for privacy policy section',
     defaultMessage:
-      'Vi behandlar i huvudsak ditt namn och din mailadress.\n\nVi behandlar dina personuppgifter för att kunna fullgöra våra skyldigheter och för att uppfylla regler i lag och kollektivavtal. Vi behandlar ditt namn och din mailadress för att kunna erbjuda personlig marknadsföring och kommunikation mot dig som kund. Vi samlar även uppgifter för att möjliggöra utvecklingen av ett bättre värdeerbjudande genom användarstatistik och användarinformation från registrering i form av namn och e-postadress.'
+      'Vi behandlar i huvudsak ditt namn och din mailadress.\n\nVi behandlar dina personuppgifter för att kunna fullgöra våra skyldigheter och för att uppfylla regler i lag och kollektivavtal. Vi behandlar ditt namn och din mailadress för att kunna erbjuda personlig marknadsföring och kommunikation mot dig som kund. Vi samlar även uppgifter för att möjliggöra utvecklingen av ett bättre värdeerbjudande genom användarstatistik och användarinformation från  i form av namn och e-postadress.'
   },
   privacyPolicySubHeader5: {
     id: 'Terms.subHeader5',

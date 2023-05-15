@@ -163,7 +163,7 @@ export const Header = () => {
                       color="secondary"
                       onClick={() => router.push(Paths.LOGIN(redirect))}
                     >
-                      Explore
+                      Skapa konto
                     </Button>
                   </Grid.Item>
                 </>

@@ -44,10 +44,7 @@ export const Paths = Object.freeze({
   BOCKER: (redirect?: string) =>
     redirect ? `https://booksquare.se/bocker` : 'https://booksquare.se/bocker',
   REGISTER: (redirect?: string) =>
-    redirect
-      ? `https://booksquare.se/registrering`
-      : 'https://booksquare.se/registrering',
-  FORGOT_PASSWORD: '/forgot-password',
+    redirect ? `/registrering?redirect=${redirect}` : '/registrering',
   RESET_PASSWORD: (email?: string, nonce?: string) =>
     email && nonce
       ? `/reset-password/${email}/${nonce}`

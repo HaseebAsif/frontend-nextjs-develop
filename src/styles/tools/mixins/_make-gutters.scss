@@ -14,7 +14,7 @@
 
       .#{$class}-#{$side-key}-#{$size-key}#{$breakpoint-class}
         > .#{$class}__item {
-        padding-#{$side-value}: $size-value;
+        padding: 18px;
       }
     }
   }

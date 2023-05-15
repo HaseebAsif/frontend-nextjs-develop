@@ -33,7 +33,7 @@
 .heroContentBox {
   text-align: center;
   padding-top: spacing(14.125);
-  padding-bottom: spacing(8.875);
+  padding-bottom: spacing(9.875);
 
   @include respond-to(xs) {
     padding-top: spacing(15.625);
@@ -58,14 +58,14 @@
     max-width: 685px; //Size of content + padding
     // padding-top: 332px;
     padding-left: 132px;
-    padding-bottom: 300px;
+    padding-bottom: 350px;
   }
 
   @include respond-to(xl) {
     max-width: 948px; //Size of content + padding
     padding-top: 360px;
     padding-left: 396px;
-    padding-bottom: 328px;
+    padding-bottom: 388px;
   }
 }
 
@@ -91,6 +91,7 @@
   @include respond-to(sm) {
     @include get-font-style(torsby);
   }
+  position: relative;
 }
 
 .searchField {
@@ -395,8 +396,8 @@
 }
 .integratedaiheading {
   font-style: normal;
-  font-weight: 400;
-  font-size: 55px;
+  font-weight: 500;
+  font-size: 58px;
   line-height: 126%;
 }
 .integratedaicontainer {
@@ -434,7 +435,7 @@
 .arbetaheading {
   text-align: center;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 45px;
   line-height: 126%;
   margin: 80px 0;
@@ -442,7 +443,7 @@
 .redoheading {
   text-align: center;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 45px;
   line-height: 126%;
   margin-top: 140px;
@@ -471,6 +472,27 @@
   .heroImg {
     position: relative;
     right: 200px;
+  }
+  .integratedaiheading {
+    font-size: 38px;
+  }
+  .integratedaiimg {
+    width: 90%;
+  }
+  .arbetaheading {
+    font-size: 38px;
+  }
+  .sammanfatta {
+    height: 92px;
+  }
+  .forklara {
+    height: 65px;
+  }
+  .utveckla {
+    height: 65px;
+  }
+  .oversatt {
+    height: 65px;
   }
 }
 @media only screen and (min-width: 1500px) {

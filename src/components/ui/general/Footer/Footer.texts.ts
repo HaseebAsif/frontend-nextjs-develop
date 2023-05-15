@@ -64,7 +64,7 @@ export const texts = defineMessages({
   copyrightName: {
     id: 'Footer.copyrightName',
     description: 'Label for copyright',
-    defaultMessage: '© Booksquare AB'
+    defaultMessage: '© Edsquare AB'
   },
   legal: {
     id: 'Footer.terms',

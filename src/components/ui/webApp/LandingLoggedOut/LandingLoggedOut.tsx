@@ -92,9 +92,16 @@ export const LandingLoggedOut = () => {
             <h1 className={styles.mainHeading}>
               {intl.formatMessage(texts.headerTitle)}
             </h1>
+
             <p className={styles.contentBoxText}>
               {intl.formatMessage(texts.introText)}
+              <img
+                src="./AI.svg"
+                style={{ position: 'absolute', bottom: '-16px' }}
+                alt=""
+              />
             </p>
+
             {/* <div data-cy={HomeSelectors.SEARCH_FIELD}>
               <SearchBooksField
                 rounded
@@ -112,8 +119,8 @@ export const LandingLoggedOut = () => {
               className={styles.freeTrialButton}
               onClick={() => router.push(Paths.BOCKER())}
             >
-              {intl.formatMessage(texts.freeTrialButton)}
-              <span style={{ marginLeft: '4px', paddingTop: '4px' }}>
+              Hitta din bok
+              <span style={{ marginLeft: '4px', paddingTop: '6px' }}>
                 <svg
                   width="20"
                   height="20"
@@ -347,7 +354,7 @@ export const LandingLoggedOut = () => {
             onClick={() => router.push(Paths.REGISTER())}
           >
             {intl.formatMessage(texts.freeTrialButton)}
-            <span style={{ marginLeft: '4px', paddingTop: '4px' }}>
+            <span style={{ marginLeft: '4px', paddingTop: '6px' }}>
               <svg
                 width="20"
                 height="20"

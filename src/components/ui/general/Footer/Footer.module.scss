@@ -96,6 +96,7 @@
   @include respond-to(sm) {
     margin-bottom: 0;
   }
+  color: black;
 }
 
 .infoContainer {
@@ -107,7 +108,8 @@
 
   a {
     @include get-font-style(kramfors);
-    color: get-color(dark);
+    // color: get-color(dark);
+    color: black;
   }
 
   a:hover {
