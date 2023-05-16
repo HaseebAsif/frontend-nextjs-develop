@@ -8,7 +8,6 @@ import { Link } from 'components/tools';
 import { Text } from 'components/ui/forms';
 import { Button, Gutter } from 'components/ui/general';
 import { LoginSelectors } from 'consts/cypress';
-import { Paths } from 'consts/router';
 import { useValidate, useUser } from 'hooks';
 import { loginStart, setError } from 'redux/auth';
 import { MutationLoginEmailArgs } from 'types/graphql';
