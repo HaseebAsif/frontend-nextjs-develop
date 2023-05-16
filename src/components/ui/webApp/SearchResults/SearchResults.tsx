@@ -225,10 +225,29 @@ export const SearchResults: FC<SearchResultsProps> = ({
               size="md"
               rounded={false}
               fullWidth={!min('sm')}
+              className={styles.searchbtn}
               color="alpha93"
               href={Paths.REQUEST_BOOK}
             >
               {intl.formatMessage(texts.requestBook)}
+              <div style={{ marginLeft: '4px', marginTop: '7px' }}>
+                <svg
+                  width="19"
+                  height="19"
+                  viewBox="0 0 19 19"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7.42664 15.8573L12.4194 10.8645C13.0091 10.2748 13.0091 9.30997 12.4194 8.72033L7.42664 3.72754"
+                    stroke="white"
+                    strokeWidth="3"
+                    strokeMiterlimit="10"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
             </Button>
           </Grid.Item>
         </Grid>

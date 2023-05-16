@@ -12,7 +12,9 @@ const nextConfig = {
   swcMinify: true,
   reactStrictMode: true,
   images: {
-    domains: process.env.NEXT_PUBLIC_IMAGES_DOMAINS?.split(',') || []
+    domains: process.env.NEXT_PUBLIC_IMAGES_DOMAINS?.split(',') || [
+      'proxy.booksquare.se'
+    ]
   },
   webpack(config) {
     config.module.rules.push({
@@ -31,11 +33,17 @@ module.exports = withSentry
         ...nextConfig,
         sentry: {
           hideSourceMaps: true
+        },
+        images: {
+          domains: ['proxy.booksquare.se']
         }
       },
       {
         authToken: process.env.NEXT_PUBLIC_SENTRY_AUTH_TOKEN,
-        silent: true
+        silent: true,
+        images: {
+          domains: ['proxy.booksquare.se']
+        }
       }
     )
   : nextConfig;
