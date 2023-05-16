@@ -1,9 +1,10 @@
+/* eslint-disable react/button-has-type */
 import React from 'react';
 
 import Link from 'next/link';
 import { useIntl } from 'react-intl';
 
-import { Button, Container, Grid, Gutter, Icon } from 'components/ui/general';
+import { Container, Grid, Gutter, Icon } from 'components/ui/general';
 import { NewsletterForm } from 'components/ui/webApp/NewsletterForm';
 import { FooterSelectors } from 'consts/cypress';
 import { Paths } from 'consts/router';
@@ -83,7 +84,7 @@ export const Footer = () => {
           <div className={styles.bottomContainer}>
             <Grid className={styles.socialMediaContainer} gutter={{ left: 3 }}>
               <Grid.Item>
-                <a href={SocialLinks.FACEBOOK} target="_blank">
+                <a href={SocialLinks.FACEBOOK} target="_blank" rel="noreferrer">
                   <button className={styles.fbicon}>
                     <Icon name="facebook" />
                   </button>
