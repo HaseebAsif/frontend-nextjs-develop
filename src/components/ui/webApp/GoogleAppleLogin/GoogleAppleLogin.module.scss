@@ -27,9 +27,14 @@
 }
 
 .epsilonBackground {
-  background-color: get-color(epsilon);
+  background-color: white;
+  color: black;
 }
-
+// .Applebtn {
+//   background-color: black;
+//   color: white;
+//   width: inherit;
+// }
 .button {
   height: 100%;
 }
@@ -57,6 +62,9 @@
   display: flex;
   align-items: center;
   margin-top: spacing(1);
+  background-color: white !important;
+  color: black !important;
+  border: 1px solid black !important;
 }
 
 .loginSpinner {

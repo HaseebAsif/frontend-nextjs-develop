@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */
 /* eslint-disable @calm/react-intl/missing-formatted-message */
 import React, { useState, useRef } from 'react';
 
@@ -97,7 +98,7 @@ export const LandingLoggedOut = () => {
               {intl.formatMessage(texts.introText)}
               <img
                 src="./AI.svg"
-                style={{ position: 'absolute', bottom: '-16px' }}
+                style={{ position: 'absolute', bottom: '-17px' }}
                 alt=""
               />
             </p>
@@ -115,12 +116,19 @@ export const LandingLoggedOut = () => {
                 <Image width={534} height={287} src={iPhone} alt="heroImg" />
               )}
             </div>
-            <Button
-              className={styles.freeTrialButton}
+            <button
+              className={styles.hittabtn}
               onClick={() => router.push(Paths.BOCKER())}
             >
               Hitta din bok
-              <span style={{ marginLeft: '4px', paddingTop: '6px' }}>
+              <span
+                style={{
+                  marginLeft: '4px',
+                  paddingTop: '12px',
+                  position: 'relative',
+                  top: '4px'
+                }}
+              >
                 <svg
                   width="20"
                   height="20"
@@ -138,7 +146,7 @@ export const LandingLoggedOut = () => {
                   />
                 </svg>
               </span>
-            </Button>
+            </button>
           </Container>
         </div>
       </div>
