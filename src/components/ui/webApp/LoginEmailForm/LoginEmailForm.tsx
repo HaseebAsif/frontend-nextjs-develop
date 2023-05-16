@@ -74,7 +74,7 @@ const LoginEmailForm = (): JSX.Element => {
           />
         </Gutter.Item>
         <Gutter.Item className={styles.forgotSection}>
-          <Link href={Paths.FORGOT_PASSWORD} className={styles.forgotLabel}>
+          <Link href="/" className={styles.forgotLabel}>
             {intl.formatMessage(texts.forgotButton)}
           </Link>
         </Gutter.Item>
