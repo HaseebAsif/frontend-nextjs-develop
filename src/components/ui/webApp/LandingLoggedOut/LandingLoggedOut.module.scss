@@ -72,7 +72,7 @@
 .mainHeading {
   text-align: center;
   @include get-font-style(moscow);
-  margin-bottom: spacing(2);
+  margin: spacing(3) 0;
 
   @include respond-to(sm) {
     @include get-font-style(nairobi);
@@ -98,6 +98,7 @@
   padding: 10px 20px;
   border-radius: 10px;
   margin-top: 35px;
+  background-color: white;
 }
 .searchField {
   margin-bottom: spacing(7);

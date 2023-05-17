@@ -92,14 +92,14 @@ export const Footer = () => {
               </Grid.Item>
               <Grid.Item>
                 <a href={SocialLinks.INSTAGRAM}>
-                  <button>
+                  <button className={styles.instaicon}>
                     <Icon name="instagram" />
                   </button>
                 </a>
               </Grid.Item>
               <Grid.Item>
                 <a href={SocialLinks.LINKEDIN}>
-                  <button>
+                  <button className={styles.linkedinicon}>
                     <Icon name="linkedin" />
                   </button>
                 </a>

@@ -1,3 +1,5 @@
+/* eslint-disable react/button-has-type */
+/* eslint-disable react/no-unknown-property */
 import React, { FC, useCallback, useEffect, useMemo, useState } from 'react';
 
 import { useRouter } from 'next/router';
@@ -194,11 +196,32 @@ export const SearchResults: FC<SearchResultsProps> = ({
               <Gutter.Item>
                 <Button
                   size="md"
+                  className={styles.efterbok}
                   rounded={false}
                   fullWidth={!min('sm')}
                   href={Paths.REQUEST_BOOK}
                 >
                   {intl.formatMessage(texts.requestBook)}
+                  <span
+                    style={{ position: 'relative', top: '3px', left: '2px' }}
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M8.91 19.92L15.43 13.4C16.2 12.63 16.2 11.37 15.43 10.6L8.91 4.07996"
+                        stroke="white"
+                        strokeWidth="3"
+                        strokeMiterlimit="10"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </span>
                 </Button>
               </Gutter.Item>
             </Gutter>
@@ -221,34 +244,29 @@ export const SearchResults: FC<SearchResultsProps> = ({
             />
           </Grid.Item>
           <Grid.Item width={!min('sm') ? 12 : undefined}>
-            <Button
-              size="md"
-              rounded={false}
-              fullWidth={!min('sm')}
-              className={styles.searchbtn}
-              color="alpha93"
-              href={Paths.REQUEST_BOOK}
-            >
-              {intl.formatMessage(texts.requestBook)}
-              <div style={{ marginLeft: '4px', marginTop: '7px' }}>
-                <svg
-                  width="19"
-                  height="19"
-                  viewBox="0 0 19 19"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M7.42664 15.8573L12.4194 10.8645C13.0091 10.2748 13.0091 9.30997 12.4194 8.72033L7.42664 3.72754"
-                    stroke="white"
-                    strokeWidth="3"
-                    strokeMiterlimit="10"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-            </Button>
+            <a href={Paths.REQUEST_BOOK}>
+              <button className={styles.searchbtn} color="alpha93">
+                {intl.formatMessage(texts.requestBook)}
+                <div style={{ marginLeft: '4px', marginTop: '7px' }}>
+                  <svg
+                    width="19"
+                    height="19"
+                    viewBox="0 0 19 19"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7.42664 15.8573L12.4194 10.8645C13.0091 10.2748 13.0091 9.30997 12.4194 8.72033L7.42664 3.72754"
+                      stroke="white"
+                      strokeWidth="3"
+                      strokeMiterlimit="10"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+              </button>
+            </a>
           </Grid.Item>
         </Grid>
       )}

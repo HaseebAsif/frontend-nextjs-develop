@@ -226,7 +226,6 @@ $colors: (
   .#{$name}Color {
     background-color: map-get($default, background-color);
     color: map-get($default, color);
-    box-shadow: inset 0 0 0 $border-width map-get($default, border-color);
 
     &:not(.disabled):not(.loading):hover {
       background-color: map-get($default-hover, background-color);

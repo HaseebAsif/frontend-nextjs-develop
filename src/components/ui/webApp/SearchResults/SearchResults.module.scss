@@ -42,6 +42,14 @@
   border-radius: 10px !important;
   color: white;
 }
+.efterbok {
+  background: linear-gradient(
+    180deg,
+    rgba(84, 4, 255, 0.67),
+    rgba(118, 53, 255, 0.67)
+  );
+  color: white;
+}
 .noResults {
   display: flex;
   flex-direction: column;
