@@ -129,6 +129,11 @@
   color: black;
   border: 1px solid black;
 }
+.skapabtn:hover {
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+}
 .errorLabel {
   @include get-font-style(sunne);
   align-items: center;
