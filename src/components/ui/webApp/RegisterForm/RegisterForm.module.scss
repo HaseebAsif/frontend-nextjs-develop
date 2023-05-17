@@ -130,8 +130,8 @@
   border: 1px solid black;
 }
 .skapabtn:hover {
-  background-color: black;
-  color: white;
+  background-color: black !important;
+  color: white !important;
   border: 1px solid black;
 }
 .errorLabel {
