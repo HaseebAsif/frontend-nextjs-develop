@@ -1,3 +1,4 @@
+/* eslint-disable @calm/react-intl/missing-formatted-message */
 import React, { useCallback, useState, FC } from 'react';
 
 import { useForm } from 'react-hook-form';
