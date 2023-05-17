@@ -24,7 +24,6 @@ export const Register = () => {
   const { loggedIn, newAccount } = useUser();
 
   useEffect(() => {
-    console.log(loggedIn, newAccount);
     if (loggedIn) {
       if (newAccount) {
         router.replace(Paths.CHOOSE_PLAN(redirect));

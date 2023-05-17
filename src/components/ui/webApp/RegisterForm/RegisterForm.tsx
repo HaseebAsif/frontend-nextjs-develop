@@ -67,8 +67,13 @@ export const RegisterForm: FC<RegisterFormProps> = ({ setEmail }) => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <Gutter gutter={{ bottom: 2 }}>
         <div hidden={validEmail}>
-          <Button rounded={false} fullWidth type="submit">
-            {intl.formatMessage(texts.continueWithEmail)}
+          <Button
+            rounded={false}
+            fullWidth
+            type="submit"
+            className={styles.skapabtn}
+          >
+            Skapa konto
           </Button>
           <div className={styles.checkbox}>
             <span className={styles.checkboxText}>
