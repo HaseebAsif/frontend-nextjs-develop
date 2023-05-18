@@ -133,6 +133,7 @@
   background-color: black !important;
   color: white !important;
   border: 1px solid black;
+  box-shadow: none !important;
 }
 .errorLabel {
   @include get-font-style(sunne);
