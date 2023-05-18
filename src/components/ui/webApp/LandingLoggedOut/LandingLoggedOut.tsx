@@ -225,7 +225,7 @@ export const LandingLoggedOut = () => {
             onClick={() => router.push(Paths.REGISTER())}
           >
             {intl.formatMessage(texts.freeTrialButton)}
-            <span style={{ marginTop: '3px', marginLeft: '4px' }}>
+            <span style={{ marginTop: '5px', marginLeft: '4px' }}>
               <svg
                 width="16"
                 height="16"
