@@ -52,10 +52,10 @@ export const Register = () => {
               <h5 className={styles.registerAccount}>
                 {intl.formatMessage(texts.registerTitle)}
               </h5>
-              {/* <GoogleAppleLogin
+              <GoogleAppleLogin
                 googleText={intl.formatMessage(texts.googleContinueLabel)}
                 appleText={intl.formatMessage(texts.appleContinueLabel)}
-              /> */}
+              />
               <fieldset className={styles.line}>
                 <legend className={styles.lineText}>
                   {intl.formatMessage(texts.lineLabel)}
