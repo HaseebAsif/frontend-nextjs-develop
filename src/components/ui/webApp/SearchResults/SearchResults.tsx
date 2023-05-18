@@ -203,7 +203,7 @@ export const SearchResults: FC<SearchResultsProps> = ({
                 >
                   {intl.formatMessage(texts.requestBook)}
                   <span
-                    style={{ position: 'relative', top: '3px', left: '2px' }}
+                    style={{ position: 'relative', top: '2.5px', left: '2px' }}
                   >
                     <svg
                       width="16"
