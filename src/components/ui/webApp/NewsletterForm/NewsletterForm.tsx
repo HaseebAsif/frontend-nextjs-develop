@@ -5,7 +5,7 @@ import { useIntl } from 'react-intl';
 import { useDispatch } from 'react-redux';
 
 import { Text } from 'components/ui/forms';
-import { Button, Icon } from 'components/ui/general';
+import { Icon } from 'components/ui/general';
 import { FooterFormSelectors } from 'consts/cypress';
 import { useBreakpoint, useValidate } from 'hooks';
 import { addToast } from 'redux/toast';
