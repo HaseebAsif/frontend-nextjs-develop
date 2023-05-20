@@ -82,7 +82,7 @@ export const Footer = () => {
             </ul>
           </div>
           <div className={styles.bottomContainer}>
-            <Grid className={styles.socialMediaContainer} gutter={{ left: 3 }}>
+            <Grid className={styles.socialMediaContainer} gutter={{ left: 1 }}>
               <Grid.Item>
                 <a href={SocialLinks.FACEBOOK} target="_blank" rel="noreferrer">
                   <button className={styles.fbicon}>

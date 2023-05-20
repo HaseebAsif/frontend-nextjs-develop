@@ -362,12 +362,18 @@ export const LandingLoggedOut = () => {
             onClick={() => router.push(Paths.REGISTER())}
           >
             {intl.formatMessage(texts.freeTrialButton)}
-            <span style={{ marginLeft: '4px', paddingTop: '6px' }}>
+            <span
+              style={{
+                marginLeft: '4px',
+                paddingTop: '6px'
+              }}
+            >
               <svg
                 width="20"
                 height="20"
                 viewBox="0 0 24 24"
                 fill="none"
+                color="white"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path

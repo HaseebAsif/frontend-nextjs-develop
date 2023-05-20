@@ -80,10 +80,8 @@ export const NewsletterForm = () => {
             }}
             disabled={loading}
           />
-          <Button
+          <button
             type="submit"
-            naked
-            stripPadding
             disabled={loading}
             className={styles.subscribeButton}
           >
@@ -92,7 +90,7 @@ export const NewsletterForm = () => {
             ) : (
               intl.formatMessage(texts.subscribeButton)
             )}
-          </Button>
+          </button>
         </div>
       </form>
     </>

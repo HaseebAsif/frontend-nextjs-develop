@@ -206,6 +206,7 @@ $colors: (
     &.rounded .spinner {
       border-radius: 10px;
       // color: black !important;
+      font-weight: 500 !important;
     }
 
     &:not(.hasChildren) {
@@ -230,12 +231,7 @@ $colors: (
     &:not(.disabled):not(.loading):hover {
       background-color: map-get($default-hover, background-color);
       color: map-get($default-hover, color);
-      box-shadow: inset
-        0
-        0
-        0
-        $border-width
-        map-get($default-hover, border-color);
+      box-shadow: inset 0 0 0 $border-width map-get($default-hover, white);
     }
 
     &.ghost {
@@ -247,7 +243,7 @@ $colors: (
     &.ghost:not(.disabled):not(.loading):hover {
       background-color: map-get($ghost-hover, background-color);
       color: map-get($ghost-hover, color);
-      box-shadow: inset 0 0 0 $border-width map-get($ghost-hover, border-color);
+      box-shadow: inset 0 0 0 $border-width map-get($ghost-hover, white);
     }
 
     &.naked {
